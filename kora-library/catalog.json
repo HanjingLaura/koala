@@ -1,0 +1,1565 @@
+{
+  "schema_version": 1,
+  "library_version": "1.0.1",
+  "updated_at": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "character_name": "Kora",
+  "character_design_version": "既有 V0.3 身份冻结及 V1.1 制作资料；不宣告新角色版本定稿",
+  "primary_identity_asset_id": "KOR-ID-001",
+  "kmark_master_asset_id": null,
+  "kmark_placement_asset_id": "KOR-KM-001",
+  "wardrobe_asset_id": "KOR-WD-002",
+  "evidence": {
+    "E01": {
+      "id": "E01",
+      "summary": "已选 V0.2-A / Version 1 为主身份图；Front、两张3/4、Down10及左侧面冻结。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E02": {
+      "id": "E02",
+      "summary": "用户明确冻结左右侧面，选择 Option B 为唯一左侧腰部位置。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E03": {
+      "id": "E03",
+      "summary": "用户确认 K 标记位置可接受，Left Profile 保持批准；原背左耳朝向需修正。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E04": {
+      "id": "E04",
+      "summary": "用户冻结身份与 K 标记位置、大小、色素，并批准修正后的背左耳朵。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E05": {
+      "id": "E05",
+      "summary": "用户批准并冻结 V0.4 表情系统。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E06": {
+      "id": "E06",
+      "summary": "用户批准并冻结 V0.5 身体动作组。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E07": {
+      "id": "E07",
+      "summary": "用户批准蓝色卫衣基准、帽子放下、短抽绳与单片桉树叶图案。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E08": {
+      "id": "E08",
+      "summary": "用户批准修正坐姿工位、茶水间和支撑坐姿加班三场景。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E09": {
+      "id": "E09",
+      "summary": "用户要求将当前面料修正后的九帖及卫衣基准保存为最终版。",
+      "kind": "direct_user_message",
+      "date": "2026-10-05"
+    },
+    "E10": {
+      "id": "E10",
+      "summary": "用户要求将穿衣与无衣九视角均保存至之前的成品文件夹；批准范围为交付参考图。",
+      "kind": "direct_user_message",
+      "date": "2026-10-08"
+    },
+    "E11": {
+      "id": "E11",
+      "summary": "用户确认保存淡淡笑版本；只批准该表情版本，不替换主身份。",
+      "kind": "direct_user_message",
+      "date": "2026-10-08"
+    },
+    "E12": {
+      "id": "E12",
+      "summary": "原始主身份、卫衣及九帖源文件校验清单。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E13": {
+      "id": "E13",
+      "summary": "九视角无衣参考明确不晋升新的 K 主版；记录解剖方向。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E14": {
+      "id": "E14",
+      "summary": "网站审核说明：原始像素裁切与蒙版为审核稿，未集成网站。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E15": {
+      "id": "E15",
+      "summary": "透明坐姿源文件保真；视觉姿势与网页工程审批分开，仍待最终工程验收。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E16": {
+      "id": "E16",
+      "summary": "网站 HANDOFF 记录当前作品封面及站点批准；仅支持网站用途。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E17": {
+      "id": "E17",
+      "summary": "用户交接确认无外露突起尾巴；历史暖中性毛色表述与现行推荐色温有差异，保持原图不统一调色。",
+      "kind": "direct_user_message",
+      "date": "2026-10-03"
+    },
+    "E18": {
+      "id": "E18",
+      "summary": "原背左耳朵修正文件关联及历史审核状态。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E19": {
+      "id": "E19",
+      "summary": "现行完整角色规则，由用户本轮提供并与项目文件核对。",
+      "kind": "local_record",
+      "date": "2026-10-15"
+    },
+    "E20": {
+      "id": "E20",
+      "summary": "用户明确批准协调 CORA 网站用途元数据：V1.1 身份基准、Ariana K3 认可姿势；禁止改冻结图片、网站与新动画。A/+18% 实验不得标最终批准。",
+      "kind": "direct_user_message",
+      "date": "2026-10-16"
+    }
+  },
+  "assets": [
+    {
+      "id": "KOR-ID-001",
+      "title": "主身份 A / Version 1",
+      "path": "assets/identity/KOR-ID-001_A-avatar.png",
+      "category": "identity",
+      "role": "primary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "380b1a713778397de816a7af4236188dc496d9d79b4fb45e5d03c9f7a89efc40",
+      "bytes": 2404914,
+      "approval_scope": "primary_identity",
+      "evidence_ids": [
+        "E01"
+      ],
+      "notes": "",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-002",
+      "title": "正面",
+      "path": "assets/identity/KOR-ID-002_01-front.png",
+      "category": "identity",
+      "role": "secondary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "e55afe7b311c58b5c54d503cab41ec60c1b800d1888e88967f7951efaadfa960",
+      "bytes": 2339675,
+      "approval_scope": "secondary_identity",
+      "evidence_ids": [
+        "E01"
+      ],
+      "notes": "旧视角名称保留；左右是历史屏幕朝向命名，不能据此放置身体 K。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-003",
+      "title": "旧标签 Left 3/4",
+      "path": "assets/identity/KOR-ID-003_02-left-three-quarter.png",
+      "category": "identity",
+      "role": "secondary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "8c01cb4546a862f858aaf500b1623c2efa0948c12fa2df36683c17f7ef842a4a",
+      "bytes": 2332954,
+      "approval_scope": "secondary_identity",
+      "evidence_ids": [
+        "E01"
+      ],
+      "notes": "旧视角名称保留；左右是历史屏幕朝向命名，不能据此放置身体 K。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-004",
+      "title": "旧标签 Right 3/4",
+      "path": "assets/identity/KOR-ID-004_03-right-three-quarter.png",
+      "category": "identity",
+      "role": "secondary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "7e0fa36cef15046889b41ccbf633d47669fe363f4025996f14ca80c1785de208",
+      "bytes": 2350963,
+      "approval_scope": "secondary_identity",
+      "evidence_ids": [
+        "E01"
+      ],
+      "notes": "旧视角名称保留；左右是历史屏幕朝向命名，不能据此放置身体 K。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-005",
+      "title": "低头 10°",
+      "path": "assets/identity/KOR-ID-005_06-down-10.png",
+      "category": "identity",
+      "role": "secondary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "b0aaeec49c3a7e8a4c893c10c24483bf80dd7139321fcf6e9f6151f974f79fc3",
+      "bytes": 2300975,
+      "approval_scope": "secondary_identity",
+      "evidence_ids": [
+        "E01"
+      ],
+      "notes": "旧视角名称保留；左右是历史屏幕朝向命名，不能据此放置身体 K。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-006",
+      "title": "冻结侧面 / Left-Profile",
+      "path": "assets/identity/KOR-ID-006_Left-Profile.png",
+      "category": "identity",
+      "role": "secondary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "8db1af44d7c0eeffd6a2cc8f1c9a965dd062bdc33db6e9c66779b0de81d1eef2",
+      "bytes": 2268043,
+      "approval_scope": "secondary_identity",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "notes": "按2026-10-03直接用户交接解除旧总表中“almost approved”的过期状态。旧文件名不代表解剖学左右。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-007",
+      "title": "冻结侧面 / Right-Profile",
+      "path": "assets/identity/KOR-ID-007_Right-Profile.png",
+      "category": "identity",
+      "role": "secondary_identity",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "e8f5b6b198669b578643195b4201988f71b3bc7db8bd85ddb509a976b61465fd",
+      "bytes": 2292953,
+      "approval_scope": "secondary_identity",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "notes": "按2026-10-03直接用户交接解除旧总表中“almost approved”的过期状态。旧文件名不代表解剖学左右。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留冻结脸型、大耳、鼻子及小眼比例；旧角度文件名称不能直接当作解剖学左右。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-ID-008",
+      "title": "侧面鼻部微调候选",
+      "path": "assets/history/KOR-ID-008_Right-Profile-micro-v1.png",
+      "category": "history",
+      "role": "historical_candidate",
+      "status": "rejected",
+      "lifecycle": "historical",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "8f6fc0b9a6b80de22ce510b4ac681484af2d22a6cc99d34953dad24cd29fbdcb",
+      "bytes": 2252552,
+      "approval_scope": "未获此用途的最终批准",
+      "evidence_ids": [
+        "E01"
+      ],
+      "notes": "鼻部变窄超过允许范围；禁止用作生成参考。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "not_cleared",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": "待审、失败或历史替代素材"
+    },
+    {
+      "id": "KOR-KM-001",
+      "title": "Option B 左侧腰部",
+      "path": "assets/kmark/KOR-KM-001_Option-B.png",
+      "category": "kmark",
+      "role": "kmark_placement_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "2b051209192be0106371741c09cbf9cf030c2974040e63bb27254947c110cca9",
+      "bytes": 2045933,
+      "approval_scope": "kmark_placement_reference",
+      "evidence_ids": [
+        "E02",
+        "E04"
+      ],
+      "notes": "位置及物理特征冻结；尚未正式登记统一 kora_kmark_master 文件。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-KM-002",
+      "title": "K 标记左侧面",
+      "path": "assets/kmark/KOR-KM-002_kora_kmark_left_profile.png",
+      "category": "kmark",
+      "role": "kmark_validation_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "f90789643d9d7925292ed30e1862abd81bf31820b58297a082da6337cc17b76e",
+      "bytes": 1986540,
+      "approval_scope": "kmark_validation_reference",
+      "evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "notes": "",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-KM-003",
+      "title": "K 标记背左视角 / 耳朝向已修正",
+      "path": "assets/kmark/KOR-KM-003_kora_kmark_back_left34_ear_correction_v1.png",
+      "category": "kmark",
+      "role": "kmark_validation_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "142009044d97ff85b2a31ea78fa08a84305990d7bf320e4c2369e7d1da23e1e4",
+      "bytes": 2059385,
+      "approval_scope": "kmark_validation_reference",
+      "evidence_ids": [
+        "E04",
+        "E18"
+      ],
+      "notes": "",
+      "supersedes": [
+        "KOR-KM-004"
+      ],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "修正后的背左视角主要露出灰色耳背；侧腰 K 保留。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-KM-004",
+      "title": "背左耳朝向修正前",
+      "path": "assets/history/KOR-KM-004_kora_kmark_back_left34.png",
+      "category": "history",
+      "role": "historical_candidate",
+      "status": "rejected",
+      "lifecycle": "superseded",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "60de66581e2ae2a291d260140b69def7f2cad7675de623a8ee70fbdde0e091ce",
+      "bytes": 2026739,
+      "approval_scope": "未获此用途的最终批准",
+      "evidence_ids": [
+        "E03"
+      ],
+      "notes": "后视角粉色内耳过多，已被 KOR-KM-003 替代。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "not_cleared",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": "待审、失败或历史替代素材"
+    },
+    {
+      "id": "KOR-EX-001",
+      "title": "中性",
+      "path": "assets/expression/KOR-EX-001_kora_v04_neutral.png",
+      "category": "expression",
+      "role": "expression_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "0411852aed4ef3a35ad6d2830eceae6bb3523383512e4304cc65516758c620db",
+      "bytes": 2514868,
+      "approval_scope": "expression_reference",
+      "evidence_ids": [
+        "E05"
+      ],
+      "notes": "",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-EX-002",
+      "title": "周一",
+      "path": "assets/expression/KOR-EX-002_kora_v04_monday.png",
+      "category": "expression",
+      "role": "expression_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "d1eb5d985491bbab8de654bd83ef5cad037efa2c80e378c32c2ca99ba2efa841",
+      "bytes": 2398949,
+      "approval_scope": "expression_reference",
+      "evidence_ids": [
+        "E05"
+      ],
+      "notes": "",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-EX-003",
+      "title": "轻微不悦",
+      "path": "assets/expression/KOR-EX-003_kora_v04_annoyed.png",
+      "category": "expression",
+      "role": "expression_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "0f660a2e61b0df7f52f48d6d7ce295fb6fc7700bcc8102d253a4d900e0ce3b5d",
+      "bytes": 2460550,
+      "approval_scope": "expression_reference",
+      "evidence_ids": [
+        "E05"
+      ],
+      "notes": "",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-EX-004",
+      "title": "周五",
+      "path": "assets/expression/KOR-EX-004_kora_v04_friday.png",
+      "category": "expression",
+      "role": "expression_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "14feb135aaa6323ed7da4ee60c593b44f5d97b01a80e568c9acf37e6be9897c6",
+      "bytes": 2448802,
+      "approval_scope": "expression_reference",
+      "evidence_ids": [
+        "E05"
+      ],
+      "notes": "",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-AC-001",
+      "title": "打字",
+      "path": "assets/action/KOR-AC-001_kora_v05_typing.png",
+      "category": "action",
+      "role": "action_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "be7197903575bd09e8565fc0a6a177e0534ec494f2fb5c6e2a6312f9c05db74c",
+      "bytes": 2145613,
+      "approval_scope": "action_reference",
+      "evidence_ids": [
+        "E06"
+      ],
+      "notes": "动作与接触关系参考；不取代主身份图。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "紧凑动作与道具接触可辨；K 随姿态可见，细节深浅不等于量化物理校准。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-AC-002",
+      "title": "捧杯",
+      "path": "assets/action/KOR-AC-002_kora_v05_holding_cup.png",
+      "category": "action",
+      "role": "action_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "81bf6c6ea27ee035e0d1c0659e60cb5cedc066c2b627c99d450b5ea69e8f3b34",
+      "bytes": 2140806,
+      "approval_scope": "action_reference",
+      "evidence_ids": [
+        "E06"
+      ],
+      "notes": "动作与接触关系参考；不取代主身份图。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "紧凑动作与道具接触可辨；K 随姿态可见，细节深浅不等于量化物理校准。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-AC-003",
+      "title": "趴桌",
+      "path": "assets/action/KOR-AC-003_kora_v05_head_on_desk.png",
+      "category": "action",
+      "role": "action_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "2d6e58b526dcf86cfa16d7f467c49f20a34b2ca083f32c7b4532adce95cdbc9f",
+      "bytes": 2154125,
+      "approval_scope": "action_reference",
+      "evidence_ids": [
+        "E06"
+      ],
+      "notes": "动作与接触关系参考；不取代主身份图。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "紧凑动作与道具接触可辨；K 随姿态可见，细节深浅不等于量化物理校准。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-AC-004",
+      "title": "后靠",
+      "path": "assets/action/KOR-AC-004_kora_v05_leaning_back.png",
+      "category": "action",
+      "role": "action_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "57e742806c1010c354a6c79b0a6908bef68ebcaf608ee9972d9e8762dcbc751e",
+      "bytes": 2148415,
+      "approval_scope": "action_reference",
+      "evidence_ids": [
+        "E06"
+      ],
+      "notes": "动作与接触关系参考；不取代主身份图。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "紧凑动作与道具接触可辨；K 随姿态可见，细节深浅不等于量化物理校准。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-AC-005",
+      "title": "蜷坐",
+      "path": "assets/action/KOR-AC-005_kora_v05_curled_sitting.png",
+      "category": "action",
+      "role": "action_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "8da26367bb7093873433c637147242b05cb208c0890be6826a1182d1e8b86b70",
+      "bytes": 2184571,
+      "approval_scope": "action_reference",
+      "evidence_ids": [
+        "E06"
+      ],
+      "notes": "动作与接触关系参考；不取代主身份图。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "紧凑动作与道具接触可辨；K 随姿态可见，细节深浅不等于量化物理校准。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-AC-006",
+      "title": "抱包",
+      "path": "assets/action/KOR-AC-006_kora_v05_hugging_tote.png",
+      "category": "action",
+      "role": "action_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "208b082f2bfa7ece2486540f2589b6b3a94f00fa46fdd3513f1698884e106dc7",
+      "bytes": 2163887,
+      "approval_scope": "action_reference",
+      "evidence_ids": [
+        "E06"
+      ],
+      "notes": "动作与接触关系参考；不取代主身份图。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "紧凑动作与道具接触可辨；K 随姿态可见，细节深浅不等于量化物理校准。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-WD-001",
+      "title": "原卫衣基准 V1.0",
+      "path": "assets/history/KOR-WD-001_kora_hoodie_baseline_v1.png",
+      "category": "history",
+      "role": "wardrobe_reference",
+      "status": "approved",
+      "lifecycle": "superseded",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "37f2a25966ca91dd7ec87ffc04a70476a32462ac6c04c90b4b00e66ac0843d3d",
+      "bytes": 2213849,
+      "approval_scope": "wardrobe_reference",
+      "evidence_ids": [
+        "E07"
+      ],
+      "notes": "历史款式基准；面料以 KOR-WD-002 为准。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": "待审、失败或历史替代素材"
+    },
+    {
+      "id": "KOR-WD-002",
+      "title": "蓝色卫衣 / 干净哑光面料",
+      "path": "assets/wardrobe/KOR-WD-002_kora_hoodie_baseline_clean_material_v1.png",
+      "category": "wardrobe",
+      "role": "wardrobe_and_material_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "374c9aa9c545834dd1f65b7f5e0138707b455b52f67aa021393752df431eee04",
+      "bytes": 2036794,
+      "approval_scope": "wardrobe_and_material_reference",
+      "evidence_ids": [
+        "E07",
+        "E09",
+        "E12"
+      ],
+      "notes": "",
+      "supersedes": [
+        "KOR-WD-001"
+      ],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-OF-001",
+      "title": "工位坐姿",
+      "path": "assets/office/KOR-OF-001_kora_v09_workstation_seated_v1.png",
+      "category": "office",
+      "role": "office_pose_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "18e206eecf3a885bda8c6913dff8c7df3d1d6b6916bf56e88623b5da52e9468e",
+      "bytes": 2130402,
+      "approval_scope": "office_pose_reference",
+      "evidence_ids": [
+        "E08"
+      ],
+      "notes": "已批准的姿势和环境；卫衣面料使用较新的 KOR-WD-002，避免继承旧纹理。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-OF-002",
+      "title": "茶水间",
+      "path": "assets/office/KOR-OF-002_kora_v09_pantry.png",
+      "category": "office",
+      "role": "office_pose_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "c8f0306e565cc0c89011411a17a7136b577a2991bf408d1f9e93f816e9ef7d4c",
+      "bytes": 2299397,
+      "approval_scope": "office_pose_reference",
+      "evidence_ids": [
+        "E08"
+      ],
+      "notes": "已批准的姿势和环境；卫衣面料使用较新的 KOR-WD-002，避免继承旧纹理。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-OF-003",
+      "title": "加班支撑坐姿",
+      "path": "assets/office/KOR-OF-003_kora_v09_overtime_support_v2.png",
+      "category": "office",
+      "role": "office_pose_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "1f67ef441c29584195089465e600fc61f6e34381db18d753b5eac2b44acb7d8b",
+      "bytes": 1926030,
+      "approval_scope": "office_pose_reference",
+      "evidence_ids": [
+        "E08"
+      ],
+      "notes": "已批准的姿势和环境；卫衣面料使用较新的 KOR-WD-002，避免继承旧纹理。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-001",
+      "title": "周一工位",
+      "path": "assets/social/KOR-POST-001_kora_post_01_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "facf3f0fd8fae8a2a93f0ace05826fefb23ab9608330d1802b6f6dd1f30bc9a1",
+      "bytes": 1878115,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-002",
+      "title": "咖啡休息",
+      "path": "assets/social/KOR-POST-002_kora_post_02_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "881595264d59dbd37e0a1a41cdfb6e117ac886d487b757bdba82be03e7cca840",
+      "bytes": 2099832,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-003",
+      "title": "加班",
+      "path": "assets/social/KOR-POST-003_kora_post_03_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "552d3629951f3d4556c78c6b44a348b189a5e4799363bb5468817c26e29e4633",
+      "bytes": 1730572,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-004",
+      "title": "早间通勤",
+      "path": "assets/social/KOR-POST-004_kora_post_04_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "68d7f746cfafb6795786328e67d3a24d2b59ecabbcbd5f9706e87cba30926c53",
+      "bytes": 1983345,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-005",
+      "title": "会议",
+      "path": "assets/social/KOR-POST-005_kora_post_05_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "610d58621ce6642d84972f30ba1aea6da335be9e24104876b1bdc857f8521f1a",
+      "bytes": 2006397,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-006",
+      "title": "午间小憩",
+      "path": "assets/social/KOR-POST-006_kora_post_06_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "2ca725ac5c811348f2756db88654ae5ae0567490e8ebe0be7ca02e9b62ad0be1",
+      "bytes": 1936733,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-007",
+      "title": "下班电梯",
+      "path": "assets/social/KOR-POST-007_kora_post_07_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "b6eba7ef207d4ba4330a9291b0612eca1a297c487f71d1ab08c7b36341f3c4e7",
+      "bytes": 1978786,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-008",
+      "title": "周五离开",
+      "path": "assets/social/KOR-POST-008_kora_post_08_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "e2a8af807ea7575bdc5f74cac0db43075e5690e37ddf0d1bae79459c5135720c",
+      "bytes": 2029540,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-POST-009",
+      "title": "雨天通勤",
+      "path": "assets/social/KOR-POST-009_kora_post_09_clean_material_v1.png",
+      "category": "social",
+      "role": "finished_social_image",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "49e516f28593810f8f8194a8f404d49e8ff28b8134a275b818fb75db97e46bd5",
+      "bytes": 2173060,
+      "approval_scope": "finished_social_image",
+      "evidence_ids": [
+        "E09",
+        "E12"
+      ],
+      "notes": "可用成品；不是新角度生成的主身份来源。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣覆盖侧腰，没有在衣服上复制自然 K；历史环境光造成色温差别。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-NV-001",
+      "title": "穿卫衣九视角",
+      "path": "assets/turnaround/KOR-NV-001_kora_v11_nine_views.png",
+      "category": "turnaround",
+      "role": "turnaround_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "af4e8caa9dd1a7015abcf4cbe8e9e0a313fb6d718e6a5ede7ed0187578519184",
+      "bytes": 2238296,
+      "approval_scope": "turnaround_reference",
+      "evidence_ids": [
+        "E10",
+        "E13",
+        "E20"
+      ],
+      "notes": "已批准保存的参考图；不自动升级主脸、精确 K 字形或角色设计版本。 CORA 网站用途按 consumer_profiles.CORA_WEBSITE：V1.1 九视图为身份基准；不改变其他用途历史批准或目检疑点。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "卫衣遮住 K，背面耳背朝向合理；该图是全向交付参考，不替换主脸。"
+        ]
+      },
+      "share_block_reason": ""
+    },
+    {
+      "id": "KOR-NV-002",
+      "title": "无衣九视角",
+      "path": "assets/turnaround/KOR-NV-002_kora_v11_nine_views_unclothed.png",
+      "category": "turnaround",
+      "role": "turnaround_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "78629644e84fa0ff22a69104e9abb9b1abed42128c2e4e0e39eefd0aac26f9ca",
+      "bytes": 2169130,
+      "approval_scope": "turnaround_reference",
+      "evidence_ids": [
+        "E10",
+        "E13",
+        "E20"
+      ],
+      "notes": "已批准保存的参考图；不自动升级主脸、精确 K 字形或角色设计版本。 CORA 网站用途按 consumer_profiles.CORA_WEBSITE：V1.1 九视图为身份基准；不改变其他用途历史批准或目检疑点。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "conflict",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "后背下方可见圆形浅色突起，与无外露突起尾巴历史规则可能冲突；需用户裁定，原图未修改。",
+          "左侧视角可见 K，右侧和正面未见 K；后视耳朵主要是耳背。"
+        ]
+      },
+      "share_block_reason": "目检疑点待确认"
+    },
+    {
+      "id": "KOR-NV-003",
+      "title": "淡淡笑九视角",
+      "path": "assets/turnaround/KOR-NV-003_kora_v11_nine_views_subtle_smile_v2.png",
+      "category": "turnaround",
+      "role": "expression_reference",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "911b050d53a130910e9b40edd20e80cef5bf9463b1d30fbf89b093163355f587",
+      "bytes": 2157482,
+      "approval_scope": "expression_reference",
+      "evidence_ids": [
+        "E11",
+        "E13",
+        "E20"
+      ],
+      "notes": "已批准保存的参考图；不自动升级主脸、精确 K 字形或角色设计版本。 CORA 网站用途按 consumer_profiles.CORA_WEBSITE：V1.1 九视图为身份基准；不改变其他用途历史批准或目检疑点。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "conflict",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "后背下方可见圆形浅色突起，与无外露突起尾巴历史规则可能冲突；需用户裁定，原图未修改。",
+          "左侧视角可见 K，右侧和正面未见 K；后视耳朵主要是耳背。"
+        ]
+      },
+      "share_block_reason": "目检疑点待确认"
+    },
+    {
+      "id": "KOR-WEB-001",
+      "title": "个人网站作品封面",
+      "path": "assets/social/KOR-POST-001_kora_post_01_clean_material_v1.png",
+      "category": "website",
+      "role": "website_cover",
+      "status": "approved",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "sha256": "facf3f0fd8fae8a2a93f0ace05826fefb23ab9608330d1802b6f6dd1f30bc9a1",
+      "bytes": 1878115,
+      "approval_scope": "website_cover",
+      "evidence_ids": [
+        "E16"
+      ],
+      "notes": "仅网站作品展示用途；不作为新的角色身份母版。 与 KOR-POST-001 字节相同，共用原件；网站用途单独登记。",
+      "supersedes": [],
+      "share_eligible": true,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "reviewed",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "可作为已批准网站封面；面部和站点用途不得回写成新身份锁定。"
+        ]
+      },
+      "share_block_reason": "",
+      "content_alias_of": "KOR-POST-001"
+    },
+    {
+      "id": "KOR-WEB-002",
+      "title": "首页裁切审核稿",
+      "path": "assets/website/KOR-WEB-002_kora-home-neutral-original-pixels.png",
+      "category": "website",
+      "role": "website_candidate",
+      "status": "pending",
+      "lifecycle": "current",
+      "dimensions_px": [
+        355,
+        322
+      ],
+      "mode": "RGBA",
+      "sha256": "35e4164718253d8ac7dc2ee3fb77f64a27f8fdc04f81b4e24b42e4d428045f39",
+      "bytes": 191453,
+      "approval_scope": "未获此用途的最终批准",
+      "evidence_ids": [
+        "E14"
+      ],
+      "notes": "原始像素裁切加估计蒙版；未完成页面姿势设计及正式采用。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "not_cleared",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": "待审、失败或历史替代素材"
+    },
+    {
+      "id": "KOR-WEB-003",
+      "title": "About 裁切审核稿",
+      "path": "assets/website/KOR-WEB-003_kora-about-neutral-original-pixels.png",
+      "category": "website",
+      "role": "website_candidate",
+      "status": "pending",
+      "lifecycle": "current",
+      "dimensions_px": [
+        325,
+        375
+      ],
+      "mode": "RGBA",
+      "sha256": "993a169082ad1d8b78acc2132d683f6860c3501ef99835b56da9a5d5bf8f90b0",
+      "bytes": 202519,
+      "approval_scope": "未获此用途的最终批准",
+      "evidence_ids": [
+        "E14"
+      ],
+      "notes": "原始像素裁切加估计蒙版；未完成页面姿势设计及正式采用。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "not_cleared",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": []
+      },
+      "share_block_reason": "待审、失败或历史替代素材"
+    },
+    {
+      "id": "KOR-WEB-004",
+      "title": "透明扶脸坐姿源文件",
+      "path": "assets/website/KOR-WEB-004_kora_v11_ariana_approved_transparent.png",
+      "category": "website",
+      "role": "website_candidate",
+      "status": "pending",
+      "lifecycle": "current",
+      "dimensions_px": [
+        1278,
+        1230
+      ],
+      "mode": "RGBA",
+      "sha256": "43548df3d1cee3c3d6c13127cd28de433b6173def8227dfccd0aa334647ee964",
+      "bytes": 1617675,
+      "approval_scope": "CORA 网站 Ariana K3 姿势已认可并冻结；工程透明度、阴影分层、连续动画、网站接入仍未批准",
+      "evidence_ids": [
+        "E15",
+        "E20"
+      ],
+      "notes": "视觉姿势有批准记录；最终网页工程待审，主体略透明、阴影未独立分层。文件名 approved 不等于可上线。 用途分层见 consumer_profiles.CORA_WEBSITE；status=pending 保留工程待审含义，不否认姿势已批准。",
+      "supersedes": [],
+      "share_eligible": false,
+      "visual_review": {
+        "date": "2026-10-15",
+        "status": "not_cleared",
+        "method": "Contact-sheet visual inspection; full-size review for Option B and unclothed turnarounds. Not a calibrated 3D or color measurement.",
+        "findings": [
+          "保留扶脸姿势；主体轻微透明和阴影合并的工程问题仍未解决。"
+        ]
+      },
+      "share_block_reason": "待审、失败或历史替代素材"
+    }
+  ],
+  "consumer_profiles": {
+    "CORA_WEBSITE": {
+      "scope": "CORA website only; overrides generic historical face priority for this consumer",
+      "identity_version": "V1.1",
+      "identity_asset_ids": [
+        "KOR-NV-001",
+        "KOR-NV-002",
+        "KOR-NV-003"
+      ],
+      "identity_approval": "approved_identity_baseline",
+      "pose_asset_id": "KOR-WEB-004",
+      "pose_name": "Ariana K3",
+      "pose_approval": "approved_pose_only",
+      "engineering_approval": "pending",
+      "opening_A_plus18_final_approval": false,
+      "P0_identity_approval": "pending",
+      "continuous_motion_approval": "pending",
+      "website_integration_authorized": false,
+      "evidence_ids": [
+        "E20"
+      ],
+      "constraints": [
+        "Frozen images unchanged",
+        "Existing tail and engineering issues retained",
+        "No global K master promotion",
+        "No new animation or deployment"
+      ],
+      "distribution": "local metadata only; existing 1.0.0 packages unchanged"
+    }
+  },
+  "package_kind": "complete_private_snapshot",
+  "distribution_snapshot": {
+    "date": "2026-10-17",
+    "repository": "HanjingLaura/koala",
+    "branch": "assets/kora-library-20261017",
+    "scope": "All catalogued image files, including review and historical assets, explicitly requested by Cora. Approval and share_eligible flags unchanged.",
+    "excluded": [
+      "private evidence",
+      "conversation transcripts",
+      "local source paths",
+      "credentials",
+      "caches",
+      "duplicate release archives"
+    ]
+  }
+}

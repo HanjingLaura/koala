@@ -1,0 +1,11 @@
+private/
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+*.key
+*.pem
+*.log
+*.tmp
+node_modules/
