@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f2">
+  <meta name="description" content="Kora，你的轻盈生活搭子。计划可以调整，中断之后也可以从今天重新开始。">
+  <title>Kora · 从今天，再开始就好</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip-link">跳到主要内容</a>
+<aside class="sidebar" aria-label="主导航">
+  <a class="brand" href="#today" aria-label="Kora 首页"><span class="brand-symbol">✳</span><span>Kora<span class="brand-dot">.</span></span></a>
+  <p class="brand-caption">你的轻盈生活搭子</p>
+  <nav class="desktop-nav"></nav>
+  <div class="sidebar-note"><span class="small-flower">✳</span><p>不必每天满分。<br>回来，就很好。</p><span>A LITTLE EASIER, TOGETHER.</span></div>
+  <button class="profile-button" data-route="profile"><img src="assets/kora-avatar.png" alt=""><span><strong id="sidebar-name">Cora</strong><small>按自己的节奏来</small></span><span aria-hidden="true">↗</span></button>
+</aside>
+<div class="app-shell">
+  <header class="topbar"><a href="#today" class="mobile-brand">Kora<span>.</span></a><div class="breadcrumb">MY LITTLE EVERYDAY <span>/</span> <b id="page-label">今天</b></div><button class="demo-pill" data-action="about"><span></span>团队预览版 <span aria-hidden="true">↗</span></button></header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="footer"><span>Kora · 中断后，还能继续。</span><button data-action="about">关于这个原型 ↗</button><span>按你的节奏，一点一点。</span></footer>
+</div>
+<nav class="mobile-nav" aria-label="移动端主导航"></nav>
+<dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<noscript><p class="no-script">请启用 JavaScript 体验计划调整。此版本无需登录，也不会上传个人资料。</p></noscript>
+</body>
+</html>
