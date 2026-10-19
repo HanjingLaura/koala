@@ -1,0 +1,12 @@
+{
+  "tool": "Built-in image_gen",
+  "outputs": [
+    "kora-life-lazy-v4.png",
+    "kora-life-feel-v4.png"
+  ],
+  "references": [
+    "kora-life-spark-v4.png",
+    "kora-life-busy-v4.png"
+  ],
+  "prompt": "Use case: identity-preserve precise ear-size matching. Input 1 is the EDIT TARGET (green or pink dressed Kora). Inputs 2 and 3 are the approved red and blue Kora variants, authoritative references for the desired ear proportions. Enlarge BOTH ears of Input 1 so their width, height, fullness and ear-to-face scale MATCH the generous fluffy ears in Inputs 2 and 3. Match relative to the face size, not raw image pixels, and account for Input 1's head tilt. Add outward fullness especially to the narrow outer ear silhouette; moderate enlargement approximately 10-15 percent, guided by references. Keep the ears softly rounded fluffy ovals, naturally attached behind the temples. Preserve Input 1's exact face/head size, cheek shape, eyes, nose, mouth, expression, tilt, cream headband, clothing, pose, short legs, hands, props, colors, fur texture, lighting, canvas framing and transparent background. ONLY change the two ears to match the red/blue reference set; no face flattening, no body changes, no new props, no text. The four illustrations should look like the same character with consistent ear size."
+}

@@ -73,3 +73,15 @@ v0.2 界面使用设备自带的系统无衬线字体，不请求字体 CDN，�
 - 生成图已逐张目检。运行时只对两眼周围使用带羽化边界的局部遮罩，其余位置始终使用原运动装图，避免整帧切换引起脸型 / 衣服变化。
 - 原运动装 PNG 与 v0.4 包逐字节一致；新增闭眼图为本项目动画用途，未更新角色主库。
 - 动画模块 `companion.js`：GSAP 负责时序；WebGL 负责局部连续形变和眼睑混合。参考官方 https://gsap.com/docs/v3/GSAP/gsap.timeline()/ 。
+
+
+## v0.8 生活人格插画
+
+使用内置 image_gen，原运动装图制作首版，再加入 `kora-avatar.png` 与 `kora-companion.png` 对齐原版耳脸比例。绿色省电 / 粉色心情当前为 `assets/kora-life-lazy-v3.png`、`assets/kora-life-feel-v3.png`；红色热启动 / 蓝色忙碌当前为 `assets/kora-life-spark-v4.png`、`assets/kora-life-busy-v4.png`。后两张依据用户反馈增加耳朵饱满度并恢复圆润脸颊。
+
+v1 与 v3 作为本轮衍生图迭代参考保留，页面只引用上述四张。按百分比缩小耳朵的 v2 被用户否定，未集成。提示词见 `assets/lifestyle-prompts.json`、`assets/lifestyle-ear-revision.json`、`assets/lifestyle-face-revision.json`。所有新图为本原型衍生素材，待用户视觉验收；未修改 kora-library 正式主库。
+
+
+### 绿粉耳朵对齐 · 当前四种生活人格均使用 v4
+
+按用户要求，使用内置 image_gen，以红色 `kora-life-spark-v4.png` 与蓝色 `kora-life-busy-v4.png` 为耳朵比例参考，编辑绿色 / 粉色 v3，保持各自脸型、表情、服装和姿势。当前新增素材为 `assets/kora-life-lazy-v4.png`、`assets/kora-life-feel-v4.png`，页面与人格卡片导出统一引用四种 v4；红蓝图未改。提示词见 `assets/lifestyle-ear-match.json`。旧图保留追溯，未修改角色主库。

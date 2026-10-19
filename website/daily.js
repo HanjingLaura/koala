@@ -2,7 +2,7 @@
 // Calendar arithmetic uses local noon, avoiding UTC date shifts and DST day lengths.
 (function (root) {
   const copy = value => JSON.parse(JSON.stringify(value));
-  const snapshot = day => JSON.stringify(day?[day.plan,day.mealDone,day.logs,day.undo]:null);
+  const snapshot = day => JSON.stringify(day?[day.plan,day.mealDone,day.logs,day.undo,day.comeback||null]:null);
   function dateKey(date = new Date()) {
     return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
   }
@@ -57,17 +57,18 @@
   }
   function canReschedule(state) { return !state.days[addDays(state.date,1)]?.plan; }
   function adjust(state,next,reason,at=new Date().toISOString()) {
-    if (state.plan.done) return false;
+    if (state.plan.done || state.days[state.date].comeback?.done) return false;
     const tomorrow=addDays(state.date,1);
     if (next.type==='reschedule' && !canReschedule(state)) return false;
     const existingTarget=state.plan.type==='reschedule'?state.plan.targetDate:null;
     if (existingTarget && (state.days[existingTarget]?.plan?.sourceDate!==state.date || state.days[existingTarget].plan.done)) return false;
     const target=next.type==='reschedule'?tomorrow:existingTarget;
     const beforeTarget=target&&state.days[target]?copy(state.days[target]):null;
-    const undo={plan:copy(state.plan),historyLength:state.history.length,target,beforeTarget};
+    const undo={plan:copy(state.plan),historyLength:state.history.length,target,beforeTarget,comeback:copy(state.days[state.date].comeback||null)};
     // Only remove a reservation owned by today's previous adjustment.
     if (existingTarget && state.days[existingTarget]?.plan?.sourceDate===state.date) state.days[existingTarget].plan=null;
     state.plan=copy(next);
+    delete state.days[state.date].comeback;
     if (next.type==='reschedule') {
       state.plan.targetDate=tomorrow;
       ensureDay(state,tomorrow).plan={...copy(next),type:'custom',title:`${next.minutes} 分钟轻运动安排`,sourceDate:state.date,done:false,reminder:true};
@@ -88,6 +89,8 @@
       else delete state.days[previous.target];
     }
     state.plan=copy(previous.plan);
+    if(previous.comeback)state.days[state.date].comeback=copy(previous.comeback);
+    else delete state.days[state.date].comeback;
     state.history=state.history.slice(0,previous.historyLength);
     state.undo=null;
     return true;

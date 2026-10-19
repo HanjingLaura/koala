@@ -1,0 +1,22 @@
+{
+  "tool": "Built-in image_gen",
+  "reference": "kora-calm-sport-v2.png",
+  "variants": [
+    {
+      "id": "lazy",
+      "prompt": "Use case: identity-preserve. Create one polished transparent PNG character illustration for the Kora lifestyle quiz. Reference is the exact Kora identity: keep original huge fluffy round ears, rounded baby face, dark oval nose, small glossy brown eyes, soft beige-grey fur and short seated legs. No human gender changes, no makeup, no long limbs. Same premium soft 3D fur rendering and gentle studio light. Entire character and props in frame with breathing room, square composition, transparent background, no text, no logos. Sports outfit must fully clothe torso. Kora is the energy-saving type: relaxed, slouching comfortably on a small pale sage sofa, holding an unbranded crinkled ochre bag of potato chips, one chip in its paw. Sage green zip tracksuit with cream piping, content slightly sleepy expression. Charming rather than exaggerated. Sofa compact; character is dominant."
+    },
+    {
+      "id": "spark",
+      "prompt": "Use case: identity-preserve. Create one polished transparent PNG character illustration for the Kora lifestyle quiz. Reference is the exact Kora identity: keep original huge fluffy round ears, rounded baby face, dark oval nose, small glossy brown eyes, soft beige-grey fur and short seated legs. No human gender changes, no makeup, no long limbs. Same premium soft 3D fur rendering and gentle studio light. Entire character and props in frame with breathing room, square composition, transparent background, no text, no logos. Sports outfit must fully clothe torso. Kora is the enthusiastic quick-starter type: wearing a terracotta orange tracksuit with cream piping and cream sports headband, sitting upright with eager gentle smile, small workout mat rolled up beside it and two tiny dumbbells on floor. Keep natural short koala legs, original face and eye size."
+    },
+    {
+      "id": "busy",
+      "prompt": "Use case: identity-preserve. Create one polished transparent PNG character illustration for the Kora lifestyle quiz. Reference is the exact Kora identity: keep original huge fluffy round ears, rounded baby face, dark oval nose, small glossy brown eyes, soft beige-grey fur and short seated legs. No human gender changes, no makeup, no long limbs. Same premium soft 3D fur rendering and gentle studio light. Entire character and props in frame with breathing room, square composition, transparent background, no text, no logos. Sports outfit must fully clothe torso. Kora is the busy-day type: wearing a muted slate blue tracksuit with cream piping, a small crossbody satchel, seated with short legs and holding a small open paper planner with abstract blank lines, a pencil in other paw. Expression alert and sweet, no eyeglasses, no text or numbers."
+    },
+    {
+      "id": "feel",
+      "prompt": "Use case: identity-preserve. Create one polished transparent PNG character illustration for the Kora lifestyle quiz. Reference is the exact Kora identity: keep original huge fluffy round ears, rounded baby face, dark oval nose, small glossy brown eyes, soft beige-grey fur and short seated legs. No human gender changes, no makeup, no long limbs. Same premium soft 3D fur rendering and gentle studio light. Entire character and props in frame with breathing room, square composition, transparent background, no text, no logos. Sports outfit must fully clothe torso. Kora is the feelings-first type: wearing a dusty pink tracksuit with cream piping, seated with original short legs, cuddling a soft pale peach cushion, head tilted gently with tender expression. No tears, no extreme sad expression, no eyelashes or human feminization."
+    }
+  ]
+}

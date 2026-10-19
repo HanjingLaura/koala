@@ -1,0 +1,10 @@
+{
+  "tool": "Built-in image_gen",
+  "activeVersion": "v3",
+  "references": [
+    "kora-avatar.png",
+    "kora-companion.png"
+  ],
+  "prompt": "Use case: identity-preserve. Input 1 is the EDIT TARGET, a dressed Kora lifestyle illustration. Input 2 is the ORIGINAL APPROVED CANONICAL FACE, authoritative for ear size, ear placement and ear-to-face proportions. Input 3 is the ORIGINAL APPROVED FULL CHARACTER, corroborating those ear proportions. Correct ONLY the ears in Input 1 to match the original character's anatomical ear-to-head proportions in Input 2 and 3, measured relative to the central face excluding ears, accounting for head tilt. The current target's ears are exaggerated. Keep generous fluffy koala ears like the original, neither giant round satellite dishes nor small teddy-bear ears. Original ears are tall softly irregular furry ovals, integrated behind temples, not huge circles pasted to sides. Match the original head silhouette proportions faithfully, using references visually rather than a blanket percentage reduction. Preserve Input 1's exact face, eyes, nose, mouth, head size, headband, outfit, body, short legs, pose, props and lighting. Do not copy the unclothed body or background from the references. Transparent background; full original composition; no text; no logos. Only ear correction, no character redesign.",
+  "revisionHistory": "v1 ears too large; percentage-reduced v2 rejected as too small and not integrated. v3 uses original approved face and full-character references for ear-to-head proportions. New derivative images remain pending visual review."
+}
