@@ -1,0 +1,53 @@
+/* Typography variant: loaded after styles.css; original design remains reusable. */
+:root {
+  --font-ui: Manrope, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+}
+body { font-family: var(--font-ui); line-height: 1.75; }
+button, input, select, textarea { font-family: inherit; }
+
+/* Use one Chinese type family across titles and interface copy. */
+.hero h1, .page-intro h1, .sidebar-note p, .hero-note b,
+.soft-banner p, .companion-panel h3, .modal-inner h2, .card-number {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.hero h1 { font-size: clamp(42px, 4vw, 58px); line-height: 1.3; }
+.page-intro h1 { font-size: clamp(28px, 3vw, 38px); line-height: 1.45; margin-bottom: 12px; }
+.page-intro p, .hero-copy > p { font-size: 14px; line-height: 1.9; }
+.section-head h2 { font-size: 20px; font-weight: 600; letter-spacing: 0; }
+.sidebar-note p { font-size: 17px; line-height: 1.85; font-weight: 400; }
+.soft-banner p { font-size: 22px; line-height: 1.65; }
+.hero-note b { font-size: 20px; line-height: 1.5; }
+.companion-panel h3 { font-size: 24px; line-height: 1.6; }
+.modal-inner h2, .success h2 { font-size: 29px; line-height: 1.5; }
+.nav-item { font-size: 14px; }
+.primary, .secondary, .text-link { font-size: 13px; }
+.hero .text-link { font-size: 12px; }
+.feeling strong, .task-main h4, .option strong { font-size: 13px; }
+.feeling small, .task-main p, .option small { font-size: 11px; line-height: 1.7; }
+.helper, .modal-sub, .gentle-note, .privacy-list li small,
+.companion-panel p, .profile-avatar small { font-size: 12px; line-height: 1.85; }
+.label, .log-item small, .plan-foot { font-size: 12px; }
+.message { font-size: 14px; line-height: 1.85; }
+.greeting span:last-child { letter-spacing: 0; }
+.week-controls, .week-legend { font-size: 11px; }
+.day .day-status { font-size: 10px; }
+.memory-note small { font-size: 11px; }
+
+@media (max-width: 700px) {
+  .hero h1 { font-size: 40px; line-height: 1.35; }
+  .page-intro h1 { font-size: 28px; line-height: 1.5; }
+  .page-intro p, .hero-copy > p { font-size: 13px; }
+  .hero-actions { gap: 12px; flex-wrap: wrap; }
+  .hero-actions .primary { font-size: 12px; }
+  .hero-actions .text-link { font-size: 11px; }
+  .section-head h2 { font-size: 17px; }
+  .feeling strong { font-size: 12px; }
+  .feeling small { font-size: 10px; }
+  .task-main h4 { font-size: 12px; }
+  .task-main p, .plan-foot { font-size: 11px; }
+  .soft-banner p { font-size: 19px; }
+  .modal-inner h2, .success h2 { font-size: 25px; }
+  .message { font-size: 13px; }
+}
