@@ -9,15 +9,67 @@
 
 ## 字体
 
+v0.2 界面使用设备自带的系统无衬线字体，不请求字体 CDN，也未下载 Apple 专用字体。以下字体文件和许可继续保留，v0.4 重新启用其展示层用途。
+
 - Manrope：Google Fonts 官方仓库 `https://github.com/google/fonts/tree/main/ofl/manrope`，许可副本 `assets/Manrope-OFL.txt`。
 - ZCOOL XiaoWei / 站酷小薇：Google Fonts 官方仓库 `https://github.com/google/fonts/tree/main/ofl/zcoolxiaowei`，许可副本 `assets/Xiaowei-OFL.txt`。
-- 字体为本地托管，访问网页不需要向字体 CDN 发请求。
+- v0.4：站酷小薇用于中文展示标题和性格名；Manrope 用于英文字母与数字；英文展示标题用系统 Georgia。两种本地字体均使用 `font-display: swap`，中文正文保持系统字体。
 
 ## GSAP
 
 - GSAP 3.14.2，https://gsap.com/ 。第三方脚本保留版权与许可标头，许可见 https://gsap.com/standard-license 。
-- 动效参考官方技能 https://github.com/greensock/gsap-skills 中的 core、timeline、performance；使用 matchMedia 尊重减少动态效果设置，切换页面时清理动画上下文。
+- 动效参考官方技能 https://github.com/greensock/gsap-skills 中的 core、timeline、performance；使用 matchMedia 尊重减少动态效果设置，切换页面时清理动画上下文。v0.2 使用短距离淡入，移除持续呼吸/漂浮，同路由数据刷新不重复入场。
 
 ## 视频与健康内容
 
 原型不托管或复制第三方健身视频。作者频道仅作为待整理的资源入口；卡片不声称已验证具体视频或提供医疗适用性评估。示例食品热量不是已接入的营养数据库。
+
+## v0.3 运动装性格图 · 2026-10-19
+
+使用内置 imagegen，参考既有 `kora-companion.png` 的身份和 `kora-sport-v1.png` 的运动服方向，每个性格单独生成。四张图均为透明背景 PNG，已复制到当前项目：
+
+- `assets/kora-calm-sport.png`：淡淡型，绿色运动外套、短裤、奶白发带。
+- `assets/kora-snark-sport.png`：毒舌型，深灰运动上衣与短裤、灰色发带，挑眉和摊手。
+- `assets/kora-fiery-sport.png`：暴躁型，暖橙运动套装、奶白发带，皱眉叉腰。
+- `assets/kora-gentle-sport.png`：温柔型，柔粉运动卫衣与短裤、粉色发带，微笑合掌。
+
+完整最终提示词见 `assets/persona-prompts.json`。本版只集成以上四张穿衣结果，未集成此前无服装的中间稿。状态为本原型候选衍生素材，未替换正式角色主库。用户提出的运动服、粉色温柔型已落实，但四张具体图的正式主库身份未获批准。
+
+## 表情收敛修订 · 2026-10-19
+
+按用户反馈，用内置 imagegen 编辑两张原运动装图，参考淡淡型的自然面部比例。衣服、姿势与配色保持原方向；新版本去掉夸张浓眉、大面积眼白和张嘴表情。
+
+- 当时毒舌型：`assets/kora-snark-sport-v2.png`，自然小黑眼睛、浅笑。
+- 当时暴躁型：`assets/kora-fiery-sport-v2.png`，自然小黑眼睛、轻微抿嘴。
+- 原图保留用于版本追溯，该次页面统一引用 v2（已被后续 v4 替代）；温柔型和淡淡型未修改。
+- 编辑提示词：`assets/persona-face-v2-prompts.json`。仍为原型候选图，未更新正式身份主库。
+
+## 原版身份与腿脚比例修订 · 2026-10-19
+
+- 使用原始 `kora-avatar.png` 与 `kora-companion.png` 重新约束脸型、鼻子、小黑眼睛与毛发特征；生成的 v3 表情由用户明确回复“表情可以通过了”。此批准只针对表情，不表示整张身体比例或正式主库身份获批。
+- 随后按用户反馈，只针对 v3 下半身缩短腿部、缩小脚掌并收拢坐姿。v4 仍沿用灰色 / 橙色运动服及已确认表情方向。
+- 网站当前统一使用 `assets/kora-snark-sport-v4.png` 和 `assets/kora-fiery-sport-v4.png`。原图及 v2 保留作为历史版本，v3 表情参考保存在本地工作目录 `work/design-v03/approved-faces/`。
+- 最终提示词与两阶段编辑说明：`assets/persona-v4-prompts.json`。使用内置 imagegen；未修改淡淡型、温柔型或正式角色主库。
+
+## 淡淡与温柔腿脚修订 · 2026-10-19
+
+使用内置 imagegen 分别编辑两张原图，以暴躁型 v4 作为下半身比例参考，缩短腿部、缩小脚掌并收拢坐姿，保留各自表情、服装与手势。
+
+- 当前淡淡型：`assets/kora-calm-sport-v2.png`。
+- 当前温柔型：`assets/kora-gentle-sport-v2.png`。
+- 毒舌 / 暴躁仍使用 v4，所有页面经公共 portrait 函数引用新版。
+- 完整提示词：`assets/persona-calm-gentle-proportions-prompts.json`。旧文件保留，未修改正式角色主库。
+
+## v0.4 排版与动效 · 2026-10-19
+
+- 参考官方 GSAP skills 中的 Timeline 与 Performance：https://github.com/greensock/gsap-skills 。
+- 按当前官方 matchMedia 文档验证响应式清理方式：https://gsap.com/docs/v3/GSAP/gsap.matchMedia()/ 。
+- 仅使用现有 GSAP 核心库：有标签结构的两行文本按时间线进入，装饰线使用 scaleX，卡片使用 transform。无新增插件。
+- 不拆散文本的可访问名称；装饰线和大字标记 aria-hidden。保留四张已接入的考拉图片。
+
+## v0.5 闭眼关键帧与动态陪伴 · 2026-10-19
+
+- 采用内置 imagegen，逐张参考当前已集成的运动装原图，仅请求两眼闭合。保存为 `assets/kora-calm-blink.png`、`assets/kora-snark-blink.png`、`assets/kora-fiery-blink.png`、`assets/kora-gentle-blink.png`；提示词见 `assets/persona-blink-prompts.json`。
+- 生成图已逐张目检。运行时只对两眼周围使用带羽化边界的局部遮罩，其余位置始终使用原运动装图，避免整帧切换引起脸型 / 衣服变化。
+- 原运动装 PNG 与 v0.4 包逐字节一致；新增闭眼图为本项目动画用途，未更新角色主库。
+- 动画模块 `companion.js`：GSAP 负责时序；WebGL 负责局部连续形变和眼睑混合。参考官方 https://gsap.com/docs/v3/GSAP/gsap.timeline()/ 。

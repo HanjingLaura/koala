@@ -10,7 +10,7 @@
   function addDays(key, count) { const d=parseDate(key); d.setDate(d.getDate()+count); return dateKey(d); }
   function weekDates(key) { const day=parseDate(key).getDay(); const monday=addDays(key,-((day+6)%7)); return Array.from({length:7},(_,i)=>addDays(monday,i)); }
   function fresh(key=dateKey()) {
-    return bind({schema:2,date:key,profile:{name:'Cora',goal:'养成舒服的生活节奏',minutes:'30',noJump:true},days:{},history:[],legacy:null});
+    return bind({schema:3,date:key,profile:{name:'Cora',goal:'养成舒服的生活节奏',minutes:'30',noJump:true},days:{},history:[],legacy:null});
   }
   function bind(state) {
     for (const field of ['plan','mealDone','logs','undo']) Object.defineProperty(state,field,{configurable:true,get(){return state.days[state.date][field];},set(value){state.days[state.date][field]=value;}});
@@ -23,7 +23,7 @@
   }
   function defaultPlan(state) {
     const minutes=[10,20,30].includes(Number(state.profile.minutes))?Number(state.profile.minutes):30;
-    return {type:'original',title:`${minutes} 分钟轻运动安排`,minutes,done:false,reminder:true};
+    return {type:'original',workout:'light',title:`${minutes} 分钟轻运动安排`,minutes,done:false,reminder:true};
   }
   function activate(state,key) {
     state.date=key;
@@ -32,7 +32,7 @@
     return state;
   }
   function load(saved,key=dateKey()) {
-    if (saved?.schema===2 && saved.profile && saved.days && !Array.isArray(saved.days) && Array.isArray(saved.history)) {
+    if ([2,3].includes(saved?.schema) && saved.profile && saved.days && !Array.isArray(saved.days) && Array.isArray(saved.history)) {
       // Only keys produced by this calendar are admitted as day records.
       const state=fresh(key);
       state.profile={...state.profile,...saved.profile};
@@ -43,13 +43,15 @@
       }
       state.history=saved.history;
       state.legacy=saved.legacy||null;
+      state.language=saved.language||'zh';state.onboarded=Boolean(saved.onboarded);
       return activate(state,key);
     }
     const state=fresh(key);
-    if (saved?.schema===1 && saved.profile && saved.plan && Array.isArray(saved.logs)) {
+    if ([1,2].includes(saved?.schema) && saved.profile && saved.plan && Array.isArray(saved.logs)) {
       state.profile={...state.profile,...saved.profile};
       // Legacy plans and meals have no reliable date. Never invent one.
       state.legacy=copy(saved);
+      state.language=saved.language||'zh';state.onboarded=Boolean(saved.onboarded);
     }
     return activate(state,key);
   }
