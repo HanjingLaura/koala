@@ -10,3 +10,9 @@ dialog{border:0;padding:0;max-width:min(680px,calc(100vw - 30px));width:680px;ma
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 .day .day-status{font-size:8px;margin-top:7px;white-space:nowrap}.day.scheduled .day-dot{background:#d79a67}.day.done .day-dot{background:#6e925d}
+
+.week-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0;font-size:10px;color:var(--muted)}
+.week-controls button{padding:7px 0;color:var(--green);white-space:nowrap}
+.week-controls span{text-align:center;overflow-wrap:anywhere}
+.week-strip button.day{min-width:0;width:100%;font:inherit}
+.memory-note button{display:block;text-align:left;margin-top:8px}
