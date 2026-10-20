@@ -1,0 +1,232 @@
+{
+  "kora-cheer-wink-v4-small.webp": {
+    "bytes": 36530,
+    "source": "kora-cheer-wink-v4.png",
+    "width": 384
+  },
+  "kora-cheer-wink-v4.webp": {
+    "bytes": 128806,
+    "source": "kora-cheer-wink-v4.png",
+    "width": 768
+  },
+  "kora-food-still-v1-small.webp": {
+    "bytes": 31466,
+    "source": "kora-food-still-v1.png",
+    "width": 384
+  },
+  "kora-food-still-v1.webp": {
+    "bytes": 105482,
+    "source": "kora-food-still-v1.png",
+    "width": 768
+  },
+  "kora-fitness-still-v1-small.webp": {
+    "bytes": 27182,
+    "source": "kora-fitness-still-v1.png",
+    "width": 384
+  },
+  "kora-fitness-still-v1.webp": {
+    "bytes": 93330,
+    "source": "kora-fitness-still-v1.png",
+    "width": 768
+  },
+  "kora-calm-sport-v2-small.webp": {
+    "bytes": 34650,
+    "source": "kora-calm-sport-v2.png",
+    "width": 384
+  },
+  "kora-calm-sport-v2.webp": {
+    "bytes": 110560,
+    "source": "kora-calm-sport-v2.png",
+    "width": 768
+  },
+  "kora-calm-blink-small.webp": {
+    "bytes": 33978,
+    "source": "kora-calm-blink.png",
+    "width": 384
+  },
+  "kora-calm-blink.webp": {
+    "bytes": 99462,
+    "source": "kora-calm-blink.png",
+    "width": 768
+  },
+  "kora-snark-sport-v4-small.webp": {
+    "bytes": 35536,
+    "source": "kora-snark-sport-v4.png",
+    "width": 384
+  },
+  "kora-snark-sport-v4.webp": {
+    "bytes": 111488,
+    "source": "kora-snark-sport-v4.png",
+    "width": 768
+  },
+  "kora-snark-blink-small.webp": {
+    "bytes": 35514,
+    "source": "kora-snark-blink.png",
+    "width": 384
+  },
+  "kora-snark-blink.webp": {
+    "bytes": 107426,
+    "source": "kora-snark-blink.png",
+    "width": 768
+  },
+  "kora-fiery-sport-v4-small.webp": {
+    "bytes": 40842,
+    "source": "kora-fiery-sport-v4.png",
+    "width": 384
+  },
+  "kora-fiery-sport-v4.webp": {
+    "bytes": 125352,
+    "source": "kora-fiery-sport-v4.png",
+    "width": 768
+  },
+  "kora-fiery-blink-small.webp": {
+    "bytes": 36946,
+    "source": "kora-fiery-blink.png",
+    "width": 384
+  },
+  "kora-fiery-blink.webp": {
+    "bytes": 109268,
+    "source": "kora-fiery-blink.png",
+    "width": 768
+  },
+  "kora-gentle-sport-v2-small.webp": {
+    "bytes": 31838,
+    "source": "kora-gentle-sport-v2.png",
+    "width": 384
+  },
+  "kora-gentle-sport-v2.webp": {
+    "bytes": 96698,
+    "source": "kora-gentle-sport-v2.png",
+    "width": 768
+  },
+  "kora-gentle-blink-small.webp": {
+    "bytes": 31238,
+    "source": "kora-gentle-blink.png",
+    "width": 384
+  },
+  "kora-gentle-blink.webp": {
+    "bytes": 90650,
+    "source": "kora-gentle-blink.png",
+    "width": 768
+  },
+  "kora-life-lazy-v6-small.webp": {
+    "bytes": 30698,
+    "source": "kora-life-lazy-v6.png",
+    "width": 384
+  },
+  "kora-life-lazy-v6.webp": {
+    "bytes": 88966,
+    "source": "kora-life-lazy-v6.png",
+    "width": 768
+  },
+  "kora-life-lazy-blink-small.webp": {
+    "bytes": 30230,
+    "source": "kora-life-lazy-blink.png",
+    "width": 384
+  },
+  "kora-life-lazy-blink.webp": {
+    "bytes": 86914,
+    "source": "kora-life-lazy-blink.png",
+    "width": 768
+  },
+  "kora-life-spark-v6-small.webp": {
+    "bytes": 35974,
+    "source": "kora-life-spark-v6.png",
+    "width": 384
+  },
+  "kora-life-spark-v6.webp": {
+    "bytes": 102932,
+    "source": "kora-life-spark-v6.png",
+    "width": 768
+  },
+  "kora-life-spark-blink-small.webp": {
+    "bytes": 37676,
+    "source": "kora-life-spark-blink.png",
+    "width": 384
+  },
+  "kora-life-spark-blink.webp": {
+    "bytes": 109178,
+    "source": "kora-life-spark-blink.png",
+    "width": 768
+  },
+  "kora-life-busy-v6-small.webp": {
+    "bytes": 31918,
+    "source": "kora-life-busy-v6.png",
+    "width": 384
+  },
+  "kora-life-busy-v6.webp": {
+    "bytes": 90224,
+    "source": "kora-life-busy-v6.png",
+    "width": 768
+  },
+  "kora-life-busy-blink-small.webp": {
+    "bytes": 32160,
+    "source": "kora-life-busy-blink.png",
+    "width": 384
+  },
+  "kora-life-busy-blink.webp": {
+    "bytes": 89688,
+    "source": "kora-life-busy-blink.png",
+    "width": 768
+  },
+  "kora-life-feel-v6-small.webp": {
+    "bytes": 30756,
+    "source": "kora-life-feel-v6.png",
+    "width": 384
+  },
+  "kora-life-feel-v6.webp": {
+    "bytes": 90970,
+    "source": "kora-life-feel-v6.png",
+    "width": 768
+  },
+  "kora-life-feel-blink-small.webp": {
+    "bytes": 30478,
+    "source": "kora-life-feel-blink.png",
+    "width": 384
+  },
+  "kora-life-feel-blink.webp": {
+    "bytes": 88586,
+    "source": "kora-life-feel-blink.png",
+    "width": 768
+  },
+  "kora-life-steady-v6-small.webp": {
+    "bytes": 31826,
+    "source": "kora-life-steady-v6.png",
+    "width": 384
+  },
+  "kora-life-steady-v6.webp": {
+    "bytes": 91172,
+    "source": "kora-life-steady-v6.png",
+    "width": 768
+  },
+  "kora-life-steady-blink-small.webp": {
+    "bytes": 31836,
+    "source": "kora-life-steady-blink.png",
+    "width": 384
+  },
+  "kora-life-steady-blink.webp": {
+    "bytes": 89866,
+    "source": "kora-life-steady-blink.png",
+    "width": 768
+  },
+  "kora-life-guide-v6-small.webp": {
+    "bytes": 34080,
+    "source": "kora-life-guide-v6.png",
+    "width": 384
+  },
+  "kora-life-guide-v6.webp": {
+    "bytes": 95100,
+    "source": "kora-life-guide-v6.png",
+    "width": 768
+  },
+  "kora-life-guide-blink-small.webp": {
+    "bytes": 34364,
+    "source": "kora-life-guide-blink.png",
+    "width": 384
+  },
+  "kora-life-guide-blink.webp": {
+    "bytes": 95252,
+    "source": "kora-life-guide-blink.png",
+    "width": 768
+  }
+}

@@ -20,15 +20,20 @@ files = {'index.html', 'styles.css', 'lifestyle.css', 'app.js', 'daily.js',
          'refinement.css', 'coach-stage.js', 'comeback.js', 'lifestyle.js', 'journey.js', 'rewards.js', 'coach.js',
          'companion.js', 'vendor/gsap.min.js'}
 for filename in list(files):
-    for asset in re.findall(r'assets/[A-Za-z0-9_.-]+\.(?:png|svg|ttf|woff2?)', (source / filename).read_text()):
+    for asset in re.findall(r'assets/[A-Za-z0-9_./-]+\.(?:webp|png|svg|ttf|woff2?)', (source / filename).read_text()):
         files.add(asset)
 for persona in ['calm', 'snark', 'fiery', 'gentle']:
     version = 'v4' if persona in ['snark', 'fiery'] else 'v2'
-    files.add(f'assets/kora-{persona}-sport-{version}.png')
-    files.add(f'assets/kora-{persona}-blink.png')
+    for suffix in ['', '-small']:
+        files.add(f'assets/web/kora-{persona}-sport-{version}{suffix}.webp')
+        files.add(f'assets/web/kora-{persona}-blink{suffix}.webp')
 for style in ['lazy', 'spark', 'busy', 'feel', 'steady', 'guide']:
-    files.add(f'assets/kora-life-{style}-v6.png')
-    files.add(f'assets/kora-life-{style}-blink.png')
+    for suffix in ['', '-small']:
+        files.add(f'assets/web/kora-life-{style}-v6{suffix}.webp')
+        files.add(f'assets/web/kora-life-{style}-blink{suffix}.webp')
+for kind in ['food', 'fitness']:
+    for suffix in ['', '-small']:
+        files.add(f'assets/web/kora-{kind}-still-v1{suffix}.webp')
 files.update(['assets/Manrope-OFL.txt', 'assets/Xiaowei-OFL.txt'])
 missing = sorted(name for name in files if not (source / name).is_file())
 if missing:

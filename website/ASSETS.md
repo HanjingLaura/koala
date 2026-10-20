@@ -1,5 +1,12 @@
 # 素材与第三方资源
 
+## v0.19 网页衍生文件与小插画 · 2026-10-20
+
+- 使用内置 imagegen，参考温柔教练的材质与光感，生成 food / fitness 两组静物。原图 assets/kora-{food,fitness}-still-v1.png；提示词见 assets/still-life-prompts.json；网页使用 assets/web/ 中的 WebP。
+- sharp 只做尺寸/编码转换，没有重画角色或修改五官。384px 与 768px 两档、WebP quality 86、alphaQuality 100。源 PNG 全部保留；编码尺寸与字节记录在 assets/web/encoding-manifest.json。
+- 原字体按当前 HTML/JS/CSS 字符生成 WOFF2，保留现有 OFL；未包含的字符由系统字体回退。新增文案应运行字体子集脚本以保持标题字体一致。
+- 运行包不含高分辨率原图、TTF、提示词和编码清单，导出卡片按需使用网页 WebP。角色主库 kora-library 未修改。
+
 ## v0.18 六人格闭眼纹理 · 2026-10-20
 
 - 内置 imagegen 逐张编辑 lazy / spark / busy / feel / steady / guide 的 v6 生活装 PNG，只要求闭眼，保持身份、服装与道具。输出 assets/kora-life-{id}-blink.png，完整提示词和来源见 assets/lifestyle-blink-prompts.json。

@@ -1,0 +1,15 @@
+{
+  "tool": "built-in imagegen",
+  "prompts": {
+    "food": {
+      "prompt": "Use case: stylized-concept. Website decorative still life for the Kora food page. Reference image is STYLE ONLY: match its premium soft 3D plush mascot world, fine tactile felt textures, rounded edges, quiet warm studio lighting. Create a little cream ceramic salad bowl with broccoli, carrot, tomato and a boiled egg half, a tiny strawberry next to it, a folded sage napkin and small cream fork. Friendly and cozy, elegantly composed as one compact cluster. Three-quarter view, full objects, centered with generous transparent margins. Sage, cream, peach and muted berry palette. No characters, no faces on objects, no text, no logos. True transparent background, no backdrop or white silhouette outline. A polished small still-life asset, not a scene.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-905c3da1-9f87-49f2-908b-c50f142488c9.png",
+      "output": "assets/web/kora-food-still-v1.webp"
+    },
+    "fitness": {
+      "prompt": "Use case: stylized-concept. Website decorative still life for the Kora movement page. Reference image is STYLE ONLY: match its premium soft 3D plush mascot world, fine tactile fabric, rounded edges, quiet warm studio lighting. Create a rolled sage yoga mat with a cream strap, two small dusty peach dumbbells and a cream water bottle with sage cap. Elegantly composed as one compact cluster, friendly and cozy with soft fabric-like tactile materials. Three-quarter view, full objects, centered with generous transparent margins. Sage, cream, dusty peach palette. No characters, no faces on objects, no text, no logos. True transparent background, no backdrop or white silhouette outline. A polished small still-life asset, not a scene.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-5b43ae47-ed7d-48b8-80ac-4bc7a9e87bc1.png",
+      "output": "assets/web/kora-fitness-still-v1.webp"
+    }
+  }
+}

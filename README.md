@@ -35,3 +35,5 @@ node --test website/daily.test.cjs website/tests/*.test.cjs
 网站更新在 `Cora` 分支维护，通过 `Cora → main` 的 PR 提交 Laura 审核。更新提交到 `Cora`，由 Laura 在 PR 中审核后决定是否合并。在线体验站通过 Sites 独立托管网站运行文件；仓库继续保持 Private，不启用 GitHub Pages。体验站数据保存在访问者各自的浏览器，没有账号或云同步。
 
 最新体验版 v0.18 已发布至原公开链接；本轮 Cora → main 由 [PR #5](https://github.com/HanjingLaura/koala/pull/5) 请 Laura 审批，详见 [发布记录](website/RELEASE.md)。
+
+本地 v0.19 候选正在审阅：资源减重、测试/结果页稳定性、统一控件和日常页插画；本轮尚未推送或发布。
