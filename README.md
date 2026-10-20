@@ -22,7 +22,7 @@ node --test website/daily.test.cjs website/tests/*.test.cjs
 
 ## 在线体验
 
-[Kora 在线体验站](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/)（本轮发布目标）。首次进入先完成人格测试与资料设置。每位访问者的记录保存在自己的浏览器；当前没有真实 AI 或云同步。
+[Kora 在线体验站](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/)（已上线，拿到链接即可访问）。首次进入先完成人格测试与资料设置。每位访问者的记录保存在自己的浏览器；当前没有真实 AI 或云同步。
 
 ## 角色资产库
 
