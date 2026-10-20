@@ -1,0 +1,36 @@
+{
+  "tool": "built-in image_gen",
+  "purpose": "Only local eye patches sampled at runtime; open portraits remain unchanged",
+  "prompts": {
+    "lazy": {
+      "prompt": "Use case: precise-object-edit. Edit target: the attached lazy Kora personality PNG. Create an animation closed-eye frame: change ONLY both eyes to gently fully closed relaxed curved eyelids, with matching fine beige fur, no lashes. Keep the exact head silhouette, cheeks, ears, nose, mouth, clothes, props, pose, lighting, framing and all positions unchanged. Do not add a smile or change any other facial feature. This is a blink texture to blend only over the two eye regions of the original image. Same square composition, true transparent background. No text, no extra objects.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-1bfe58ba-ab01-4f5e-be29-f22944135a20.png",
+      "output": "assets/kora-life-lazy-blink.png"
+    },
+    "spark": {
+      "prompt": "Use case: precise-object-edit. Edit target: the attached spark Kora personality PNG. Create an animation closed-eye frame: change ONLY both eyes to gently fully closed relaxed curved eyelids, with matching fine beige fur, no lashes. Keep the exact head silhouette, cheeks, ears, nose, mouth, clothes, props, pose, lighting, framing and all positions unchanged. Do not add a smile or change any other facial feature. This is a blink texture to blend only over the two eye regions of the original image. Same square composition, true transparent background. No text, no extra objects.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-b7a906ce-c461-454f-a3ff-360ef2492e20.png",
+      "output": "assets/kora-life-spark-blink.png"
+    },
+    "busy": {
+      "prompt": "Use case: precise-object-edit. Edit target: the attached busy Kora personality PNG. Create an animation closed-eye frame: change ONLY both eyes to gently fully closed relaxed curved eyelids, with matching fine beige fur, no lashes. Keep the exact head silhouette, cheeks, ears, nose, mouth, clothes, props, pose, lighting, framing and all positions unchanged. Do not add a smile or change any other facial feature. This is a blink texture to blend only over the two eye regions of the original image. Same square composition, true transparent background. No text, no extra objects.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-4af3b86b-ee2f-419b-aa0d-c89698e6fa9c.png",
+      "output": "assets/kora-life-busy-blink.png"
+    },
+    "feel": {
+      "prompt": "Use case: precise-object-edit. Edit target: the attached feel Kora personality PNG. Create an animation closed-eye frame: change ONLY both eyes to gently fully closed relaxed curved eyelids, with matching fine beige fur, no lashes. Keep the exact head silhouette, cheeks, ears, nose, mouth, clothes, props, pose, lighting, framing and all positions unchanged. Do not add a smile or change any other facial feature. This is a blink texture to blend only over the two eye regions of the original image. Same square composition, true transparent background. No text, no extra objects.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-ebddcbfe-69c6-410d-a441-14ef8b2fd705.png",
+      "output": "assets/kora-life-feel-blink.png"
+    },
+    "steady": {
+      "prompt": "Use case: precise-object-edit. Edit target: the attached steady Kora personality PNG. Create an animation closed-eye frame: change ONLY both eyes to gently fully closed relaxed curved eyelids, with matching fine beige fur, no lashes. Keep the exact head silhouette, cheeks, ears, nose, mouth, clothes, props, pose, lighting, framing and all positions unchanged. Do not add a smile or change any other facial feature. This is a blink texture to blend only over the two eye regions of the original image. Same square composition, true transparent background. No text, no extra objects.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-fb9c5402-ade9-42fc-a44d-b166a11a4ee8.png",
+      "output": "assets/kora-life-steady-blink.png"
+    },
+    "guide": {
+      "prompt": "Use case: precise-object-edit. Edit target: the attached guide Kora personality PNG. Create an animation closed-eye frame: change ONLY both eyes to gently fully closed relaxed curved eyelids, with matching fine beige fur, no lashes. Keep the exact head silhouette, cheeks, ears, nose, mouth, clothes, props, pose, lighting, framing and all positions unchanged. Do not add a smile or change any other facial feature. This is a blink texture to blend only over the two eye regions of the original image. Same square composition, true transparent background. No text, no extra objects.",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-f262921a-95f0-4f00-921a-59cc0d79ff64.png",
+      "output": "assets/kora-life-guide-blink.png"
+    }
+  }
+}

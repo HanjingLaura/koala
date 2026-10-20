@@ -5,7 +5,13 @@
   calm:{eyes:[.382,.386,.594,.432],left:[.22,.25],right:[.80,.35]},
   snark:{eyes:[.400,.392,.596,.458],left:[.25,.24],right:[.81,.39]},
   fiery:{eyes:[.403,.397,.603,.429],left:[.23,.25],right:[.81,.32]},
-  gentle:{eyes:[.399,.379,.589,.459],left:[.25,.24],right:[.81,.40]}
+  gentle:{eyes:[.399,.379,.589,.459],left:[.25,.24],right:[.81,.40]},
+  'life-lazy':{eyes:[.417,.328,.580,.386],left:[.30,.23],right:[.81,.34],chest:.012,ear:0},
+  'life-spark':{eyes:[.384,.380,.591,.421],left:[.28,.25],right:[.82,.36],chest:.016,ear:0},
+  'life-busy':{eyes:[.384,.379,.592,.427],left:[.27,.26],right:[.81,.36],chest:.012,ear:0},
+  'life-feel':{eyes:[.391,.383,.582,.454],left:[.28,.25],right:[.82,.36],chest:.012,ear:0},
+  'life-steady':{eyes:[.378,.375,.595,.416],left:[.27,.25],right:[.82,.35],chest:.012,ear:0},
+  'life-guide':{eyes:[.381,.374,.586,.420],left:[.27,.25],right:[.82,.35],chest:.012,ear:0}
  };
  // Gentle local motion: one fifth of the previous amplitude; never whole-image scale.
  const AMPLITUDE={chest:.03,ear:.0105};
@@ -19,7 +25,7 @@
    .to(v,{[key]:-.08,duration:.18,ease:'sine.inOut'})
    .to(v,{[key]:0,duration:.34,ease:'sine.out'});
  }
- function createMotion(gsap){
+ function createMotion(gsap,phase=0){
   const values={breath:0,blink:0,earL:0,earR:0};
   const breath=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'sine.inOut'}})
    .to(values,{breath:1,duration:2.8}).to(values,{breath:0,duration:3.2});
@@ -30,6 +36,7 @@
   // First twitch after 12 s; subsequent onsets are 20 / 24 s apart.
   ear(ears,values,'earL',12);ear(ears,values,'earR',32);
   ears.to(values,{earR:0,duration:11.2});
+  if(phase){breath.totalTime(phase%6);eyes.totalTime(phase%12);ears.totalTime(phase%40);}
   let greeting=null,paused=true,dead=false;
   const loops=[breath,eyes,ears];
   return {values,loops,
@@ -87,7 +94,7 @@
     gl.uniform1i(gl.getUniformLocation(program,index?'closedEyes':'original'),index);
    });
    gl.uniform4fv(gl.getUniformLocation(program,'eyes'),rig.eyes);gl.uniform4fv(gl.getUniformLocation(program,'ears'),[...rig.left,...rig.right]);
-   gl.uniform2f(gl.getUniformLocation(program,'amplitude'),AMPLITUDE.chest,AMPLITUDE.ear);
+   gl.uniform2f(gl.getUniformLocation(program,'amplitude'),rig.chest??AMPLITUDE.chest,rig.ear??AMPLITUDE.ear);
    const movement=gl.getUniformLocation(program,'motion');
    return {draw(values){
     const size=Math.min(1000,Math.max(1,Math.round(canvas.clientWidth*Math.min(global.devicePixelRatio||1,2))));
@@ -99,10 +106,14 @@
  let userPaused=false;
  function mount(root,options={}){
   userPaused=Boolean(options.paused);
-  const stage=root.querySelector('[data-kora-live]');if(!stage||!global.gsap)return ()=>{};
+  if(!global.gsap)return ()=>{};
+  const cleanups=Array.from(root.querySelectorAll('[data-kora-live]')).map((stage,index)=>mountStage(stage,index));
+  return ()=>cleanups.forEach(dispose=>dispose());
+ }
+ function mountStage(stage,index){
   const image=stage.querySelector('img'),canvas=stage.querySelector('canvas');
   const media=global.matchMedia('(prefers-reduced-motion: reduce)');
-  let disposed=false,renderer=null,motion=null,inView=true,observer=null,ticking=false,broken=false;
+  let disposed=false,renderer=null,motion=null,inView=!global.IntersectionObserver,observer=null,ticking=false,broken=false;
   const closed=new Image();
   function draw(){if(renderer&&motion)renderer.draw(motion.values);}
   function sync(){
@@ -117,13 +128,13 @@
   const fail=()=>{broken=true;sync();stage.classList.remove('is-live');stage.dataset.liveStatus='fallback';};
   const lose=event=>{event.preventDefault();fail();};
   function ready(){
-   if(disposed||renderer||broken||!image.complete||!image.naturalWidth||!closed.complete||!closed.naturalWidth)return;
-   try{renderer=createRenderer(canvas,image,closed,RIGS[stage.dataset.koraLive]||RIGS.calm);motion=createMotion(global.gsap);
+   if(disposed||renderer||broken||!inView||!image.complete||!image.naturalWidth||!closed.complete||!closed.naturalWidth)return;
+   try{renderer=createRenderer(canvas,image,closed,RIGS[stage.dataset.koraLive]||RIGS.calm);motion=createMotion(global.gsap,index*1.73);
     stage.dataset.liveStatus='ready';
-    if(global.IntersectionObserver){observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;sync();},{threshold:.05});observer.observe(stage);}
     sync();
    }catch(error){console.warn('Kora keeps its static portrait:',error.message);fail();}
   }
+  if(global.IntersectionObserver){observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;ready();sync();},{threshold:.05});observer.observe(stage);}
   image.addEventListener('load',ready);image.addEventListener('error',fail);
   closed.onload=ready;closed.onerror=fail;closed.src='assets/kora-'+stage.dataset.koraLive+'-blink.png';
   stage.addEventListener('kora-greet',greet);

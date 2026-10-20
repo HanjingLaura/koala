@@ -1,5 +1,24 @@
 # 素材与第三方资源
 
+## v0.18 六人格闭眼纹理 · 2026-10-20
+
+- 内置 imagegen 逐张编辑 lazy / spark / busy / feel / steady / guide 的 v6 生活装 PNG，只要求闭眼，保持身份、服装与道具。输出 assets/kora-life-{id}-blink.png，完整提示词和来源见 assets/lifestyle-blink-prompts.json。
+- 正常绘制始终取原睁眼 PNG，闭眼纹理只在羽化眼区采样，避免重新生成的其他部位影响已定形象。六人格使用独立眼位与较小胸部幅度，不加耳部摆动；四教练保留原幅度。
+- 新资产属于此原型的局部动画帧，未修改 kora-library 正式资产。
+
+## v0.17 攻略型道具 · 2026-10-20
+
+- 使用内置 imagegen 局部编辑此前修顺脸型的可可色生活装考拉，只更换道具为收藏训练视频的平板、计划卡与本子，衣服和脸型方向保留。输出 assets/kora-life-guide-v6.png，提示词见 assets/guide-props-prompt.json。
+- 当前六人格使用 lazy / spark / busy / feel / steady / guide，接梗图保留为历史参考，不进入运行包。仍为本地原型候选，未替换正式角色主库。
+- 星光背景、星星与光晕由原生 SVG / CSS 构成，GSAP 动画，无新增位图或外部依赖。
+
+## v0.16 六人格生活装与脸型修订 · 2026-10-20
+
+- 使用内置 imagegen，每只单独编辑；以此前 v4 人格图为身份参考，改为生活装，随后再次按用户要求收顺脸颊、下巴与耳根。教练原运动装、眨眼纹理与鼓励头图保留。
+- 当前网站引用 `assets/kora-life-{lazy,spark,busy,feel,steady,banter}-v6.png` 六张透明 PNG，分别为奶黄毛衣、杏色马甲、灰紫衬衫、莓紫针织、青色卫衣、可可帽衫。五官、毛色、大耳朵与短腿坐姿延续原身份方向，具体视觉仍待用户确认，不宣称已经批准。
+- 最终修订完整提示词、参考输出和角色说明见 `assets/lifestyle-v6-prompts.json`；首轮生活装 v5 草图移到仓库外 `outputs/kora-v16/drafts/`，原始生成结果仍保留。
+- 没有改动 `kora-library/`。运行包构建只包含实际引用的 v6，排除上述草图、旧版人格图、提示词、测试、文档与用户浏览器记录。
+
 ## Kora
 
 - `assets/kora-avatar.png`：来自仓库 `kora-library/assets/identity/KOR-ID-001_A-avatar.png`。

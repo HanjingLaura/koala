@@ -17,7 +17,7 @@ if project == repo or project == source or repo in project.parents:
     raise SystemExit('Use a separate output project outside the GitHub checkout.')
 destination = project / 'dist'
 files = {'index.html', 'styles.css', 'lifestyle.css', 'app.js', 'daily.js',
-         'comeback.js', 'lifestyle.js', 'journey.js', 'rewards.js', 'coach.js',
+         'refinement.css', 'coach-stage.js', 'comeback.js', 'lifestyle.js', 'journey.js', 'rewards.js', 'coach.js',
          'companion.js', 'vendor/gsap.min.js'}
 for filename in list(files):
     for asset in re.findall(r'assets/[A-Za-z0-9_.-]+\.(?:png|svg|ttf|woff2?)', (source / filename).read_text()):
@@ -26,8 +26,9 @@ for persona in ['calm', 'snark', 'fiery', 'gentle']:
     version = 'v4' if persona in ['snark', 'fiery'] else 'v2'
     files.add(f'assets/kora-{persona}-sport-{version}.png')
     files.add(f'assets/kora-{persona}-blink.png')
-for style in ['lazy', 'spark', 'busy', 'feel']:
-    files.add(f'assets/kora-life-{style}-v4.png')
+for style in ['lazy', 'spark', 'busy', 'feel', 'steady', 'guide']:
+    files.add(f'assets/kora-life-{style}-v6.png')
+    files.add(f'assets/kora-life-{style}-blink.png')
 files.update(['assets/Manrope-OFL.txt', 'assets/Xiaowei-OFL.txt'])
 missing = sorted(name for name in files if not (source / name).is_file())
 if missing:
