@@ -199,3 +199,7 @@ node --test website/daily.test.cjs website/tests/*.test.cjs
     python3 scripts/build-site.py --output /tmp/kora-team-site
 
 输出的 dist 为运行文件；Sites 的 source helper 负责保存对应托管项目的源版本并发布。GitHub PR 审批与在线体验发布分别记录。
+
+## 从头体验入口
+
+打开 `/?demo=cora-fresh` 可从测试开始，使用当前标签页的独立体验存储，不读取或覆盖普通入口的档案与记录。完成后刷新仍保留本次体验；右上角「体验模式 ×」返回普通入口。不同 demo 标识的体验与测试草稿相互隔离。

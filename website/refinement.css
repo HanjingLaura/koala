@@ -129,3 +129,6 @@
  .profile-sheet .current-coach-art { width:60px; height:60px; }.profile-sheet .current-coach h2 { font-size:17px; }
  .profile-edit-actions>button { flex:1; font-size:13px; padding:13px; }
 }
+
+.experience-label { font-size:10px; color:#6c775f; padding:4px 7px; background:#f2f5ed; border-radius:6px; white-space:nowrap; }
+@media(max-width:420px){ .experience-label { font-size:9px; padding:3px 5px; }.header-tools { gap:10px; } }
