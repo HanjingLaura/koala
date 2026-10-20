@@ -1,0 +1,82 @@
+/* A quiet editorial quiz, with Kora doing the talking. */
+.life-page { padding:44px 0 64px; }
+.life-top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:36px; }
+.life-top .eyebrow { letter-spacing:.15em; }
+.life-intro { text-align:center; max-width:720px; margin:auto; }
+.life-intro h1,.life-result h1 { font-family:var(--display); font-weight:400; font-size:clamp(42px,5.5vw,68px); line-height:1.2; margin:12px 0 20px; letter-spacing:-1.5px; }
+.life-intro p { color:var(--muted); font-size:16px; }
+.life-gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:36px 0; }
+.life-tile { background:var(--life-soft); border-radius:80px 80px 20px 20px; text-align:center; padding:14px 12px 24px; }
+.life-tile img { width:100%; aspect-ratio:1; object-fit:contain; transition:transform .3s; }
+.life-tile:hover img { transform:translateY(-6px) rotate(-2deg); }
+.life-tile small { display:block; color:var(--life-color); font-size:10px; letter-spacing:.2em; margin-top:10px; }
+.life-tile h2 { font-size:20px; font-weight:550; margin:5px 0; }
+.life-tile p { font-size:12px; color:var(--muted); }
+.life-start { text-align:center; }
+.life-start .primary { min-width:220px; }
+.life-disclaimer { font-size:12px; color:var(--muted); margin-top:16px; line-height:1.8; }
+.life-question { display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center; padding:16px 0; }
+.life-question-art { background:#f3f3ed; border-radius:48% 48% 24px 24px; padding:30px 20px 24px; text-align:center; }
+.life-question-art img { width:100%; max-height:360px; object-fit:contain; }
+.life-question-art p { font-size:13px; color:#697161; margin-top:14px; }
+.life-progress { display:flex; gap:6px; margin-bottom:24px; }
+.life-progress span { height:3px; flex:1; background:#e4e7e0; border-radius:4px; }
+.life-progress span.complete { background:#687b5d; }
+.life-question h1 { font-family:var(--font); font-size:clamp(25px,3vw,36px); font-weight:550; line-height:1.45; margin:12px 0; letter-spacing:-.8px; }
+.life-hint { color:var(--muted); font-size:13px; margin-bottom:24px; }
+.life-options { display:grid; gap:10px; }
+.life-option { display:flex; align-items:center; gap:14px; text-align:left; padding:15px 18px; border:1px solid var(--line); border-radius:14px; background:white; min-height:64px; line-height:1.5; }
+.life-option>span:first-child { width:26px; height:26px; border-radius:50%; background:#f2f4ef; display:grid; place-items:center; flex-shrink:0; font-size:11px; color:#6b7960; }
+.life-option[aria-pressed=true] { border-color:#6b7960; background:#f2f5ed; box-shadow:inset 0 0 0 1px #6b7960; }
+.life-option[aria-pressed=true]>span:first-child { color:white; background:#6b7960; }
+.life-question-actions { display:flex; justify-content:space-between; align-items:center; margin-top:24px; gap:16px; }
+.life-result { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+.life-result-art { background:var(--life-soft); border-radius:48% 48% 24px 24px; padding:30px 16px 24px; text-align:center; }
+.life-result-art img { width:100%; max-height:420px; object-fit:contain; }
+.life-result-art span { color:var(--life-color); font-size:14px; letter-spacing:.24em; }
+.life-result h1 { color:var(--life-color); margin:10px 0 24px; }
+.life-result-quote { font-size:21px; line-height:1.7; margin-bottom:20px; }
+.life-result-care { color:var(--muted); font-size:15px; }
+.life-facts { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0; }
+.life-facts span { padding:6px 12px; background:var(--life-soft,#f4f5f0); border-radius:8px; font-size:12px; }
+.life-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:24px; }
+.life-all-types { border-top:1px solid var(--line); margin-top:44px; padding-top:24px; }
+.life-all-types summary { cursor:pointer; font-size:13px; color:var(--muted); }
+.life-profile,.life-home { background:var(--life-soft,#f2f4ed); border-radius:24px; padding:24px 30px; display:flex; gap:28px; align-items:center; margin:0 0 32px; }
+.life-profile img,.life-home img { width:148px; height:148px; object-fit:contain; flex-shrink:0; }
+.life-profile h2,.life-home h2 { font-size:24px; line-height:1.4; font-weight:550; margin:6px 0 10px; }
+.life-profile p,.life-home p { color:#636c61; font-size:14px; }
+.life-home-copy { flex:1; }
+.life-home .life-actions { margin-top:16px; }
+.life-home .eyebrow,.life-profile .eyebrow { font-size:10px; letter-spacing:.12em; }
+.life-profile .life-facts { margin:14px 0; }
+.life-review { padding:18px; border-radius:16px; background:var(--soft); margin:22px 0; }
+.life-review strong { display:block; font-size:20px; margin-top:6px; }
+.life-inline-note { margin:18px 0; color:var(--muted); font-size:12px; }
+@media(max-width:700px){
+ .life-page { padding-top:28px; }
+ .life-top { margin-bottom:24px; }
+ .life-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:24px 0; }
+ .life-tile { padding:10px 8px 18px; }
+ .life-tile h2 { font-size:18px; }
+ .life-intro h1 { font-size:40px; }
+ .life-question,.life-result { grid-template-columns:1fr; gap:24px; }
+ .life-question-art { display:none; }
+ .life-question h1 { font-size:27px; }
+ .life-result-art { max-width:300px; width:100%; margin:auto; padding:18px; }
+ .life-result-art img { max-height:250px; }
+ .life-result h1 { font-size:44px; }
+ .life-result-quote { font-size:19px; }
+ .life-profile,.life-home { padding:20px; gap:14px; flex-wrap:wrap; }
+ .life-profile img,.life-home img { width:88px; height:88px; }
+ .life-home-copy { min-width:180px; }
+ .life-home h2,.life-profile h2 { font-size:21px; }
+ .life-top .eyebrow { font-size:10px; }
+}
+@media(prefers-reduced-motion:reduce){.life-tile img{transition:none}.life-tile:hover img{transform:none}}
+
+.quiz-mode .desktop-nav,.quiz-mode .mobile-nav { display:none; }
+.life-section-label { font-size:12px;color:var(--green);margin-bottom:12px; }
+.life-evidence { background:#f7f7f2;border-radius:14px;padding:16px 20px;margin:18px 0;font-size:13px;line-height:1.8; }
+.life-evidence ul { padding-left:18px;margin:8px 0; }.life-evidence p { font-size:12px; }
+.life-result h1 { font-size:clamp(30px,4vw,48px); }.life-question .life-option { min-height:58px; }

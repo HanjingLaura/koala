@@ -1,0 +1,140 @@
+/* Kora live companion: GSAP timing + local WebGL deformation, original PNG fallback. */
+(function(global){
+ 'use strict';
+ const RIGS={
+  calm:{eyes:[.382,.386,.594,.432],left:[.22,.25],right:[.80,.35]},
+  snark:{eyes:[.400,.392,.596,.458],left:[.25,.24],right:[.81,.39]},
+  fiery:{eyes:[.403,.397,.603,.429],left:[.23,.25],right:[.81,.32]},
+  gentle:{eyes:[.399,.379,.589,.459],left:[.25,.24],right:[.81,.40]}
+ };
+ // Gentle local motion: one fifth of the previous amplitude; never whole-image scale.
+ const AMPLITUDE={chest:.03,ear:.0105};
+ function blink(tl,v,at){
+  return tl.to(v,{blink:1,duration:.10,ease:'power1.in'},at)
+   .to(v,{blink:1,duration:.075})
+   .to(v,{blink:0,duration:.17,ease:'power1.out'});
+ }
+ function ear(tl,v,key,at){
+  return tl.to(v,{[key]:1,duration:.28,ease:'power2.out'},at)
+   .to(v,{[key]:-.08,duration:.18,ease:'sine.inOut'})
+   .to(v,{[key]:0,duration:.34,ease:'sine.out'});
+ }
+ function createMotion(gsap){
+  const values={breath:0,blink:0,earL:0,earR:0};
+  const breath=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'sine.inOut'}})
+   .to(values,{breath:1,duration:2.8}).to(values,{breath:0,duration:3.2});
+  const eyes=gsap.timeline({repeat:-1,paused:true});
+  [1.35,5.6,9.8,10.35].forEach(at=>blink(eyes,values,at));
+  eyes.to(values,{blink:0,duration:2.4});
+  const ears=gsap.timeline({repeat:-1,paused:true});
+  // First twitch after 12 s; subsequent onsets are 20 / 24 s apart.
+  ear(ears,values,'earL',12);ear(ears,values,'earR',32);
+  ears.to(values,{earR:0,duration:11.2});
+  let greeting=null,paused=true,dead=false;
+  const loops=[breath,eyes,ears];
+  return {values,loops,
+   pause(value){paused=value;if(dead)return;breath.paused(value);if(greeting)greeting.paused(value);else{eyes.paused(value);ears.paused(value);}},
+   greet(){if(paused||dead)return;greeting?.kill();eyes.pause();ears.pause();values.blink=values.earL=values.earR=0;
+    greeting=gsap.timeline({onComplete(){greeting=null;if(!paused){eyes.restart();ears.restart();}}});
+    blink(greeting,values,0);ear(greeting,values,'earR',.12);blink(greeting,values,.65);
+   },
+   destroy(){dead=true;loops.forEach(tl=>tl.kill());greeting?.kill();greeting=null;}
+  };
+ }
+ const VERTEX='attribute vec2 p;varying vec2 uv;void main(){uv=vec2((p.x+1.0)*.5,(1.0-p.y)*.5);gl_Position=vec4(p,0.,1.);}';
+ const FRAGMENT=`precision mediump float;
+ varying vec2 uv;uniform sampler2D original;uniform sampler2D closedEyes;
+ uniform vec4 motion;uniform vec4 eyes;uniform vec4 ears;uniform vec2 amplitude;
+ float bell(vec2 p,vec2 c,vec2 r){return 1.-smoothstep(.25,1.,length((p-c)/r));}
+ vec4 source(vec2 q){if(q.x<0.||q.x>1.||q.y<0.||q.y>1.)return vec4(0.);return texture2D(original,q);}
+ vec4 lid(vec4 base,vec2 q,vec2 c){
+  vec2 r=vec2(.054,.047);vec2 p=(q-c)/r;
+  float feather=1.-smoothstep(.72,1.,length(p));
+  // Reveal an actual closed eyelid from above, without squeezing the eyeball.
+  float edge=mix(-1.15,1.15,motion.y);
+  float cover=(1.-smoothstep(edge-.08,edge+.08,p.y))*feather*step(.001,motion.y);
+  return mix(base,texture2D(closedEyes,q),cover);
+ }
+ void main(){
+  vec2 q=(uv-.5)*1.12+.5;
+  float chest=smoothstep(.56,.64,q.y)*(1.-smoothstep(.77,.86,q.y));
+  q.x=.5+(q.x-.5)/(1.+amplitude.x*chest*motion.x);
+  q.y+=.0024*chest*motion.x;
+  // Smooth local ear motion fades out before either eye; no detached cutouts.
+  float l=bell(q,ears.xy,vec2(.27,.28))*(1.-smoothstep(.31,.37,q.x));
+  float r=bell(q,ears.zw,vec2(.26,.28))*smoothstep(.67,.74,q.x);
+  q+=vec2(-.002,amplitude.y)*l*motion.z;
+  q+=vec2(.002,amplitude.y)*r*motion.w;
+  vec4 color=source(q);
+  if(motion.y>.001){color=lid(color,q,eyes.xy);color=lid(color,q,eyes.zw);}
+  gl_FragColor=color;
+ }`;
+ function createRenderer(canvas,open,closed,rig){
+  const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:false});
+  if(!gl)throw Error('WebGL unavailable');
+  const shaders=[],textures=[];let program=null,buffer=null;
+  function destroy(){textures.forEach(t=>gl.deleteTexture(t));if(buffer)gl.deleteBuffer(buffer);if(program)gl.deleteProgram(program);shaders.forEach(s=>gl.deleteShader(s));gl.getExtension('WEBGL_lose_context')?.loseContext();}
+  try{
+   function shader(type,source){const s=gl.createShader(type);shaders.push(s);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
+   program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VERTEX));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FRAGMENT));gl.linkProgram(program);
+   if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+   buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+   const p=gl.getAttribLocation(program,'p');gl.enableVertexAttribArray(p);gl.vertexAttribPointer(p,2,gl.FLOAT,false,0,0);
+   [open,closed].forEach((img,index)=>{const texture=gl.createTexture();textures.push(texture);gl.activeTexture(gl.TEXTURE0+index);gl.bindTexture(gl.TEXTURE_2D,texture);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
+    gl.uniform1i(gl.getUniformLocation(program,index?'closedEyes':'original'),index);
+   });
+   gl.uniform4fv(gl.getUniformLocation(program,'eyes'),rig.eyes);gl.uniform4fv(gl.getUniformLocation(program,'ears'),[...rig.left,...rig.right]);
+   gl.uniform2f(gl.getUniformLocation(program,'amplitude'),AMPLITUDE.chest,AMPLITUDE.ear);
+   const movement=gl.getUniformLocation(program,'motion');
+   return {draw(values){
+    const size=Math.min(1000,Math.max(1,Math.round(canvas.clientWidth*Math.min(global.devicePixelRatio||1,2))));
+    if(canvas.width!==size||canvas.height!==size){canvas.width=canvas.height=size;gl.viewport(0,0,size,size);}
+    gl.uniform4f(movement,values.breath,values.blink,values.earL,values.earR);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLES,0,6);
+   },destroy};
+  }catch(error){destroy();throw error;}
+ }
+ let userPaused=false;
+ function mount(root,options={}){
+  userPaused=Boolean(options.paused);
+  const stage=root.querySelector('[data-kora-live]');if(!stage||!global.gsap)return ()=>{};
+  const image=stage.querySelector('img'),canvas=stage.querySelector('canvas');
+  const media=global.matchMedia('(prefers-reduced-motion: reduce)');
+  let disposed=false,renderer=null,motion=null,inView=true,observer=null,ticking=false,broken=false;
+  const closed=new Image();
+  function draw(){if(renderer&&motion)renderer.draw(motion.values);}
+  function sync(){
+   if(disposed||!motion)return;
+   const running=!userPaused&&!media.matches&&!document.hidden&&inView&&!broken;
+   motion.pause(!running);stage.classList.toggle('is-live',running);
+   if(running&&!ticking){global.gsap.ticker.add(draw);ticking=true;draw();}
+   else if(!running&&ticking){global.gsap.ticker.remove(draw);ticking=false;}
+
+  }
+  const greet=()=>{if(!userPaused&&!media.matches)motion?.greet();};
+  const fail=()=>{broken=true;sync();stage.classList.remove('is-live');stage.dataset.liveStatus='fallback';};
+  const lose=event=>{event.preventDefault();fail();};
+  function ready(){
+   if(disposed||renderer||broken||!image.complete||!image.naturalWidth||!closed.complete||!closed.naturalWidth)return;
+   try{renderer=createRenderer(canvas,image,closed,RIGS[stage.dataset.koraLive]||RIGS.calm);motion=createMotion(global.gsap);
+    stage.dataset.liveStatus='ready';
+    if(global.IntersectionObserver){observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;sync();},{threshold:.05});observer.observe(stage);}
+    sync();
+   }catch(error){console.warn('Kora keeps its static portrait:',error.message);fail();}
+  }
+  image.addEventListener('load',ready);image.addEventListener('error',fail);
+  closed.onload=ready;closed.onerror=fail;closed.src='assets/kora-'+stage.dataset.koraLive+'-blink.png';
+  stage.addEventListener('kora-greet',greet);
+  document.addEventListener('visibilitychange',sync);media.addEventListener('change',sync);canvas.addEventListener('webglcontextlost',lose);
+  ready();
+  return ()=>{disposed=true;global.gsap.ticker.remove(draw);observer?.disconnect();motion?.destroy();
+   image.removeEventListener('load',ready);image.removeEventListener('error',fail);closed.onload=closed.onerror=null;
+   stage.removeEventListener('kora-greet',greet);document.removeEventListener('visibilitychange',sync);media.removeEventListener('change',sync);
+   canvas.removeEventListener('webglcontextlost',lose);renderer?.destroy();stage.classList.remove('is-live');
+  };
+ }
+ const api={mount,createMotion,RIGS,AMPLITUDE};
+ if(typeof module!=='undefined'&&module.exports)module.exports=api;else global.KoraCompanion=api;
+})(typeof window!=='undefined'?window:globalThis);

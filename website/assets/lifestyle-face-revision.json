@@ -1,0 +1,12 @@
+{
+  "tool": "Built-in image_gen",
+  "activeVariants": {
+    "lazy": "v4",
+    "spark": "v4",
+    "busy": "v4",
+    "feel": "v4"
+  },
+  "prompt": "Use case: identity-preserve targeted character correction. Image 1 is the EDIT TARGET. Image 2 is the approved original Kora face, Image 3 is the approved original full-character reference. The user says the blue/red character's ears are slightly too small and the face is too flat/squashed. Adjust ONLY the head proportions: restore a plump rounded three-dimensional face with fuller lower cheeks and a softly rounded chin, increasing vertical facial volume subtly (roughly ten percent) while preserving the eyes, eye size, nose, small mouth, identity and expression. Give the ears a little more outward width and generous rounded fullness to match the original approved references, roughly 10-12 percent larger than target, NOT gigantic disk-shaped ears. Keep the natural oval fluffy original ear shape. Face should feel rounded and plush, not wide flat pancake, not square-jawed. Preserve precisely the target's tracksuit, cream headband, pose, body size, short legs, hands, accessories, prop positions, transparent background and studio lighting. No human facial features, no gender alteration, no makeup, no teeth. Same original Kora, no redesign. Entire composition intact, no text.",
+  "scope": "Only blue busy and orange/red spark. Rounder cheeks and slightly fuller ears following user feedback. Green and pink v3 unchanged.",
+  "followup": "Green and pink now use v4, ear proportions matched to red/blue v4; see lifestyle-ear-match.json."
+}
