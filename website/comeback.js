@@ -3,31 +3,31 @@
  'use strict';
  const calendar=typeof module!=='undefined'&&module.exports?require('./daily.js'):root.KoraDaily;
  const copy=value=>JSON.parse(JSON.stringify(value));
- const energies=['ready','low','rest'], reasons=['time','tired','return','guilt'];
+ const energies=['ready','low','rest'], reasons=['time','tired','return','guilt','routine','choice'];
  const options={ready:['keep'],low:['walk','stretch'],rest:['pause']};
  function fingerprint(state){return JSON.stringify([state.plan,state.days[state.date].comeback||null]);}
- function begin(state,energy){if(!energies.includes(energy))return null;return {date:state.date,base:fingerprint(state),energy,reason:'return',action:options[energy][0]};}
+ function begin(state,energy){if(!energies.includes(energy))return null;return {date:state.date,base:fingerprint(state),energy,reason:energy==='ready'?'routine':'choice',action:options[energy][0]};}
  function plan(state,draft){
-  if(draft.energy==='ready')return copy(state.plan);
+  if(draft.energy==='ready')return state.plan.type==='rest'?calendar.defaultPlan(state):copy(state.plan);
   if(draft.energy==='rest')return {type:'rest',minutes:0,done:false,reminder:false};
-  return {type:'tiny',action:draft.action,minutes:draft.action==='walk'?2:1,done:false,reminder:false};
+  return {type:'tiny',action:draft.action,minutes:Math.min(Number(state.plan.minutes)||2,draft.action==='walk'?2:1),done:false,reminder:false};
  }
  function confirm(state,draft){
   if(!draft||draft.date!==state.date||draft.base!==fingerprint(state))return false;
   if(!energies.includes(draft.energy)||!reasons.includes(draft.reason)||!options[draft.energy].includes(draft.action))return false;
   // Never replace a completed action or accidentally reschedule an existing reservation.
   if(state.plan.done||state.days[state.date].comeback?.done)return false;
-  if(draft.energy==='ready'){
+  if(draft.energy==='ready'&&state.plan.type!=='rest'){
    state.undo={plan:copy(state.plan),historyLength:state.history.length,comeback:copy(state.days[state.date].comeback||null)};
    state.history.push({kind:'check-in',date:state.date,reason:draft.reason,at:new Date().toISOString()});
-  }else if(!calendar.adjust(state,plan(state,draft),'comeback:'+draft.reason))return false;
+  }else if(!calendar.adjust(state,plan(state,draft),'comeback:'+draft.reason,new Date().toISOString(),{cancelReservation:draft.cancelReservation}))return false;
   state.days[state.date].comeback={energy:draft.energy,reason:draft.reason,action:draft.action,done:false,at:new Date().toISOString()};
   return true;
  }
  function complete(state){
   const day=state.days[state.date];if(!day.comeback||day.comeback.done||day.plan?.type==='reschedule')return false;
-  day.comeback.done=true;if(day.plan.type!=='rest'){day.plan.done=true;day.plan.reminder=false;}
-  state.undo=null;return true;
+  if(day.plan.type!=='rest')return calendar.complete(state);
+  day.comeback.done=true;state.undo=null;return true;
  }
  function records(state){
   return Object.keys(state.days).filter(date=>/^\d{4}-\d{2}-\d{2}$/.test(date)&&date<=state.date&&calendar.dateKey(calendar.parseDate(date))===date).sort().flatMap(date=>{

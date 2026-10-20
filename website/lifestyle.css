@@ -76,3 +76,7 @@
 @media(prefers-reduced-motion:reduce){.life-tile img{transition:none}.life-tile:hover img{transform:none}}
 
 .quiz-mode .desktop-nav,.quiz-mode .mobile-nav { display:none; }
+.life-section-label { font-size:12px;color:var(--green);margin-bottom:12px; }
+.life-evidence { background:#f7f7f2;border-radius:14px;padding:16px 20px;margin:18px 0;font-size:13px;line-height:1.8; }
+.life-evidence ul { padding-left:18px;margin:8px 0; }.life-evidence p { font-size:12px; }
+.life-result h1 { font-size:clamp(30px,4vw,48px); }.life-question .life-option { min-height:58px; }

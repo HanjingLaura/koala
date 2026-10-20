@@ -22,8 +22,39 @@
     return state.days[key];
   }
   function defaultPlan(state) {
-    const minutes=[10,20,30].includes(Number(state.profile.minutes))?Number(state.profile.minutes):30;
-    return {type:'original',workout:'light',title:`${minutes} 分钟轻运动安排`,minutes,done:false,reminder:true};
+    const p=state.profile||{},minutes=[10,20,30].includes(Number(p.minutes))?Number(p.minutes):20;
+    const action=(p.activities||[]).find(a=>['walk','stretch','cardio','strength'].includes(a))||'walk';
+    return {type:'original',action,workout:{cardio:'light',strength:'strength',stretch:'stretch',walk:'walk'}[action],minutes,done:false,reminder:false};
+  }
+  function shorter(state,action) {
+    const current=state.plan,base=current.type==='rest'||current.type==='reschedule'?defaultPlan(state):current;
+    const minutes=Math.max(1,Math.min(10,Math.floor(Number(base.minutes)/2)||1));
+    return {...copy(base),type:'short',action:action||base.action||({light:'cardio',strength:'strength',stretch:'stretch'}[base.workout])||'walk',minutes,done:false,reminder:false,session:null};
+  }
+  function elapsed(plan,now=Date.now()) {
+    const s=plan.session;if(!s)return 0;
+    return Math.max(0,Number(s.elapsedMs)||0)+(s.running?Math.max(0,now-s.startedAt):0);
+  }
+  function start(state,now=Date.now()) {
+    if(state.plan.done||['rest','reschedule'].includes(state.plan.type))return false;
+    if(!state.plan.session?.running)state.plan.session={elapsedMs:elapsed(state.plan,now),startedAt:now,running:true};
+    state.undo=null;return true;
+  }
+  function pause(state,now=Date.now()) {
+    if(!state.plan.session?.running)return false;
+    state.plan.session={elapsedMs:elapsed(state.plan,now),running:false};return true;
+  }
+  function complete(state,now=Date.now()) {
+    if(state.plan.done||['rest','reschedule'].includes(state.plan.type))return false;
+    pause(state,now);state.plan.done=true;state.plan.reminder=false;
+    if(state.days[state.date].comeback)state.days[state.date].comeback.done=true;
+    state.undo=null;return true;
+  }
+  function uncomplete(state) {
+    if(!state.plan.done)return false;
+    state.plan.done=false;state.plan.reminder=false;
+    if(state.days[state.date].comeback)state.days[state.date].comeback.done=false;
+    state.undo=null;return true;
   }
   function activate(state,key) {
     state.date=key;
@@ -42,6 +73,7 @@
         }
       }
       state.history=saved.history;
+      if(saved.wallet?.version===1)state.wallet=copy(saved.wallet);
       state.legacy=saved.legacy||null;
       state.language=saved.language||'zh';state.onboarded=Boolean(saved.onboarded);
       return activate(state,key);
@@ -56,22 +88,25 @@
     return activate(state,key);
   }
   function canReschedule(state) { return !state.days[addDays(state.date,1)]?.plan; }
-  function adjust(state,next,reason,at=new Date().toISOString()) {
+  function adjust(state,next,reason,at=new Date().toISOString(),options={}) {
     if (state.plan.done || state.days[state.date].comeback?.done) return false;
     const tomorrow=addDays(state.date,1);
     if (next.type==='reschedule' && !canReschedule(state)) return false;
     const existingTarget=state.plan.type==='reschedule'?state.plan.targetDate:null;
-    if (existingTarget && (state.days[existingTarget]?.plan?.sourceDate!==state.date || state.days[existingTarget].plan.done)) return false;
+    if (existingTarget && options.cancelReservation && (state.days[existingTarget]?.plan?.sourceDate!==state.date || state.days[existingTarget].plan.done || state.days[existingTarget].comeback)) return false;
     const target=next.type==='reschedule'?tomorrow:existingTarget;
     const beforeTarget=target&&state.days[target]?copy(state.days[target]):null;
     const undo={plan:copy(state.plan),historyLength:state.history.length,target,beforeTarget,comeback:copy(state.days[state.date].comeback||null)};
+    if(undo.plan.session?.running)undo.plan.session={elapsedMs:elapsed(undo.plan,Date.parse(at)||Date.now()),running:false};
     // Only remove a reservation owned by today's previous adjustment.
-    if (existingTarget && state.days[existingTarget]?.plan?.sourceDate===state.date) state.days[existingTarget].plan=null;
+    if (existingTarget && options.cancelReservation && state.days[existingTarget]?.plan?.sourceDate===state.date) state.days[existingTarget].plan=null;
     state.plan=copy(next);
+    delete state.plan.session;delete state.plan.sourceDate;delete state.plan.targetDate;
     delete state.days[state.date].comeback;
     if (next.type==='reschedule') {
       state.plan.targetDate=tomorrow;
-      ensureDay(state,tomorrow).plan={...copy(next),type:'custom',title:`${next.minutes} 分钟轻运动安排`,sourceDate:state.date,done:false,reminder:true};
+      ensureDay(state,tomorrow).plan={...copy(state.plan),type:'custom',sourceDate:state.date,done:false,reminder:false};
+      delete state.days[tomorrow].plan.targetDate;delete state.days[tomorrow].plan.session;
     }
     undo.afterTarget=target&&state.days[target]?copy(state.days[target]):null;
     state.undo=undo;
@@ -95,7 +130,7 @@
     state.undo=null;
     return true;
   }
-  const api={dateKey,parseDate,addDays,weekDates,fresh,load,activate,adjust,undo,canReschedule};
+  const api={defaultPlan,shorter,elapsed,start,pause,complete,uncomplete,dateKey,parseDate,addDays,weekDates,fresh,load,activate,adjust,undo,canReschedule};
   if (typeof module!=='undefined' && module.exports) module.exports=api;
   else root.KoraDaily=api;
 })(typeof window==='undefined'?globalThis:window);

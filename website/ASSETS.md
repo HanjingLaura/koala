@@ -85,3 +85,45 @@ v1 与 v3 作为本轮衍生图迭代参考保留，页面只引用上述四张�
 ### 绿粉耳朵对齐 · 当前四种生活人格均使用 v4
 
 按用户要求，使用内置 image_gen，以红色 `kora-life-spark-v4.png` 与蓝色 `kora-life-busy-v4.png` 为耳朵比例参考，编辑绿色 / 粉色 v3，保持各自脸型、表情、服装和姿势。当前新增素材为 `assets/kora-life-lazy-v4.png`、`assets/kora-life-feel-v4.png`，页面与人格卡片导出统一引用四种 v4；红蓝图未改。提示词见 `assets/lifestyle-ear-match.json`。旧图保留追溯，未修改角色主库。
+
+
+### v0.9 探头鼓励
+
+`assets/kora-cheer-head-v2.png` 由内置 image_gen 编辑原 `kora-avatar.png`，只移除背景、保留头部身份与毛发边缘，带透明 alpha。用于训练完成与饮食记录的探头反馈；保留原图，不替换正式主库。提示词见 `assets/cheer-head-prompt.json`。用户要求放大、探头与活泼鼓励，本轮视觉待用户确认。
+
+
+### v0.9 框内开心鼓励 · 历史版本
+
+用户否定探头形式后，改为 `assets/kora-cheer-happy-v3.png`。使用内置 image_gen 编辑 v2 透明头：保留原角色耳朵、脸型、毛发和鼻子，改成笑眼与张嘴开心表情。头部完整放在提示框内，旧图保留但不再用于鼓励。提示词见 `assets/cheer-happy-prompt.json`。未修改角色主库。
+
+
+### v0.9 Wink 鼓励 · 当前版本
+
+用户反馈张嘴笑脸不自然后，改用 `assets/kora-cheer-wink-v4.png`。由内置 image_gen 基于 v2 中性透明头制作，单眼 wink、嘴角轻吐舌，保留原耳脸比例、毛发与鼻子。继续使用框内布局，旧版本保留追溯。提示词见 `assets/cheer-wink-prompt.json`。未修改角色主库，待用户视觉确认。
+
+
+### v0.10 路线与风景
+
+路线、脚印、树荫 / 溪边 / 星光收藏由原生 SVG 与 CSS 绘制在 `app.js` / `styles.css`，不使用第三方游戏素材。节点沿用当前运动装 Kora，未重新生成或修改正式角色图。GSAP 沿用仓库内现有版本；此次未找到可用的 GSAP 技能文件。
+
+
+### v0.11 场景路线
+
+首页使用原生 SVG 绘制低对比树影、溪流、帐篷和星光作为整页背景。复用原运动装 Kora 与 WebGL / GSAP 陪伴动作，未生成或修改角色图像；原收藏图保留在档案背景选择中。
+
+
+### v0.12 精细树荫侧景
+
+新增 `assets/kora-trail-tree.svg`，以原生 SVG 绘制分层树冠、枝条、叶脉、草木和石头，左右侧景复用并改变朝向、大小和透明度。底部地面、溪流及帐篷仍由代码绘制，未使用第三方游戏素材。Kora 角色与陪伴动画资产保持原版。
+
+### v0.13 商店与奖励风景
+
+新增原创原生 SVG：`kora-shop-bird.svg`（歪头 / 翅膀轻动，支持减少动态效果）、`kora-scene-creek.svg`（溪水、石头、芦苇、帐篷）、`kora-scene-stars.svg`（星光、蕨草与地景）。月亮、商店木屋和场景缩略图由页面原生 SVG 绘制。复用原树冠与已确认的 Kora，不改角色身份。用于本地商店预览和兑换后的首页场景。
+
+### v0.15 三套风景精修
+
+继续使用代码绘制的原创原生 SVG，重绘 `kora-trail-tree.svg`、`kora-scene-creek.svg` 和 `kora-scene-stars.svg`；新增 `kora-trail-fern.svg`、`kora-creek-bank.svg`、`kora-campsite.svg`、`kora-scene-moon.svg`。树冠带稀疏点纹，溪流仅拉伸水面层，植物 / 帐篷 / 月亮等物件通过独立图片保持比例。星光装饰均为静态，不增加持续动效。商店与首页共享素材，未修改已确认 Kora 图像。
+
+### v0.15.1 小溪优先的构图
+
+溪边场景不再渲染左侧大树、远树与左下蕨草，水层在地形之后绘制，避免树干和地形挡住水面。溪流描边加宽、蓝绿颜色更清楚；少量河岸植物沿右岸摆放，右侧树木退后。其他两套场景素材与构图保留。

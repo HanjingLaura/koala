@@ -18,7 +18,7 @@ test('refresh and next day isolate meals/completion and retain profile/history',
 test('rescheduling Sunday reserves Monday across week/year and reload',()=>{
   let s=open('2026-12-31');assert.equal(daily.adjust(s,plan('reschedule'),'今天没时间'),true);
   assert.equal(s.plan.targetDate,'2027-01-01');s=daily.load(JSON.parse(JSON.stringify(s)),'2027-01-01');
-  assert.equal(s.plan.type,'custom');assert.equal(s.plan.minutes,10);assert.equal(s.plan.reminder,true);assert.equal(s.days['2026-12-31'].plan.type,'reschedule');
+  assert.equal(s.plan.type,'custom');assert.equal(s.plan.minutes,10);assert.equal(s.plan.reminder,false);assert.equal(s.days['2026-12-31'].plan.type,'reschedule');
 });
 test('rescheduling never overwrites an existing tomorrow plan',()=>{
   const s=open('2026-10-18');daily.activate(s,'2026-10-19');s.plan.done=true;daily.activate(s,'2026-10-18');
@@ -34,16 +34,47 @@ test('undo does not discard later target-day data',()=>{
   const before=JSON.stringify(s);assert.equal(daily.undo(s),false);assert.equal(JSON.stringify(s),before);
 });
 test('changing a reschedule to rest removes reservation; undo restores it',()=>{
-  const s=open('2026-10-18');daily.adjust(s,plan('reschedule'),'今天没时间');daily.adjust(s,{...plan('rest'),minutes:0},'今天不想练');
+  const s=open('2026-10-18');daily.adjust(s,plan('reschedule'),'今天没时间');daily.adjust(s,{...plan('rest'),minutes:0},'今天不想练',undefined,{cancelReservation:true});
   assert.equal(s.days['2026-10-19'].plan,null);assert.equal(daily.undo(s),true);assert.equal(s.plan.type,'reschedule');assert.equal(s.days['2026-10-19'].plan.minutes,10);
 });
 test('completed plans cannot be rewritten',()=>{const s=open('2026-10-18');s.plan.done=true;assert.equal(daily.adjust(s,plan(),'今天没时间'),false);});
 test('undo after cancelling a reschedule preserves later changes on its target',()=>{
-  const s=open('2026-10-18');daily.adjust(s,plan('reschedule'),'今天没时间');daily.adjust(s,plan('rest'),'今天不想练');
+  const s=open('2026-10-18');daily.adjust(s,plan('reschedule'),'今天没时间');daily.adjust(s,plan('rest'),'今天不想练',undefined,{cancelReservation:true});
   s.days['2026-10-19'].logs.push({id:'new'});assert.equal(daily.undo(s),false);assert.equal(s.days['2026-10-19'].logs[0].id,'new');
 });
 test('legacy undated data is retained without claiming it happened today',()=>{
   const legacy={schema:1,profile:{name:'旧昵称'},plan:{title:'旧安排',done:true},logs:[{name:'旧餐食'}],history:[],nextWednesdayRest:true};
   const s=daily.load(legacy,'2026-10-18');assert.deepEqual(s.legacy,legacy);assert.equal(s.profile.name,'旧昵称');assert.equal(s.logs.length,0);assert.equal(s.plan.done,false);assert.equal(s.nextWednesdayRest,undefined);
   const reloaded=daily.load(JSON.parse(JSON.stringify(s)),'2026-10-19');assert.deepEqual(reloaded.legacy,legacy);
+});
+
+test('changing today preserves tomorrow by default; explicit cancellation protects completed plans',()=>{
+ const s=open('2026-10-19');daily.adjust(s,plan('reschedule'),'time');const reserved=JSON.stringify(s.days['2026-10-20']);
+ assert.equal(daily.adjust(s,{type:'starter',action:'walk',minutes:2,done:false},'style'),true);
+ assert.equal(JSON.stringify(s.days['2026-10-20']),reserved);
+ daily.undo(s);s.days['2026-10-20'].plan.done=true;
+ assert.equal(daily.adjust(s,{type:'rest',minutes:0},'rest',undefined,{cancelReservation:true}),false);
+ assert.equal(daily.adjust(s,{type:'rest',minutes:0},'rest'),true);
+ assert.equal(s.days['2026-10-20'].plan.done,true);
+});
+test('normal plan follows current preferences; shortening never extends a session',()=>{
+ const s=open('2026-10-19');s.profile={minutes:'10',activities:['strength']};
+ assert.equal(daily.defaultPlan(s).minutes,10);assert.equal(daily.defaultPlan(s).action,'strength');
+ for(const minutes of [1,2,5,10,20,30]){s.plan={type:'custom',minutes,workout:'strength'};const next=daily.shorter(s);assert.ok(next.minutes<=minutes);assert.equal(next.action,'strength');}
+});
+test('start, pause, reload, resume and explicit completion preserve elapsed time and never auto-complete',()=>{
+ let s=open('2026-10-19');s.profile={minutes:'10',activities:['walk']};s.plan=daily.defaultPlan(s);
+ assert.equal(daily.start(s,1000),true);assert.equal(daily.elapsed(s.plan,61000),60000);
+ daily.pause(s,61000);assert.equal(daily.elapsed(s.plan,99000),60000);assert.equal(s.plan.done,false);
+ s=daily.load(JSON.parse(JSON.stringify(s)),s.date);daily.start(s,100000);assert.equal(daily.elapsed(s.plan,110000),70000);
+ daily.complete(s,110000);assert.equal(s.plan.done,true);assert.equal(s.plan.session.running,false);assert.equal(daily.complete(s),false);
+ daily.uncomplete(s);assert.equal(s.plan.done,false);assert.equal(s.plan.reminder,false);
+ s.plan={type:'rest',minutes:0};assert.equal(daily.start(s),false);assert.equal(daily.complete(s),false);
+});
+
+test('rescheduling does not carry elapsed time into tomorrow; undo restores a paused session',()=>{
+ const s=open('2026-10-19');daily.start(s,1000);
+ daily.adjust(s,{...s.plan,type:'reschedule'},'time',new Date(61000).toISOString());
+ assert.equal(s.days['2026-10-20'].plan.session,undefined);assert.equal(s.days['2026-10-20'].plan.targetDate,undefined);
+ daily.undo(s);assert.equal(s.plan.session.running,false);assert.equal(s.plan.session.elapsedMs,60000);
 });

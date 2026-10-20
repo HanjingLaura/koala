@@ -2,7 +2,7 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const source=fs.readFileSync(require('node:path').join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0];
-function context(saved=null){const c=vm.createContext({structuredClone,console,window:{KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:require('../daily.js')},localStorage:{getItem:()=>saved?JSON.stringify(saved):null,setItem:()=>{}},document:{querySelector:()=>({})}});vm.runInContext(source,c);return c;}
+function context(saved=null){const c=vm.createContext({structuredClone,console,window:{KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:require('../daily.js')},localStorage:{getItem:()=>saved?JSON.stringify(saved):null,setItem:()=>{}},document:{querySelector:()=>({})}});vm.runInContext(source,c);return c;}
 const run=(c,s)=>vm.runInContext(s,c);
 const c=context();
 assert.equal(run(c,'state.onboarded'),false);
@@ -19,7 +19,7 @@ for(const lang of ['zh','en']){
 }
 run(c,"draft={choice:'short'}");assert.equal(run(c,'draftPlan().minutes'),10);
 run(c,"draft={choice:'rest'}");assert.equal(run(c,'draftPlan().reminder'),false);
-run(c,"state.plan={type:'rest',minutes:0,day:2,done:false,reminder:false};draft={choice:'reschedule'}");assert.equal(run(c,'draftPlan().minutes'),20);assert.equal(run(c,'draftPlan().day'),3);
+run(c,"state.plan={type:'rest',minutes:0,day:2,done:false,reminder:false};draft={choice:'reschedule'}");assert.equal(run(c,'draftPlan().minutes'),20);assert.equal(run(c,'draftPlan().type'),'reschedule');
 run(c,"draft={workout:'strength'}");assert.equal(run(c,'draftPlan().workout'),'strength');
 run(c,"state.language='en';state.logs=[{id:'legacy',name:'熟米饭',grams:150,cal:195}]");assert.ok(run(c,'food()').includes('Cooked rice'));assert.ok(!/[\u4e00-\u9fff]/.test(run(c,'food()')));
 const old={schema:1,profile:{name:'Legacy',minutes:'30',goal:'养成舒服的生活节奏',noJump:true},plan:{type:'original',minutes:30,day:2,done:false,reminder:true},logs:[{id:'1',name:'熟米饭',grams:100,cal:130}],history:[]};
@@ -33,5 +33,5 @@ for(const lang of ['zh','en'])for(const energy of ['ready','low','rest']){
  for(const view of ['lastModal','(showComebackReview(),lastModal)']){const html=run(c,view);assert.ok(!html.includes('undefined'));if(lang==='en')assert.ok(!/[\u4e00-\u9fff]/.test(html.replace('>中文<','><')));}
 }
 run(c,"state.language='en';comeback.confirm(state,comeback.begin(state,'low'))");assert.ok(!/[\u4e00-\u9fff]/.test(run(c,'today()')));
-run(c,'comeback.complete(state)');assert.ok(run(c,'today()').includes('Stay a while with Kora'));
+run(c,'comeback.complete(state)');assert.ok(run(c,'today()').includes('Today’s plan. Done.'));assert.ok(!run(c,'today()').includes('data-energy="low"'));
 console.log('PASS: energy dialogs, saved path and completion home in both languages.');

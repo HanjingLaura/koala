@@ -4,7 +4,7 @@ const vm=require('node:vm');
 const daily=require('../daily.js');
 const source=fs.readFileSync(require('node:path').join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0];
 const profile={name:'Demo',height:'165',weight:'60',persona:'gentle',activities:['walk'],minutes:'20',goal:'routine',noJump:true};
-function app(saved){const c=vm.createContext({structuredClone,console,window:{KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:daily},localStorage:{getItem:()=>JSON.stringify(saved)},document:{querySelector:()=>({})}});vm.runInContext(source,c);return c;}
+function app(saved){const c=vm.createContext({structuredClone,console,window:{KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:daily},localStorage:{getItem:()=>JSON.stringify(saved)},document:{querySelector:()=>({})}});vm.runInContext(source,c);return c;}
 const run=(c,s)=>vm.runInContext(s,c);
 const key=daily.dateKey();
 // Preserve the teammate's dated schema 2, including its legacy archive.

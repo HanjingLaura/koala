@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "source": "assets/kora-avatar.png",
+  "output": "assets/kora-cheer-head-v2.png",
+  "transparent_background": true,
+  "prompt": "Edit target: supplied Kora koala head avatar. Remove ONLY the gray background to genuine transparent alpha, producing a clean furry-edge isolated head for a website peeking over a speech bubble. Preserve the same koala identity, face, small glossy black eyes, large dark nose, subtle smile, original ear proportions, soft gray/beige realistic plush fur and original front facing pose. Entire head and both ears fully visible with just 4% transparent margin around it. Head only, no neck, body, paws, clothing, circle, frame, backdrop, ground shadow, text, symbols or sticker outline. Keep original appearance, do not redesign or exaggerate the facial features."
+}

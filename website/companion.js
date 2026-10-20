@@ -97,10 +97,10 @@
   }catch(error){destroy();throw error;}
  }
  let userPaused=false;
- function mount(root){
+ function mount(root,options={}){
+  userPaused=Boolean(options.paused);
   const stage=root.querySelector('[data-kora-live]');if(!stage||!global.gsap)return ()=>{};
   const image=stage.querySelector('img'),canvas=stage.querySelector('canvas');
-  const controls=root.querySelector('.companion-controls'),pause=controls.querySelector('[data-kora-pause]'),hello=controls.querySelector('[data-kora-greet]');
   const media=global.matchMedia('(prefers-reduced-motion: reduce)');
   let disposed=false,renderer=null,motion=null,inView=true,observer=null,ticking=false,broken=false;
   const closed=new Image();
@@ -111,29 +111,27 @@
    motion.pause(!running);stage.classList.toggle('is-live',running);
    if(running&&!ticking){global.gsap.ticker.add(draw);ticking=true;draw();}
    else if(!running&&ticking){global.gsap.ticker.remove(draw);ticking=false;}
-   pause.textContent=media.matches?pause.dataset.reduced:userPaused?pause.dataset.resume:pause.dataset.pause;
-   pause.setAttribute('aria-pressed',String(userPaused||media.matches));pause.disabled=media.matches;hello.disabled=!running;
+
   }
-  const toggle=()=>{userPaused=!userPaused;sync();};
-  const greet=()=>{if(!hello.disabled)motion?.greet();};
-  const fail=()=>{broken=true;sync();stage.classList.remove('is-live');controls.hidden=true;stage.dataset.liveStatus='fallback';};
+  const greet=()=>{if(!userPaused&&!media.matches)motion?.greet();};
+  const fail=()=>{broken=true;sync();stage.classList.remove('is-live');stage.dataset.liveStatus='fallback';};
   const lose=event=>{event.preventDefault();fail();};
   function ready(){
    if(disposed||renderer||broken||!image.complete||!image.naturalWidth||!closed.complete||!closed.naturalWidth)return;
    try{renderer=createRenderer(canvas,image,closed,RIGS[stage.dataset.koraLive]||RIGS.calm);motion=createMotion(global.gsap);
-    stage.dataset.liveStatus='ready';controls.hidden=false;
+    stage.dataset.liveStatus='ready';
     if(global.IntersectionObserver){observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;sync();},{threshold:.05});observer.observe(stage);}
     sync();
    }catch(error){console.warn('Kora keeps its static portrait:',error.message);fail();}
   }
   image.addEventListener('load',ready);image.addEventListener('error',fail);
   closed.onload=ready;closed.onerror=fail;closed.src='assets/kora-'+stage.dataset.koraLive+'-blink.png';
-  pause.addEventListener('click',toggle);hello.addEventListener('click',greet);
+  stage.addEventListener('kora-greet',greet);
   document.addEventListener('visibilitychange',sync);media.addEventListener('change',sync);canvas.addEventListener('webglcontextlost',lose);
   ready();
   return ()=>{disposed=true;global.gsap.ticker.remove(draw);observer?.disconnect();motion?.destroy();
    image.removeEventListener('load',ready);image.removeEventListener('error',fail);closed.onload=closed.onerror=null;
-   pause.removeEventListener('click',toggle);hello.removeEventListener('click',greet);document.removeEventListener('visibilitychange',sync);media.removeEventListener('change',sync);
+   stage.removeEventListener('kora-greet',greet);document.removeEventListener('visibilitychange',sync);media.removeEventListener('change',sync);
    canvas.removeEventListener('webglcontextlost',lose);renderer?.destroy();stage.classList.remove('is-live');
   };
  }

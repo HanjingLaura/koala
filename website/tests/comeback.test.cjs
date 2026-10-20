@@ -28,7 +28,7 @@ test('keep preserves reservations; later target check-in blocks undo that would 
 });
 test('rest after rescheduling and undo restore both dates without losing meals',()=>{
  const s=fresh();s.logs.push({id:'meal',cal:130});daily.adjust(s,{type:'reschedule',minutes:20,done:false},'time');const target=JSON.stringify(s.days['2026-10-20']);
- back.confirm(s,back.begin(s,'rest'));assert.equal(s.days['2026-10-20'].plan,null);assert.equal(s.logs[0].cal,130);
+ const rest=back.begin(s,'rest');rest.cancelReservation=true;back.confirm(s,rest);assert.equal(s.days['2026-10-20'].plan,null);assert.equal(s.logs[0].cal,130);
  daily.undo(s);assert.equal(JSON.stringify(s.days['2026-10-20']),target);assert.equal(s.plan.type,'reschedule');assert.equal(s.logs[0].cal,130);
 });
 test('path ignores automatic day creation, future reservations and undated data; gaps require actual recorded actions',()=>{
@@ -37,4 +37,10 @@ test('path ignores automatic day creation, future reservations and undated data;
  assert.deepEqual(back.returnInsight(s),{days:3,previous:14});assert.equal(back.records(s).length,3);
  daily.activate(s,'2026-10-20');assert.equal(back.returnInsight(s),null);assert.equal(back.records(s).length,3);
  assert.equal(back.gap('2026-12-31','2027-01-02'),1);
+});
+
+test('normal readiness never invents a setback; a pending rest can return to the usual plan',()=>{
+ const s=fresh();s.profile={minutes:'20',activities:['strength']};const ready=back.begin(s,'ready');assert.equal(ready.reason,'routine');
+ s.plan={type:'rest',minutes:0,done:false};const resume=back.begin(s,'ready');assert.equal(back.plan(s,resume).action,'strength');
+ assert.equal(back.confirm(s,resume),true);assert.equal(s.plan.minutes,20);assert.equal(s.plan.type,'original');
 });
