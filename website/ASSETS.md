@@ -1,5 +1,31 @@
 # 素材与第三方资源
 
+## v0.19 网页衍生文件与小插画 · 2026-10-20
+
+- 使用内置 imagegen，参考温柔教练的材质与光感，生成 food / fitness 两组静物。原图 assets/kora-{food,fitness}-still-v1.png；提示词见 assets/still-life-prompts.json；网页使用 assets/web/ 中的 WebP。
+- sharp 只做尺寸/编码转换，没有重画角色或修改五官。384px 与 768px 两档、WebP quality 86、alphaQuality 100。源 PNG 全部保留；编码尺寸与字节记录在 assets/web/encoding-manifest.json。
+- 原字体按当前 HTML/JS/CSS 字符生成 WOFF2，保留现有 OFL；未包含的字符由系统字体回退。新增文案应运行字体子集脚本以保持标题字体一致。
+- 运行包不含高分辨率原图、TTF、提示词和编码清单，导出卡片按需使用网页 WebP。角色主库 kora-library 未修改。
+
+## v0.18 六人格闭眼纹理 · 2026-10-20
+
+- 内置 imagegen 逐张编辑 lazy / spark / busy / feel / steady / guide 的 v6 生活装 PNG，只要求闭眼，保持身份、服装与道具。输出 assets/kora-life-{id}-blink.png，完整提示词和来源见 assets/lifestyle-blink-prompts.json。
+- 正常绘制始终取原睁眼 PNG，闭眼纹理只在羽化眼区采样，避免重新生成的其他部位影响已定形象。六人格使用独立眼位与较小胸部幅度，不加耳部摆动；四教练保留原幅度。
+- 新资产属于此原型的局部动画帧，未修改 kora-library 正式资产。
+
+## v0.17 攻略型道具 · 2026-10-20
+
+- 使用内置 imagegen 局部编辑此前修顺脸型的可可色生活装考拉，只更换道具为收藏训练视频的平板、计划卡与本子，衣服和脸型方向保留。输出 assets/kora-life-guide-v6.png，提示词见 assets/guide-props-prompt.json。
+- 当前六人格使用 lazy / spark / busy / feel / steady / guide，接梗图保留为历史参考，不进入运行包。仍为本地原型候选，未替换正式角色主库。
+- 星光背景、星星与光晕由原生 SVG / CSS 构成，GSAP 动画，无新增位图或外部依赖。
+
+## v0.16 六人格生活装与脸型修订 · 2026-10-20
+
+- 使用内置 imagegen，每只单独编辑；以此前 v4 人格图为身份参考，改为生活装，随后再次按用户要求收顺脸颊、下巴与耳根。教练原运动装、眨眼纹理与鼓励头图保留。
+- 当前网站引用 `assets/kora-life-{lazy,spark,busy,feel,steady,banter}-v6.png` 六张透明 PNG，分别为奶黄毛衣、杏色马甲、灰紫衬衫、莓紫针织、青色卫衣、可可帽衫。五官、毛色、大耳朵与短腿坐姿延续原身份方向，具体视觉仍待用户确认，不宣称已经批准。
+- 最终修订完整提示词、参考输出和角色说明见 `assets/lifestyle-v6-prompts.json`；首轮生活装 v5 草图移到仓库外 `outputs/kora-v16/drafts/`，原始生成结果仍保留。
+- 没有改动 `kora-library/`。运行包构建只包含实际引用的 v6，排除上述草图、旧版人格图、提示词、测试、文档与用户浏览器记录。
+
 ## Kora
 
 - `assets/kora-avatar.png`：来自仓库 `kora-library/assets/identity/KOR-ID-001_A-avatar.png`。

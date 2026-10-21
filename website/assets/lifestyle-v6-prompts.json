@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-20",
+  "tool": "Built-in image_gen, transparent background",
+  "status": "Local prototype; user visual review pending; not character-library master approval",
+  "face_revision_prompt": "Use case: identity-preserve. Edit target: image 1, current Kora lifestyle mascot. Image 2 is supporting original approved Kora face identity reference only. USER REVISION: the face outline feels strange; make the silhouette and facial contour smoother and more naturally rounded. Change ONLY the facial/head contour: gently round the cheeks, soften any corners, angular jaw, pinched chin, flat lower face or abrupt ear-root transitions. Create one continuous soft plush curve from temple to cheek to chin, like the same original baby koala in image 2. Preserve original face identity and cute tiny features: same small glossy dark eyes, same dark oval koala nose, same tiny mouth, same fluffy gray-beige fur with cream muzzle. Keep ear diameter, ear location and head-to-body ratio unchanged. Do NOT inflate cheeks, widen the face dramatically, enlarge eyes, shrink ears, add human jawline, eyebrows or teeth. Preserve image 1 clothing, colors, props, hand positions, body pose, short legs, feet, composition and transparent alpha exactly as far as possible. Do not bring back image 2's headband or sports clothing. Soft premium 3D plush style, front-facing gentle natural expression. Full character with all original props, truly transparent background, no text, no border, no new objects.",
+  "assets": [
+    {
+      "id": "lazy",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-fcf1df16-5e87-47c6-aceb-ef3956f9535f.png",
+      "target": "assets/kora-life-lazy-v6.png"
+    },
+    {
+      "id": "spark",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-8b937650-0163-4790-96db-8d6c79c74deb.png",
+      "target": "assets/kora-life-spark-v6.png"
+    },
+    {
+      "id": "busy",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-164dd79f-d493-4a00-a439-09e4ae9592c8.png",
+      "target": "assets/kora-life-busy-v6.png"
+    },
+    {
+      "id": "feel",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-4c4a5a80-8346-48e4-b822-0b9ddb277348.png",
+      "target": "assets/kora-life-feel-v6.png"
+    },
+    {
+      "id": "steady",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-cbab9707-b6be-4ff1-92e5-5d186cf30964.png",
+      "target": "assets/kora-life-steady-v6.png"
+    },
+    {
+      "id": "banter",
+      "source": "/Users/kongweijia/.codex/generated_images/01a14808-20cd-7853-bfde-d41e7772bc1a/exec-6e4774df-a910-4b38-90eb-8aa0467703d2.png",
+      "target": "assets/kora-life-banter-v6.png"
+    }
+  ],
+  "initial_clothing_revision": "v5: replace zip-up tracksuits/headbands with everyday clothes; preserve approved face, ear size and short seated proportions.",
+  "variants": {
+    "lazy": "Butter-yellow cable knit, oatmeal trousers, ivory chair, chip bag.",
+    "spark": "Apricot puffer vest, ivory T-shirt, beige shorts; keep yoga mat and dumbbells.",
+    "busy": "Lilac overshirt, white T-shirt, charcoal trousers, notebook and taupe bag.",
+    "feel": "Plum/lavender knitted cardigan, ivory trousers and pillow.",
+    "steady": "Teal crew-neck sweatshirt, cream trousers, cup and checked planner.",
+    "banter": "Cocoa hoodie, cream trousers, blank-screen smartphone, palm-up gesture."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "edit_target": "assets/kora-life-banter-v6.png",
+  "output": "assets/kora-life-guide-v6.png",
+  "prompt": "Use case: precise-object-edit. Edit target: provided transparent Kora mascot. Change ONLY props and hand positions to express a fitness ROUTINE RESEARCHER who saves and overplans workouts before starting. Keep the exact refined smooth face, eyes, nose, mouth, ear size, head and body proportions, gray-beige plush fur, cocoa-brown casual hoodie, cream trousers, short seated legs, lighting and transparent background. Replace the small blank phone with a compact tablet held low at the torso; on its screen show a simple grid of 3 saved workout thumbnails, each with tiny triangular play symbols and bookmark icons, no letters or numbers. The other paw holds 2 small cream workout-planning cards with simple drawn checkbox grids, no text. A thin closed exercise planner sits beside the foot. Props remain below the face and don't cover cheeks or ears. Same gentle slightly sheepish original expression, don't redraw the face. Whole character with all ears and feet visible, clean genuinely transparent alpha, no background, no new character, no badge, no border, no text. Preserve identity strictly; user has just approved/refined this face direction, edit objects only.",
+  "status": "Local prototype candidate; preserve refined face, change planning props only; awaiting visual feedback"
+}
