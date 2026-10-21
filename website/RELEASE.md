@@ -1,3 +1,17 @@
+# Kora v0.20 团队体验站更新
+
+2026-10-21 按用户要求更新原公开体验站，仍为 public，拿到链接即可访问。
+
+- 从头体验：https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/?demo=cora-v20-team 。独立 sessionStorage 保存体验进度，不覆盖原档案。
+- GitHub 功能提交：`58d1d0261ae31ca851834e325028d5556d190460`，Cora 分支；PR #6：https://github.com/HanjingLaura/koala/pull/6 ，已请求 Laura 审核，本轮未合并 main。
+- Sites v5：`appgprj_6ad70d461de88191b7ae41768c3fc950~appgver_6988787ed670819189a11851790224cd`。
+- 托管源码：`0ecffb79180c3928b0965c260fcb68d113972ce6`。
+- 部署：`appgdep_6ad85e2002a08191998a7353a0892a40`，状态 succeeded。
+- 75 个运行文件共 3,692,399 bytes，逐一与 GitHub 功能提交 SHA256 相同；含 hosting manifest 共 76 文件。
+- 线上新入口实际显示 12 题测试开场，加载 `20261021-guide` 脚本；731px 无横向溢出，控制台无 warn/error。完整首次建档及提醒引导已在本地独立体验验证，见 QA.md；本轮未再次执行全套线上流程或公网测速。
+
+以下为审核和历史发布记录。
+
 # Kora v0.20 GitHub 审核提交
 
 2026-10-21 用户批准本地效果，提交 Cora，申请 Laura 审核 main，先不合并。
