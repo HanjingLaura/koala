@@ -1,8 +1,22 @@
 # Kora · 你的生活搭子 / Your everyday companion
 
+## v0.20 · Kora 敲敲门
+
+用户已通过本地审核；本轮提交到 Cora，提请 Laura 审核后再合并 main。已按用户后续授权更新公开体验站至 Sites v5：[从头体验 v0.20](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/?demo=cora-v20-team)。main 仍等待 Laura 审核。
+
+- 首次完成测试、选教练和建档后，铃铛旁会出现一次轻量引导；「试试看」打开设置，「稍后」关闭。已有档案、重测或修改资料不会重复提示，不会自动开启通知。
+- 右上角铃铛进入提醒设置。提醒和预览都跟随档案中已选教练，不再单独选择语气；连续点击「看看效果」依次预览三次敲门。预览不改教练、计划、计时、积分或通知设置。
+- 卡片只展示大考拉、一句短提醒、去运动 / 10 分钟后叫我和关闭；关闭正式提醒后今天不再催。移除类型标签、示例安排、底部设置与轮次控件。
+- 全站主操作、链接与选中状态使用固定品牌绿 #42644d，角色服装及人格展示色保留。设置页保留标题和介绍，规则统一放底部；中英文在常规电脑窗口一屏展示。
+- 正式站内提醒默认关闭，主动保存后才生效。采用本机时间 06:00—21:59；页面打开、可见且不在表单输入、测试、选教练或弹窗时出现。
+- 每日最多 1 / 2 / 3 次；二次提醒至少间隔 45 分钟，加强督促至少 20 分钟。用户主动选「10 分钟后再叫我」单独生效，仍受安静时段及训练状态限制。
+- 开始过训练（包括暂停）、完成、休息、改期或选择今天不提醒后停止。点击「去运动」仅打开今日安排，由用户自己开始；需要调整时从今日安排进入原确认流程。没有自动打卡或扣积分。
+- 现有考拉以 GSAP 探身、摆头和轻敲提示入场，保留原呼吸与眨眼，支持暂停动作、隐藏页暂停和销毁清理。中英文及手机布局同步。
+- 不申请系统通知权限、不接推送服务、不上传数据。关闭网站后不会通知；多窗口并发与跨设备统一去重不在本轮范围。
+
 ## v0.19 已发布 · 加载与画面稳定
 
-已推送 Cora，原 PR #5 请 Laura 审核，未合并 main。原公开体验站已更新至 Sites v4；[从头体验](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/?demo=cora-v19-new)。
+已推送 Cora，原 PR #5 已由 Laura 合并 main。原公开体验站已更新至 Sites v4；[从头体验](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/?demo=cora-v19-new)。
 
 - 图片使用 384 / 768px WebP 衍生文件，原 PNG 保留；字体改为本地 WOFF2 字符子集。闭眼图在可见、未暂停且浏览器空闲时才请求，解码缓存复用；绘制最多 30fps。
 - 答题由同一只中性 Kora 陪伴。选择答案只更新按钮；切题和切换语言复用原画布与时间线。结果页顶对齐，展开依据不移动图片。
@@ -106,7 +120,7 @@ English: A cumulative trail keeps confirmed workouts through breaks. Three and s
 - 保存后同步档案。重测保留历史、餐食、已确认计划及陪伴语气。档案可直接编辑运动、时长、时段及提醒偏好，无需重做测试。
 - 旧六题结果保留，可自行重测；旧版未完成的答题草稿不会当作完整 12 题结果。
 - 结果可导出不含姓名、身高体重的 PNG。沿用已确认的四张 v4 人格插画与原陪伴角色，没有修改角色比例或动画。
-- 提醒只记录偏好，明确标注未开启通知；没有后台推送或固定时间提醒承诺。
+- 测试只记录提醒偏好，不自动开启。站内提醒可通过铃铛主动启用，没有后台或系统推送。
 
 English: The default path is now start, pause/resume and explicitly complete a regular workout. Adjustments remain available beside it. A 12-question bilingual preference quiz supports all four types, steady routines and mixed tendencies. Preferences sync with Profile without silently replacing saved plans. Existing six-question results remain readable. Reminders are preferences only; no notifications are sent.
 
@@ -141,7 +155,7 @@ English: The default path is now start, pause/resume and explicitly complete a r
 
 食物数值和训练卡片是演示内容；运动外链指向作者频道，并非逐条核验过的训练视频。运动偏好作为档案记录，不代表完成了个体适用性评估。身高、体重不用于生成减重处方、目标体型、减重期限或自动改变考拉体型。
 
-提醒仅为页面文字，没有系统通知。尚未实现社群、照片评估、开放式 AI 对话及自动体型联动。
+站内提醒已作为本地候选接入，默认关闭；没有系统通知。尚未实现社群、照片评估、开放式 AI 对话及自动体型联动。
 
 ## 本地运行
 
