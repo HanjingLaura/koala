@@ -1,6 +1,6 @@
 /* Kora — editorial display type with quiet, readable UI text. */
-@font-face { font-family:'Kora Display'; src:url('assets/kora-display-subset.woff2') format('woff2'); font-style:normal; font-weight:400; font-display:swap; }
-@font-face { font-family:'Manrope'; src:url('assets/manrope-subset.woff2') format('woff2'); font-style:normal; font-weight:200 800; font-display:swap; }
+@font-face { font-family:'Kora Display'; src:url('assets/kora-display-subset.woff2?v=20261021-guide') format('woff2'); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:'Manrope'; src:url('assets/manrope-subset.woff2?v=20261021-guide') format('woff2'); font-style:normal; font-weight:200 800; font-display:swap; }
 :root {
   --bg: #fff;
   --ink: #222522;

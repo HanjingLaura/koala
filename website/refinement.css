@@ -46,11 +46,11 @@
 .coach-gallery { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; align-items:stretch; }
 .coach-gallery .persona-card { overflow:visible; border:1px solid transparent; border-radius:24px; background:transparent; padding:10px; display:flex; flex-direction:column; box-shadow:none; }
 .coach-gallery .persona-card:hover { border-color:#e0e4d9; }
-.coach-gallery .persona-card.selected { border:1px solid #475a43; box-shadow:0 0 0 1px #475a43; background:#fbfcf9; }
+.coach-gallery .persona-card.selected { border:1px solid var(--green); box-shadow:0 0 0 1px var(--green); background:#fbfcf9; }
 .coach-gallery .persona-art { padding:0; width:100%; position:relative; isolation:isolate; background:none; }
 .coach-gallery .persona-art img { position:relative; z-index:1; display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:none; border-radius:0; }
 .coach-gallery .persona-check { width:24px; height:24px; right:6px; top:6px; z-index:2; color:transparent; background:transparent; border:1px solid #e0e5d9; }
-.coach-gallery .selected .persona-check { color:white; background:#475a43; border-color:#475a43; }
+.coach-gallery .selected .persona-check { color:white; background:var(--green); border-color:var(--green); }
 .coach-gallery .persona-copy { padding:18px 6px 8px; flex:1; display:flex; flex-direction:column; text-align:left; }
 .coach-gallery .coach-match { margin:0 0 8px; padding:0; background:none; border-radius:0; color:#818777; font-size:10px; min-height:16px; letter-spacing:.03em; }
 .coach-gallery .is-recommended .coach-match { color:#8a6c23; }

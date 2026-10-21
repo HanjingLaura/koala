@@ -1,0 +1,77 @@
+/* Fixed brand-green controls. Coach identity lives in the character and voice. */
+.nudge-bell { position:relative; display:grid; place-items:center; width:40px; height:40px; flex-shrink:0; border:1px solid var(--line); border-radius:50%; background:#fff; color:var(--green); }
+.nudge-bell .icon { width:20px; height:20px; }
+.nudge-bell.is-enabled::after { content:''; position:absolute; width:7px; height:7px; right:5px; top:4px; border-radius:50%; background:var(--green); border:2px solid #fff; }
+#modal.nudge-settings { width:640px; max-height:calc(100dvh - 32px); }
+#modal.nudge-settings .modal-inner { padding:22px 26px; }
+#modal.nudge-settings .modal-top { margin-bottom:10px; }
+#modal.nudge-settings .modal-top .eyebrow { font-size:11px; }
+.nudge-center-heading { text-align:center; padding-bottom:16px; }
+.nudge-door { display:grid; place-items:center; width:36px; height:36px; margin:0 auto 7px; background:var(--soft); border-radius:13px; color:var(--green); }
+.nudge-door .icon { width:21px; height:21px; }
+#modal.nudge-settings .nudge-center-heading h2 { font-family:var(--display); font-size:28px; font-weight:400; line-height:1.35; margin-bottom:6px; }
+.nudge-center-heading p { color:var(--muted); font-size:14px; }
+.nudge-preview-invite { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:13px 16px; background:#f5f6ee; border-radius:16px; margin-bottom:18px; }
+.nudge-preview-invite strong { font-size:14px; font-weight:600; }
+.nudge-preview-invite p { font-size:12px; color:var(--muted); margin-top:3px; }
+.nudge-preview-invite .primary { white-space:nowrap; padding:10px 16px; min-height:42px; font-size:13px; }
+.nudge-optin { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:16px; }
+.nudge-optin label { font-size:14px; font-weight:500; }
+.nudge-optin input { width:22px; height:22px; flex-shrink:0; accent-color:var(--green); }
+.nudge-fields { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.nudge-fields label { display:flex; flex-direction:column; gap:6px; font-size:13px; }
+.nudge-fields input,.nudge-fields select { width:100%; height:44px; padding:0 12px; border:1px solid #d9ded2; border-radius:12px; background:#fff; color:var(--ink); font:inherit; font-size:14px; }
+.nudge-notes { margin-top:16px; color:var(--muted); font-size:12px; line-height:1.7; }
+.nudge-notes p+p { margin-top:5px; }
+.nudge-save-error { color:#9d5148; font-size:13px; }
+.nudge-save-error:empty { display:none; }
+#modal.nudge-settings .modal-actions { margin-top:18px; }
+#modal.nudge-settings .modal-actions button { min-height:44px; padding:10px 18px; font-size:13px; }
+.kora-nudge { position:fixed; z-index:90; right:26px; bottom:94px; width:370px; max-width:calc(100vw - 32px); max-height:calc(100dvh - 112px); overflow:auto; color:#252a25; background:#fffefa; border:1px solid #e1e4d9; border-bottom:4px solid var(--green); border-radius:25px; box-shadow:0 14px 55px #23311d24; }
+.nudge-close { position:absolute; right:9px; top:8px; z-index:2; width:36px; height:36px; display:grid; place-items:center; font-size:23px; color:#78826f; border-radius:50%; }
+.nudge-close:hover { background:var(--soft); }
+.nudge-scene { height:226px; margin-top:12px; position:relative; display:flex; justify-content:center; isolation:isolate; }
+.nudge-orbit { position:absolute; z-index:-1; width:222px; height:132px; top:67px; border-radius:55% 45% 52% 48%; background:var(--soft); }
+.nudge-character,.nudge-character .portrait-live,.nudge-character .companion-source { width:226px; height:226px; }
+.nudge-character { position:relative; }
+.nudge-character .portrait-live { display:block; }
+.nudge-character .companion-source { object-fit:contain; max-height:none; }
+.nudge-knock { position:absolute; top:65px; left:calc(50% + 80px); color:#7d956b; }
+.nudge-knock i { display:block; width:15px; height:13px; border-top:2px solid currentColor; border-right:2px solid currentColor; border-radius:0 10px 0 0; rotate:18deg; }
+.nudge-knock i+i { width:10px; height:9px; margin-top:3px; translate:3px 0; }
+.nudge-copy { padding:7px 23px 22px; }
+.nudge-copy h2 { font-size:22px; font-weight:550; line-height:1.5; text-align:center; letter-spacing:-.3px; margin:0 0 22px; font-family:var(--font); }
+.nudge-actions { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+.nudge-actions .primary,.nudge-actions .secondary { padding:12px 9px; min-height:46px; font-size:13px; justify-content:center; gap:7px; }
+.nudge-actions .primary { color:white; background:var(--green); }
+.nudge-actions .secondary { background:#fffefa; border-color:#dce2d5; color:var(--green); }
+.nudge-actions .icon { width:16px; height:16px; }
+@media(max-width:760px) { .header-tools { gap:10px; }.nudge-bell { width:34px;height:34px; }.kora-nudge { right:12px; bottom:calc(80px + env(safe-area-inset-bottom)); max-width:calc(100vw - 24px); max-height:calc(100dvh - 100px - env(safe-area-inset-bottom)); } }
+@media(max-width:480px) {
+ #modal.nudge-settings .modal-inner { padding:18px; }
+ #modal.nudge-settings .modal-top { margin-bottom:12px; }
+ #modal.nudge-settings .nudge-center-heading h2 { font-size:25px; }
+ .nudge-center-heading p { font-size:13px; }
+ .nudge-preview-invite { padding:12px; gap:10px; }
+ .nudge-preview-invite .primary { padding:10px 12px; font-size:12px; gap:5px; }
+ .nudge-preview-invite strong { font-size:13px; }
+ .nudge-preview-invite p { font-size:11px; }
+ .nudge-fields { gap:12px; }
+ .nudge-fields input,.nudge-fields select { font-size:16px; padding:0 8px; }
+ .nudge-notes { font-size:11px; }
+ .nudge-copy { padding:6px 20px 20px; }
+ .nudge-copy h2 { font-size:21px; }
+}
+@media(max-width:350px) { .nudge-fields {grid-template-columns:1fr;}.nudge-preview-invite {flex-wrap:wrap;}.nudge-actions {gap:6px;}.nudge-actions button {font-size:12px;padding-inline:6px;} }
+@media(pointer:coarse) { .nudge-close {width:44px;height:44px;} }
+
+/* One-time, non-modal coachmark anchored to the reminder bell. */
+.nudge-guide { position:fixed; z-index:95; padding:20px; border:1px solid #d8e2d0; border-radius:20px; background:#fffef9; color:var(--ink); box-shadow:0 12px 36px #23311d20; }
+.nudge-guide::before { content:''; position:absolute; width:13px; height:13px; top:-7px; left:calc(var(--guide-arrow-left) - 7px); rotate:45deg; border-left:1px solid #d8e2d0; border-top:1px solid #d8e2d0; background:#fffef9; }
+.nudge-guide h2 { font-family:var(--font); font-size:18px; font-weight:600; line-height:1.5; margin:0 0 8px; }
+.nudge-guide p { font-size:13px; line-height:1.75; color:var(--muted); margin:0; }
+.nudge-guide-actions { display:flex; align-items:center; gap:20px; margin-top:16px; }
+.nudge-guide-actions .primary { min-height:44px; padding:10px 18px; font-size:13px; }
+.nudge-guide-actions>button:last-child { min-height:44px; padding:8px; color:var(--muted); font-size:13px; }
+.nudge-bell.is-guided { box-shadow:0 0 0 5px #e6eddd; }
+@media(max-width:420px) { .nudge-guide { padding:18px; }.nudge-guide h2 {font-size:17px;} }
