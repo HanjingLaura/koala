@@ -149,7 +149,8 @@ textarea { min-height: 100px; resize: vertical; }
 .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
 .filter-chip { padding: 9px 21px; background: #f3f5f0; border-radius: 25px; font-size: 13px; }
 .filter-chip.active { background: #343e33; color: white; }
-.exercise-art { background: #f0f3eb; }
+.exercise-art { background: #f0f3eb; height: 205px; }
+.exercise-player { position:absolute; inset:0; width:100%; height:100%; min-width:200px; min-height:200px; border:0; background:#111; }
 .exercise-art>.icon { width: 78px; height: 78px; color: #87967a; stroke-width: 1.2; }
 .exercise-card:nth-child(2n) .exercise-art { background: #f5f1e9; }
 .exercise-card:nth-child(2n) .exercise-art>.icon { color: #ae9e82; }
@@ -296,7 +297,7 @@ dialog::backdrop { background: #18201755; backdrop-filter: blur(7px); }
   .recipe-art svg { width: 120px; height: 130px; }
   .recipe .card-body { padding: 0; }
   .card-body h3 { font-size: 17px; }
-  .exercise-art { height: 190px; }
+  .exercise-art { height: 205px; }
   .exercise-actions { flex-direction: row; align-items: center; }
   .exercise-grid { margin-bottom: 25px; }
   .filter-chip { padding: 8px 16px; font-size: 12px; }

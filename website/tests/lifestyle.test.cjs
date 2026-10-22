@@ -7,7 +7,7 @@ const daily=require('../daily.js');
 const source=fs.readFileSync(require('node:path').join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0];
 function app(saved){
  const node={focus(){},classList:{add(){},remove(){}},style:{setProperty(){}},setAttribute(){},close(){},isConnected:false};
- const c=vm.createContext({structuredClone,console,setTimeout:()=>1,clearTimeout(){},sessionStorage:{getItem:()=>null,removeItem(){},setItem(){}},window:{KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:life,KoraDaily:daily,KoraComeback:require('../comeback.js'),scrollTo(){}},localStorage:{getItem:()=>saved?JSON.stringify(saved):null,setItem(){}},document:{querySelector:()=>node,activeElement:node}});
+ const c=vm.createContext({structuredClone,console,setTimeout:()=>1,clearTimeout(){},sessionStorage:{getItem:()=>null,removeItem(){},setItem(){}},window:{KoraContent:require('../content-data.js'),KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:life,KoraDaily:daily,KoraComeback:require('../comeback.js'),scrollTo(){}},localStorage:{getItem:()=>saved?JSON.stringify(saved):null,setItem(){}},document:{querySelector:()=>node,activeElement:node}});
  vm.runInContext(source,c);vm.runInContext("render=()=>{};captureForm=()=>{};openModal=(html,view)=>{globalThis.lastModal=html;modalView=view;};",c);return c;
 }
 const run=(c,s)=>vm.runInContext(s,c);

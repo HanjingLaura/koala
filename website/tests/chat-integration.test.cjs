@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 function context(streamChat){
- const c=vm.createContext({structuredClone,console,AbortController,window:{KoraChat:{streamChat},KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:require('../daily.js')},localStorage:{getItem:()=>null},document:{querySelector:()=>({value:'',innerHTML:'',scrollHeight:0})}});
+ const c=vm.createContext({structuredClone,console,AbortController,window:{KoraContent:require('../content-data.js'),KoraChat:{streamChat},KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:require('../daily.js')},localStorage:{getItem:()=>null},document:{querySelector:()=>({value:'',innerHTML:'',scrollHeight:0})}});
  vm.runInContext(fs.readFileSync(path.join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0],c);
  vm.runInContext("currentRoute='chat';updateChatView=()=>{};state.profile.persona='gentle';",c);return c;
 }
