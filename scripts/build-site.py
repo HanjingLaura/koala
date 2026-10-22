@@ -18,7 +18,7 @@ if project == repo or project == source or repo in project.parents:
 destination = project / 'dist'
 files = {'index.html', 'styles.css', 'lifestyle.css', 'app.js', 'daily.js',
          'refinement.css', 'coach-stage.js', 'comeback.js', 'lifestyle.js', 'journey.js', 'rewards.js', 'coach.js',
-         'companion.js', 'content-data.js', 'chat-client.js', 'nudges.js', 'nudge-ui.js', 'nudges.css', 'vendor/gsap.min.js'}
+         'companion.js', 'content-data.js', 'chat-context.js', 'chat-client.js', 'nudges.js', 'nudge-ui.js', 'nudges.css', 'vendor/gsap.min.js'}
 for filename in list(files):
     for asset in re.findall(r'assets/[A-Za-z0-9_./-]+\.(?:webp|png|svg|ttf|woff2?)', (source / filename).read_text(encoding='utf-8')):
         files.add(asset)

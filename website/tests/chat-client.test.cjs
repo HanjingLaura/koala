@@ -22,3 +22,9 @@ test('stop aborts an idle streaming reader without waiting for another token',as
   setTimeout(()=>controller.abort(),10);
   await assert.rejects(request,error=>error.name==='AbortError');
 });
+test('only delivers a structured suggestion after done, never after interruption',async()=>{
+ let received=[];const opts={messages:[],context:{date:'2026-10-22'},onSuggestion:s=>received.push(s)};
+ const response=text=>async()=>new Response(text,{headers:{'Content-Type':'application/x-ndjson'}});
+ await assert.rejects(streamChat(opts,response('{"type":"suggestion","suggestion":{"action":"rest"}}\n')),e=>e.code==='interrupted');assert.deepEqual(received,[]);
+ await streamChat(opts,response('{"type":"suggestion","suggestion":{"action":"rest"}}\n{"type":"done"}\n'));assert.deepEqual(received,[{action:'rest'}]);
+});

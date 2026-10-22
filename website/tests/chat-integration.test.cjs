@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 function context(streamChat){
- const c=vm.createContext({structuredClone,console,AbortController,window:{KoraContent:require('../content-data.js'),KoraChat:{streamChat},KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:require('../daily.js')},localStorage:{getItem:()=>null},document:{querySelector:()=>({value:'',innerHTML:'',scrollHeight:0})}});
+ const c=vm.createContext({structuredClone,console,AbortController,window:{KoraChatContext:require('../chat-context.js'),KoraContent:require('../content-data.js'),KoraChat:{streamChat},KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:require('../daily.js')},localStorage:{getItem:()=>null},document:{querySelector:()=>({value:'',innerHTML:'',scrollHeight:0})}});
  vm.runInContext(fs.readFileSync(path.join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0],c);
  vm.runInContext("currentRoute='chat';updateChatView=()=>{};state.profile.persona='gentle';",c);return c;
 }
@@ -15,4 +15,11 @@ test('failed send can retry without duplicating user messages or sending failed 
  let calls=0;const c=context(async options=>{calls++;if(calls===1)throw Object.assign(new Error('network'),{code:'unavailable'});options.onDelta('重试成功');});
  await vm.runInContext("sendChat('你好')",c);assert.equal(vm.runInContext('chatSession.error',c),'unavailable');
  await vm.runInContext('retryChat()',c);assert.equal(calls,2);assert.equal(vm.runInContext("chats.filter(m=>m.role==='user').length",c),1);assert.equal(vm.runInContext('chats.at(-1).text',c),'重试成功');
+});
+test('suggestion is bound to request-time plan and cannot replace a newer plan',async()=>{
+ const c=context(async options=>{vm.runInContext('state.plan.minutes=99',c);options.onSuggestion({action:'rest'});});
+ await vm.runInContext("sendChat('今天休息')",c);assert.equal(vm.runInContext('chats.at(-1).status',c),'done');assert.equal(vm.runInContext('window.KoraChatContext.current(state,chats.at(-1).base)',c),false);assert.match(vm.runInContext('chatSuggestionCard(chats.at(-1))',c),/disabled/);
+});
+test('only confirmed complete replies expose review, and stopped replies do not',async()=>{
+ const c=context(async options=>{options.onSuggestion({action:'shorten'});});await vm.runInContext("sendChat('十分钟')",c);assert.match(vm.runInContext('chatMessages()',c),/data-chat-suggestion/);assert.equal(vm.runInContext('state.plan.type',c),'original');vm.runInContext("chats.at(-1).status='stopped'",c);assert.doesNotMatch(vm.runInContext('chatMessages()',c),/data-chat-suggestion/);
 });
