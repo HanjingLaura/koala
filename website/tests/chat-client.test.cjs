@@ -1,6 +1,16 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { streamChat } = require('../chat-client.js');
+
+test('chat stays inside the current app directory at root and under /koala/', async () => {
+  let endpoint;
+  await streamChat({messages:[{role:'user',content:'Hi'}]},async url=>{
+    endpoint=url;
+    return new Response('{"type":"done"}\n',{headers:{'Content-Type':'application/x-ndjson'}});
+  });
+  for(const base of ['https://example.com/','https://example.com/koala/'])
+    assert.equal(new URL(endpoint,base).href,base+'api/chat');
+});
 test('decodes split UTF-8 chunks and only completes on an explicit done event', async () => {
   const bytes = new TextEncoder().encode('{"type":"delta","text":"你好"}\n{"type":"done"}\n');
   const chunks = [bytes.slice(0,27), bytes.slice(27,28), bytes.slice(28)]; let text='';
