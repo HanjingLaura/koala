@@ -1,6 +1,6 @@
 /* Kora — editorial display type with quiet, readable UI text. */
-@font-face { font-family:'Kora Display'; src:url('assets/kora-display-subset.woff2?v=20261021-guide') format('woff2'); font-style:normal; font-weight:400; font-display:swap; }
-@font-face { font-family:'Manrope'; src:url('assets/manrope-subset.woff2?v=20261021-guide') format('woff2'); font-style:normal; font-weight:200 800; font-display:swap; }
+@font-face { font-family:'Kora Display'; src:url('assets/kora-display-subset.woff2?v=20261022-visual') format('woff2'); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:'Manrope'; src:url('assets/manrope-subset.woff2?v=20261022-visual') format('woff2'); font-style:normal; font-weight:200 800; font-display:swap; }
 :root {
   --bg: #fff;
   --ink: #222522;
@@ -968,5 +968,26 @@ html[lang=zh-CN] .return-path h2 { font-family:var(--font);font-size:26px;font-w
  .weekly-home .scenery-1 .scenery-bank { width:65px; left:74px; top:490px; }
 }
 
-/* Kora wardrobe and explicitly confirmed AI proposals. */
-.outfit-stage{display:flex;justify-content:center;min-height:240px;background:#f3f5f0;border-radius:24px;padding:16px}.outfit-stage .portrait-live{width:min(100%,300px)}.outfit-stage img{width:100%;height:auto}.outfit-thumbnail{height:190px;display:flex;justify-content:center;background:#f6f7f2;border-radius:18px}.outfit-thumbnail img{height:100%;width:auto;max-width:100%;object-fit:contain}.outfit-grid article{display:flex;flex-direction:column;gap:12px}.outfit-grid article button{margin-top:auto}.chat-suggestion{margin-top:14px;padding:16px;border:1px solid #bdcdbd;border-radius:16px;background:#f3f5f0;display:grid;gap:10px}.chat-suggestion p{margin:0}.chat-suggestion small{line-height:1.6}.shop-tabs{flex-wrap:wrap}@media(max-width:600px){.outfit-thumbnail{height:150px}.outfit-stage{min-height:200px}}
+/* Wardrobe and AI suggestions reuse the existing shop and conversation scale. */
+.outfit-stage { display:flex; justify-content:center; min-height:240px; padding:16px; background:var(--soft); border-radius:var(--radius); }
+.outfit-stage .portrait-live { width:min(100%,300px); }
+.outfit-stage img { width:100%; height:auto; }
+.outfit-thumbnail { height:145px; display:flex; justify-content:center; background:var(--soft); border-radius:16px; }
+.outfit-thumbnail img { height:100%; width:auto; max-width:100%; object-fit:contain; }
+.outfit-grid article { display:flex; flex-direction:column; }
+.outfit-grid article button { margin-top:12px; }
+.outfit-grid article>small { margin-top:0; }
+.outfit-stage+h3 { margin:20px 0 8px; font-size:18px; line-height:1.45; }
+.outfit-stage+h3+p { margin:0 0 20px; font-size:12px; color:var(--muted); line-height:1.8; }
+.chat-suggestion { display:grid; gap:10px; margin-top:14px; padding:16px; border:1px solid var(--line); border-radius:12px; background:var(--soft); white-space:normal; }
+.chat-suggestion strong { font-size:14px; font-weight:500; line-height:1.85; }
+.chat-suggestion p { margin:0; font-size:14px; line-height:1.85; }
+.chat-suggestion small { font-size:12px; color:var(--muted); line-height:1.8; }
+.chat-suggestion .secondary { justify-self:start; min-height:40px; padding:9px 15px; font-size:12px; }
+.shop-tabs { flex-wrap:wrap; }
+@media(max-width:760px) {
+ .outfit-thumbnail { height:130px; }
+ .outfit-stage { min-height:200px; }
+ .outfit-stage+h3 { font-size:16px; }
+ .chat-suggestion { padding:14px; }
+}
