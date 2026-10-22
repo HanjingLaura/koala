@@ -44,7 +44,7 @@ test('recommendations require at least two completed records before suggesting s
 });
 test('trail, report, rewards and scheduling views are bilingual and do not write plans on preview',()=>{
  const fs=require('node:fs'),vm=require('node:vm');const source=fs.readFileSync(require('node:path').join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0];
- const c=vm.createContext({structuredClone,console,window:{KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:j,KoraDaily:daily,KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js')},localStorage:{getItem:()=>null},document:{querySelector:()=>({})}});
+ const c=vm.createContext({structuredClone,console,window:{KoraContent:require('../content-data.js'),KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:j,KoraDaily:daily,KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js')},localStorage:{getItem:()=>null},document:{querySelector:()=>({})}});
  vm.runInContext(source,c);vm.runInContext("openModal=(html)=>{globalThis.view=html;};state.profile.persona='gentle';",c);
  for(const lang of ['zh','en'])for(const kind of ['week','month']){
   vm.runInContext(`state.language='${lang}';reportKind='${kind}';`,c);

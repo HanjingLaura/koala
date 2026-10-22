@@ -6,7 +6,7 @@ const daily=require('../daily.js');
 const source=fs.readFileSync(require('node:path').join(__dirname,'../app.js'),'utf8').split("document.addEventListener('click'")[0];
 const run=(c,s)=>vm.runInContext(s,c);
 function memory(initial={}){const data=new Map(Object.entries(initial));return {data,getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};}
-function app(search,local,session){const c=vm.createContext({URLSearchParams,structuredClone,console,localStorage:local,sessionStorage:session,window:{location:{search},KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:daily},document:{querySelector:()=>({})}});vm.runInContext(source,c);return c;}
+function app(search,local,session){const c=vm.createContext({URLSearchParams,structuredClone,console,localStorage:local,sessionStorage:session,window:{KoraContent:require('../content-data.js'),location:{search},KoraCoach:require('../coach.js'),KoraRewards:require('../rewards.js'),KoraJourney:require('../journey.js'),KoraLifestyle:require('../lifestyle.js'),KoraComeback:require('../comeback.js'),KoraDaily:daily},document:{querySelector:()=>({})}});vm.runInContext(source,c);return c;}
 function archive(){const s=daily.load(null);s.onboarded=true;s.profile={name:'Existing',height:'165',weight:'60',persona:'gentle',activities:['walk'],minutes:'20'};return JSON.stringify(s);}
 test('normal entry keeps the existing profile; tryout starts at quiz without reading or overwriting it',()=>{
  const saved=archive(),local=memory({'kora.preview.v1':saved}),session=memory();
