@@ -16,3 +16,10 @@ test('failed send can retry without duplicating user messages or sending failed 
  await vm.runInContext("sendChat('你好')",c);assert.equal(vm.runInContext('chatSession.error',c),'unavailable');
  await vm.runInContext('retryChat()',c);assert.equal(calls,2);assert.equal(vm.runInContext("chats.filter(m=>m.role==='user').length",c),1);assert.equal(vm.runInContext('chats.at(-1).text',c),'重试成功');
 });
+test('suggestion is bound to request-time plan and cannot replace a newer plan',async()=>{
+ const c=context(async options=>{vm.runInContext('state.plan.minutes=99',c);options.onSuggestion({action:'rest'});});
+ await vm.runInContext("sendChat('今天休息')",c);assert.equal(vm.runInContext('chats.at(-1).status',c),'done');assert.equal(vm.runInContext('window.KoraChatContext.current(state,chats.at(-1).base)',c),false);assert.match(vm.runInContext('chatSuggestionCard(chats.at(-1))',c),/disabled/);
+});
+test('only confirmed complete replies expose review, and stopped replies do not',async()=>{
+ const c=context(async options=>{options.onSuggestion({action:'shorten'});});await vm.runInContext("sendChat('十分钟')",c);assert.match(vm.runInContext('chatMessages()',c),/data-chat-suggestion/);assert.equal(vm.runInContext('state.plan.type',c),'original');vm.runInContext("chats.at(-1).status='stopped'",c);assert.doesNotMatch(vm.runInContext('chatMessages()',c),/data-chat-suggestion/);
+});

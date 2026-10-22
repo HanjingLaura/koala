@@ -377,7 +377,7 @@ async function sendChat(text){
  while(messages.reduce((n,m)=>n+m.content.length,0)>12000)messages.shift();
  try{
   if(!window.KoraChat)throw Object.assign(new Error('unavailable'),{code:'unavailable'});
-  await window.KoraChat.streamChat({messages,persona:reply.persona,language:state.language,accessToken:chatSession.accessToken,context:window.KoraChatContext.build(state),signal:controller.signal,onSuggestion:s=>{if(window.KoraChatContext.validSuggestion(s)){reply.suggestion=s;reply.base=reply.requestBase;}},onDelta:delta=>{if(chats.includes(reply)){reply.text+=delta;updateChatView();}}});
+  await window.KoraChat.streamChat({messages,persona:reply.persona,language:state.language,accessToken:chatSession.accessToken,context:window.KoraChatContext.build(state),signal:controller.signal,onSuggestion:s=>{if(window.KoraChatContext.validSuggestion(s)){reply.suggestion=s;reply.base=reply.requestBase;if(!reply.text)reply.text=t('可以试试下面这个调整，确认前不会保存。','You can try the adjustment below. Nothing is saved until you confirm.');}},onDelta:delta=>{if(chats.includes(reply)){reply.text+=delta;updateChatView();}}});
   reply.status='done';
  }catch(error){reply.status=controller.signal.aborted?'stopped':'failed';if(!controller.signal.aborted)chatSession.error=error.code||'unavailable';}
  finally{if(chatSession.controller===controller){chatSession.pending=false;chatSession.controller=null;}updateChatView();}
