@@ -132,11 +132,11 @@
   }
   function cancelIdle(){if(!idle)return;if(idle.kind==='idle')global.cancelIdleCallback?.(idle.id);else global.clearTimeout(idle.id);idle=null;}
   const greet=()=>{if(active())motion?.greet();};
-  const fail=()=>{broken=true;cancelIdle();sync();stage.classList.remove('is-live');stage.dataset.liveStatus='fallback';};
+  const fail=()=>{broken=true;cancelIdle();sync();stage.classList.remove('is-live');stage.dataset.liveStatus='fallback';if(image.dataset?.fallback&&!image.dataset.fallbackUsed){image.dataset.fallbackUsed='true';image.srcset=image.dataset.fallbackSmall+' 384w, '+image.dataset.fallback+' 768w';image.src=image.dataset.fallback;}};
   const lose=event=>{event.preventDefault();fail();};
   function ready(){
    if(!active()||renderer||!image.complete||!image.naturalWidth||!closed)return;
-   try{renderer=createRenderer(canvas,image,closed,RIGS[stage.dataset.koraLive]||RIGS.calm);motion=createMotion(global.gsap,index*1.73);
+   try{const base=RIGS[stage.dataset.koraLive]||RIGS.calm,eyes=stage.dataset.eyeRig?.split(',').map(Number);renderer=createRenderer(canvas,image,closed,eyes?.length===4&&eyes.every(v=>Number.isFinite(v)&&v>0&&v<1)?{...base,eyes}:base);motion=createMotion(global.gsap,index*1.73);
     stage.dataset.liveStatus='ready';stage.dataset.liveInstance=String(++instance);sync();
    }catch(error){console.warn('Kora keeps its static portrait:',error.message);fail();}
   }
@@ -144,7 +144,7 @@
    idle=null;if(!active()||pending||closed||!image.complete||!image.naturalWidth)return;
    pending=true;stage.dataset.liveStatus='loading';
    const small=(image.currentSrc||image.src).includes('-small.webp');
-   loadFrame('assets/web/kora-'+stage.dataset.koraLive+'-blink'+(small?'-small':'')+'.webp').then(frame=>{if(disposed)return;closed=frame;pending=false;ready();}).catch(()=>{if(!disposed)fail();});
+   loadFrame((small?stage.dataset.closedSmall:stage.dataset.closed)||'assets/web/kora-'+stage.dataset.koraLive+'-blink'+(small?'-small':'')+'.webp').then(frame=>{if(disposed)return;closed=frame;pending=false;ready();}).catch(()=>{if(!disposed)fail();});
   }
   function update(){
    if(!active()){cancelIdle();sync();return;}

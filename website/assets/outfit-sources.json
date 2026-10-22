@@ -1,0 +1,116 @@
+{
+  "tool": "image_gen",
+  "date": "2026-10-22",
+  "prompt": "Change clothing below neck only; preserve koala face, expression, headband, hands, feet and pose. Transparent square canvas. Hoodie: oatmeal and sage; sport: blue short overalls and cream tee; camp: ochre field jacket and olive shorts.",
+  "sources": [
+    {
+      "id": "calm",
+      "outfit": "hoodie",
+      "path": "exec-513b30ce-dc32-4d06-91e0-56d05d426bcc.png",
+      "reference": "kora-calm-sport-v2.webp",
+      "sha256": "37796d37cccea8fba5907d74b9058c122105d73d8bc0346eeb169749500bbf58",
+      "closed": "exec-07e6ca77-6daf-49f6-bac3-49f5a9f9bea0.png",
+      "closedSha256": "ba32e040a28e4e8a7c5399fe0370f0015c9c243348672663ab5b4b937245678e"
+    },
+    {
+      "id": "calm",
+      "outfit": "sport",
+      "path": "exec-1291dbb3-2ff5-4fed-9596-8f1dd2a1c0e8.png",
+      "reference": "kora-calm-sport-v2.webp",
+      "sha256": "666640a98decb56c4c0d087b1819c5f109c5c7cd8ccdcdc7795c05e33409f0ad",
+      "closed": "exec-53cc69fc-11ff-494d-a3cb-ff435a41fb1d.png",
+      "closedSha256": "176d4022c6faf1bc2040c0816c5c2868c0f48be51eb3629dde94f5e240b0c6e4"
+    },
+    {
+      "id": "calm",
+      "outfit": "camp",
+      "path": "exec-9980599e-18ba-4b08-b1e2-b1ff8fb56d58.png",
+      "reference": "kora-calm-sport-v2.webp",
+      "sha256": "8e0ad4bab8cc51de559ba0bd0b5f5d64073386f9711c8b1bf15da8b52a22a48d",
+      "closed": "exec-d1592095-1972-40d7-a566-ff7f0de1cf47.png",
+      "closedSha256": "a13f88aa6dbec75a4ca2e1a4e75da8f438eb809535bd344db7a65652cba61f87"
+    },
+    {
+      "id": "gentle",
+      "outfit": "hoodie",
+      "path": "exec-ccee3a4c-6c09-4a86-ac15-60f52bea47a0.png",
+      "reference": "kora-gentle-sport-v2.webp",
+      "sha256": "770bf829ca56027b67b6eb9e3a6a1607f3a4c3da73a4af53729a5815de3d1b20",
+      "closed": "exec-062bc8c0-6364-46f9-82a9-e35bf908cf8e.png",
+      "closedSha256": "b25670808400122aa62d093e3e92aefda2f36c55c7eec08f49862c54b3a98b13"
+    },
+    {
+      "id": "gentle",
+      "outfit": "sport",
+      "path": "exec-df6b1a65-0a73-42c2-a35d-6ca9043b9de6.png",
+      "reference": "kora-gentle-sport-v2.webp",
+      "sha256": "0f07673c08d155bb5559bb358c115085db2b638eea3c8f2eac263713ddd9a060",
+      "closed": "exec-56e81b2f-26de-47b0-98ef-70b379b26dcc.png",
+      "closedSha256": "381efca9f3fb57d5fc3edcf185f132d31ac39bea3b27c31b0fd30c346b9d1aad"
+    },
+    {
+      "id": "gentle",
+      "outfit": "camp",
+      "path": "exec-d89b45c4-6edc-45d9-8dfc-8b252c6bdf09.png",
+      "reference": "kora-gentle-sport-v2.webp",
+      "sha256": "89e8c8fc3532c4674a9bc54016be43897b57cf335209ccd661ce701fa263a22c",
+      "closed": "exec-48d6f773-ce3d-4cbb-8acf-59455864052b.png",
+      "closedSha256": "6bcaca86cac6756f338d8bea9d6532e265db90da7f46f65caea6456aac377775"
+    },
+    {
+      "id": "snark",
+      "outfit": "hoodie",
+      "path": "exec-66da9e54-1720-4db1-803b-84cf3ec09f9c.png",
+      "reference": "kora-snark-sport-v4.webp",
+      "sha256": "9795ced4afea50fe8d719252533f6b515a60429a3f324b5adf0a59b5e1d3d51a",
+      "closed": "exec-fb4557ed-feef-4a9f-9d1c-3b0954969ea6.png",
+      "closedSha256": "8fc346ffba5dcee121dd8115707ff4acd0c54ab4239489c37789db18c5faa20a"
+    },
+    {
+      "id": "snark",
+      "outfit": "sport",
+      "path": "exec-07aa2fc6-0982-48bf-8fd0-4fba5b81f64e.png",
+      "reference": "kora-snark-sport-v4.webp",
+      "sha256": "8a4c4cfb52db643d1376a1f1e8180feb2ffac47c56ec427f006081ecd2e307f5",
+      "closed": "exec-c460be4d-72d6-4fbf-b8ff-1a855e67e6b0.png",
+      "closedSha256": "e3c8f4fbbc4e1f4cde7a17805c2a7d38e3b5c564207121876ca49da0a2ff31e3"
+    },
+    {
+      "id": "snark",
+      "outfit": "camp",
+      "path": "exec-eba10ef6-2204-4b8f-8b9f-f3e225731458.png",
+      "reference": "kora-snark-sport-v4.webp",
+      "sha256": "c2b11ea8fb1f2230dc0cb08350ab155c49326d3da157b2b1da722626d6505d62",
+      "closed": "exec-8d265bc7-cda2-45bd-9c06-1a81fadef06d.png",
+      "closedSha256": "39ecb0a981813a775f95951c894795a1acfcd78ec623b2e9da26f4e7e82ded4a"
+    },
+    {
+      "id": "fiery",
+      "outfit": "hoodie",
+      "path": "exec-8167cd5a-02d5-4472-87c7-385208eb02f3.png",
+      "reference": "kora-fiery-sport-v4.webp",
+      "sha256": "07aecfe85c2413be322f554fb0f86989afe16bb614f408c646a92c4443e1771e",
+      "closed": "exec-16582588-5995-4635-a0f0-fd483baa4eec.png",
+      "closedSha256": "1ef251c688ae13ae728621baecbc6622ff6ceca3526201fe7e8b39a9892a0ac4"
+    },
+    {
+      "id": "fiery",
+      "outfit": "sport",
+      "path": "exec-a111ba29-dbb2-49e2-9022-1d4ba23ec284.png",
+      "reference": "kora-fiery-sport-v4.webp",
+      "sha256": "8622b4751fdc227580fb7d0f6996fbc67cd3ebba121b321d480190eb58d421de",
+      "closed": "exec-88740407-e00f-43aa-b9b6-9592c46b2b68.png",
+      "closedSha256": "98a4d9d9dd2f4a4b098e6c4376f0d7c03443afac9f9685ec62736bc8c75c5c94"
+    },
+    {
+      "id": "fiery",
+      "outfit": "camp",
+      "path": "exec-04300864-a9f1-408c-a4de-ba7a05f14057.png",
+      "reference": "kora-fiery-sport-v4.webp",
+      "sha256": "e18366399ee81a4b07d8148286a4943b031934fcf49ad862de79a62f7944ba2f",
+      "closed": "exec-7dd0a7fa-405a-4247-aa2e-f17cbac69883.png",
+      "closedSha256": "93126bed08098c2aefa23064446a527dcde6772d615b98ee59764aefc63c831f"
+    }
+  ],
+  "closedEyePrompt": "Change only the two eyes into softly closed eyelids. Preserve pose, scale, face coordinates, clothing and transparent canvas. Sample eye regions only."
+}

@@ -17,7 +17,7 @@ if project == repo or project == source or repo in project.parents:
     raise SystemExit('Use a separate output project outside the GitHub checkout.')
 destination = project / 'dist'
 files = {'index.html', 'styles.css', 'lifestyle.css', 'app.js', 'daily.js',
-         'refinement.css', 'coach-stage.js', 'comeback.js', 'lifestyle.js', 'journey.js', 'rewards.js', 'coach.js',
+         'refinement.css', 'coach-stage.js', 'comeback.js', 'lifestyle.js', 'journey.js', 'rewards.js', 'wardrobe.js', 'coach.js',
          'companion.js', 'content-data.js', 'chat-context.js', 'chat-client.js', 'nudges.js', 'nudge-ui.js', 'nudges.css', 'vendor/gsap.min.js'}
 for filename in list(files):
     for asset in re.findall(r'assets/[A-Za-z0-9_./-]+\.(?:webp|png|svg|ttf|woff2?)', (source / filename).read_text(encoding='utf-8')):
@@ -27,6 +27,10 @@ for persona in ['calm', 'snark', 'fiery', 'gentle']:
     for suffix in ['', '-small']:
         files.add(f'assets/web/kora-{persona}-sport-{version}{suffix}.webp')
         files.add(f'assets/web/kora-{persona}-blink{suffix}.webp')
+for persona in ['calm', 'snark', 'fiery', 'gentle']:
+    for outfit in ['hoodie','sport','camp']:
+        for suffix in ['', '-small', '-blink', '-blink-small']:
+            files.add(f'assets/web/outfits/{persona}-{outfit}{suffix}.webp')
 for style in ['lazy', 'spark', 'busy', 'feel', 'steady', 'guide']:
     for suffix in ['', '-small']:
         files.add(f'assets/web/kora-life-{style}-v6{suffix}.webp')

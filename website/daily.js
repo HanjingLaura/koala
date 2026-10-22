@@ -74,6 +74,7 @@
       }
       state.history=saved.history;
       if(saved.wallet?.version===1)state.wallet=copy(saved.wallet);
+      if(saved.wardrobe && typeof saved.wardrobe==='object')state.wardrobe=copy(saved.wardrobe);
       state.legacy=saved.legacy||null;
       state.language=saved.language||'zh';state.onboarded=Boolean(saved.onboarded);
       return activate(state,key);

@@ -967,3 +967,6 @@ html[lang=zh-CN] .return-path h2 { font-family:var(--font);font-size:26px;font-w
  .weekly-home .scenery-1 .woodland-right { top:940px; opacity:.35; }
  .weekly-home .scenery-1 .scenery-bank { width:65px; left:74px; top:490px; }
 }
+
+/* Kora wardrobe and explicitly confirmed AI proposals. */
+.outfit-stage{display:flex;justify-content:center;min-height:240px;background:#f3f5f0;border-radius:24px;padding:16px}.outfit-stage .portrait-live{width:min(100%,300px)}.outfit-stage img{width:100%;height:auto}.outfit-thumbnail{height:190px;display:flex;justify-content:center;background:#f6f7f2;border-radius:18px}.outfit-thumbnail img{height:100%;width:auto;max-width:100%;object-fit:contain}.outfit-grid article{display:flex;flex-direction:column;gap:12px}.outfit-grid article button{margin-top:auto}.chat-suggestion{margin-top:14px;padding:16px;border:1px solid #bdcdbd;border-radius:16px;background:#f3f5f0;display:grid;gap:10px}.chat-suggestion p{margin:0}.chat-suggestion small{line-height:1.6}.shop-tabs{flex-wrap:wrap}@media(max-width:600px){.outfit-thumbnail{height:150px}.outfit-stage{min-height:200px}}
