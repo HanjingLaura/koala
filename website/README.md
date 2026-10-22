@@ -1,5 +1,11 @@
 # Kora · 你的生活搭子 / Your everyday companion
 
+## 百炼聊天接入（本地分支，尚未发布）
+
+当前分支新增 Node 服务端：根目录 `.env` 配置 `DASHSCOPE_API_KEY`，运行 `npm run dev`。聊天使用百炼 `qwen-plus` 非思考模式，保留四教练语气、近期上下文、流式回复、停止与手动重试；不会自动修改健康记录。密钥只在服务端，对话发送给百炼处理，不由本服务落盘。
+
+根目录 `npm test` 覆盖前后端。[部署与环境配置](../docs/DEPLOYMENT.md)包含生产访问口令、容器和反向代理。原 `python -m http.server` 仅能预览静态界面，不能调用聊天接口。下方的“无后端、无真实 AI”及已上线描述均为此前版本记录。
+
 ## v0.20 · Kora 敲敲门
 
 用户已通过本地审核；本轮提交到 Cora，提请 Laura 审核后再合并 main。已按用户后续授权更新公开体验站至 Sites v5：[从头体验 v0.20](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/?demo=cora-v20-team)。main 仍等待 Laura 审核。

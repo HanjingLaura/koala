@@ -1,0 +1,13 @@
+services:
+  kora:
+    build: .
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "8080"
+      CHAT_ACCESS_TOKEN: ${CHAT_ACCESS_TOKEN:?Set CHAT_ACCESS_TOKEN with at least 16 characters}
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+    init: true
