@@ -107,5 +107,6 @@ test('invalid or truncated tool calls never become executable suggestions',async
 });
 test('beta bundle includes shared validation dependencies',async()=>{
  const {execFileSync}=await import('node:child_process');const {mkdtemp,rm,access}=await import('node:fs/promises');const {tmpdir}=await import('node:os');const {join}=await import('node:path');const dir=await mkdtemp(join(tmpdir(),'kora-context-beta-'));
- try{execFileSync('python3',['scripts/prepare-beta.py','--output',dir]);await access(join(dir,'website/chat-context.js'));await access(join(dir,'website/daily.js'));await import('file://'+join(dir,'server/index.mjs'));}finally{await rm(dir,{recursive:true,force:true});}
+ const {pathToFileURL}=await import('node:url');
+ try{execFileSync(process.env.PYTHON||(process.platform==='win32'?'python':'python3'),['scripts/prepare-beta.py','--output',dir]);await access(join(dir,'website/chat-context.js'));await access(join(dir,'website/daily.js'));await import(pathToFileURL(join(dir,'server/index.mjs')).href);}finally{await rm(dir,{recursive:true,force:true});}
 });
