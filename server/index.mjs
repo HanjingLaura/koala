@@ -8,13 +8,16 @@ import { systemPrompt, personaIds } from './prompts.mjs';
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const numeric = (value, fallback, min, max) => value == null || value === '' ? fallback : Math.min(max, Math.max(min, Number(value) || fallback));
 export function readConfig(env = process.env) {
-  const accessToken = env.CHAT_ACCESS_TOKEN || '';
-  if (env.NODE_ENV === 'production' && accessToken.length < 16) throw new Error('Production requires CHAT_ACCESS_TOKEN with at least 16 characters.');
+  // Protected Vercel previews use the platform's share-link admission instead of
+  // a second chat password. Standalone production servers still require a token.
+  const platformProtected = env.VERCEL === '1' && env.CHAT_AUTH_MODE === 'vercel';
+  const accessToken = platformProtected ? '' : env.CHAT_ACCESS_TOKEN || '';
+  if (env.NODE_ENV === 'production' && !platformProtected && accessToken.length < 16) throw new Error('Production requires CHAT_ACCESS_TOKEN with at least 16 characters.');
   const baseURL = (env.DASHSCOPE_BASE_URL || 'https://dashscope.aliyuncs.com/compatible-mode/v1').replace(/\/$/, '');
   if (new URL(baseURL).protocol !== 'https:') throw new Error('DASHSCOPE_BASE_URL must use HTTPS.');
   return {
     apiKey: env.DASHSCOPE_API_KEY?.trim() || '', baseURL,
-    model: env.DASHSCOPE_MODEL || 'qwen-plus', accessToken,
+    model: env.DASHSCOPE_MODEL || 'qwen-plus', accessToken, platformProtected,
     timeoutMs: numeric(env.CHAT_TIMEOUT_MS, 45000, 1000, 120000),
     rateLimit: numeric(env.CHAT_RATE_LIMIT, 20, 1, 100),
     concurrency: numeric(env.CHAT_CONCURRENCY, 4, 1, 16)

@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-10-22",
+  "method": "imagegen built-in",
+  "usage": "Meal idea imagery; generated photography-style images, not photographs of measured portions or nutrition evidence.",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "runtime_sizes": [
+    [
+      960,
+      640
+    ],
+    [
+      480,
+      320
+    ]
+  ],
+  "style": "45-degree overhead editorial food photograph, off-white ceramic bowl, pale warm-neutral matte tabletop, soft natural daylight upper left, no text, no props.",
+  "subjects": {
+    "meal-oats-banana-blueberries-v1": "Cooked rolled oat porridge, fresh banana slices, blueberries.",
+    "meal-salmon-vegetables-v1": "Fully cooked roasted salmon fillet, cooked rice, broccoli, carrots.",
+    "meal-egg-mixed-grains-v1": "Cooked mixed-grain rice, fully hard-boiled egg halves, broccoli, carrots."
+  }
+}

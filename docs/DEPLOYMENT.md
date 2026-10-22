@@ -1,5 +1,7 @@
 # 百炼聊天：本地运行与服务端部署
 
+邀请制内测的 Vercel 预览部署步骤见 [BETA.md](BETA.md)。以下保留本地与自有服务器的运行方式。
+
 ## 本地
 
 需要 Node.js 22.9 或更新版本、Python 3。没有 npm 依赖，不需要 npm install。
