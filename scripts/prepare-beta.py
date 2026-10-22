@@ -10,6 +10,7 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--output', type=Path, help='New, empty deployment directory outside the repository')
+parser.add_argument('--base-path', default='', choices=['', '/koala'], help='Optional portfolio mount path')
 args = parser.parse_args()
 repo = Path(__file__).resolve().parents[1]
 output = args.output.resolve() if args.output else Path(tempfile.mkdtemp(prefix='kora-beta-'))
@@ -42,7 +43,13 @@ shutil.copyfile(repo/'server/vercel.mjs', output/'api/index.mjs')
     'framework':None, 'outputDirectory':'public', 'buildCommand':'', 'installCommand':'',
     'regions':['hkg1'], 'env':{'NODEJS_HELPERS':'0','CHAT_AUTH_MODE':'vercel'},
     'functions':{'api/index.mjs':{'maxDuration':60, 'supportsCancellation':True}},
-    'rewrites':[
+    'redirects':([{'source':args.base_path,'destination':args.base_path+'/', 'permanent':False}] if args.base_path else []),
+    'rewrites':([
+        {'source':args.base_path+'/api/chat', 'destination':'/api/index?route=chat'},
+        {'source':args.base_path+'/api/health', 'destination':'/api/index?route=health'},
+        {'source':args.base_path+'/', 'destination':'/index.html'},
+        {'source':args.base_path+'/:path*', 'destination':'/:path*'}
+    ] if args.base_path else [])+[
         {'source':'/api/chat', 'destination':'/api/index?route=chat'},
         {'source':'/api/health', 'destination':'/api/index?route=health'}
     ],

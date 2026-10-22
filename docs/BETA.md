@@ -28,3 +28,11 @@
 ## 回滚
 
 保留上一版 Preview URL。出现问题时停用当前内测入口或在控制台删除该部署；若分享链接泄露，撤销并重新生成分享链接。密钥配置变更不会自动应用到旧的 Vercel 部署，需要另行关闭不再使用的旧版本。
+
+## 个人网站子路径
+
+运行 `python scripts/prepare-beta.py --base-path /koala` 生成挂载包。聊天使用当前目录下的 `api/chat`，生成配置处理 `/koala/` 素材与 API 路由，同时保留独立根目录入口。
+
+个人网站在 `/koala/` 提供服务端代理，将页面、素材和聊天转发到现有受保护的 `koala-exercise.vercel.app`。代理仅在服务端发送 Vercel Automation Bypass 密钥，不依赖会过期的分享链接，也不将密钥发给浏览器。Hobby 分组已经有两个子应用，因此不新增 Microfrontends 成员。
+
+个人网站代理检查来源、限制路径和请求体，并移除上游认证 Cookie 与重定向。模型 Key 继续只保存在 Koala 项目服务端；原内测分享链接仍可使用。

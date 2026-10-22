@@ -4,7 +4,7 @@
   class ChatError extends Error { constructor(code){ super(code); this.code=code; } }
   async function streamChat({messages,persona='calm',language='zh',accessToken='',context,signal,onDelta=()=>{},onSuggestion=()=>{}},fetchImpl=globalThis.fetch){
     const headers={'Content-Type':'application/json'};if(accessToken)headers['X-Chat-Token']=accessToken;
-    const response=await fetchImpl('/api/chat',{method:'POST',headers,body:JSON.stringify({messages,persona,language,...(context?{context}:{})}),signal});
+    const response=await fetchImpl('api/chat',{method:'POST',headers,body:JSON.stringify({messages,persona,language,...(context?{context}:{})}),signal});
     if(!response.ok){let code='unavailable';try{code=(await response.json()).error||code;}catch{}throw new ChatError(code);}
     if(!response.body||!response.headers.get('content-type')?.includes('application/x-ndjson'))throw new ChatError('unavailable');
     const reader=response.body.getReader(),decoder=new TextDecoder();let buffer='',finished=false,suggestion=null;
