@@ -91,3 +91,21 @@ test('disconnecting the client cancels the pending provider request', async t =>
   await started;controller.abort();await request;
   await Promise.race([aborted,new Promise((resolve,reject)=>setTimeout(()=>reject(new Error('provider not cancelled')),250))]);
 });
+
+test('context is validated and structured tools produce suggestions only on a complete stream',async t=>{
+ const {default:ctx}=await import('../website/chat-context.js');const {default:cal}=await import('../website/daily.js');const state=cal.fresh('2026-10-22');cal.activate(state,state.date);const context=ctx.build(state);let request;
+ const toolResponse=()=>new Response('data: '+JSON.stringify({choices:[{delta:{tool_calls:[{index:0,function:{name:'suggest_plan_adjustment',arguments:'{"action":"rest"}'}}]},finish_reason:'tool_calls'}]})+'\n\ndata: [DONE]\n\n',{headers:{'Content-Type':'text/event-stream'}});
+ const {post}=await run(t,{},async(url,o)=>{request=JSON.parse(o.body);return toolResponse();});
+ const response=await post({...payload,context});const frames=(await response.text()).trim().split('\n').map(JSON.parse);assert.deepEqual(frames,[{type:'suggestion',suggestion:{action:'rest'}},{type:'done'}]);assert.equal(request.tools[0].function.name,'suggest_plan_adjustment');assert.match(request.messages[0].content,/2026-10-22/);
+ assert.equal((await post({...payload,context:{...context,name:'private'}})).status,400);
+});
+test('invalid or truncated tool calls never become executable suggestions',async t=>{
+ for(const [args,finish] of [['{"action":"complete"}','tool_calls'],['{"action":"rest"}','length']]){
+ const {post}=await run(t,{},()=>new Response('data: '+JSON.stringify({choices:[{delta:{content:'建议',tool_calls:[{index:0,function:{name:'suggest_plan_adjustment',arguments:args}}]},finish_reason:finish}]})+'\n\ndata: [DONE]\n\n',{headers:{'Content-Type':'text/event-stream'}}));
+ const {default:ctx}=await import('../website/chat-context.js');const {default:cal}=await import('../website/daily.js');const s=cal.fresh('2026-10-22');cal.activate(s,s.date);const frames=(await (await post({...payload,context:ctx.build(s)})).text()).trim().split('\n').map(JSON.parse);assert.equal(frames.some(e=>e.type==='suggestion'),false);
+ }
+});
+test('beta bundle includes shared validation dependencies',async()=>{
+ const {execFileSync}=await import('node:child_process');const {mkdtemp,rm,access}=await import('node:fs/promises');const {tmpdir}=await import('node:os');const {join}=await import('node:path');const dir=await mkdtemp(join(tmpdir(),'kora-context-beta-'));
+ try{execFileSync('python3',['scripts/prepare-beta.py','--output',dir]);await access(join(dir,'website/chat-context.js'));await access(join(dir,'website/daily.js'));await import('file://'+join(dir,'server/index.mjs'));}finally{await rm(dir,{recursive:true,force:true});}
+});

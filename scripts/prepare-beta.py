@@ -25,6 +25,9 @@ with tempfile.TemporaryDirectory(prefix='kora-runtime-') as scratch:
     assets = json.loads(built.stdout)
     shutil.copytree(Path(scratch)/'dist', output/'public')
 
+(output/'website').mkdir()
+for name in ['chat-context.js','daily.js']:
+    shutil.copyfile(repo/'website'/name, output/'website'/name)
 (output/'api').mkdir()
 (output/'server').mkdir()
 for name in ['index.mjs', 'prompts.mjs']:
