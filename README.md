@@ -45,3 +45,11 @@ node --test website/daily.test.cjs website/tests/*.test.cjs
 最新体验版 v0.19 已发布至原公开链接；本轮 Cora → main 由 [PR #5](https://github.com/HanjingLaura/koala/pull/5) 请 Laura 审批，详见 [发布记录](website/RELEASE.md)。
 
 [从头体验新版](https://kora-companion-cora.pearly-mesa-9438.chatgpt.site/?demo=cora-v19-new)：使用独立体验记录，不覆盖普通档案；刷新保留本次进度，退出体验可返回原档案。
+
+## AI 上下文与 Kora 衣橱（审核候选）
+
+- AI 读取必要运动偏好、今日计划和最近七个自然日的记录摘要；通过结构化建议提出缩短、休息、改到明天，由用户核对确认后保存，保留原撤销流程。昵称、身高、体重不加入上下文。
+- 叶子商店新增日常卫衣 / 运动背带装 / 露营外套（4 / 8 / 12 片），四位教练通用；试穿不扣叶子，兑换后永久收藏，刷新保留。
+- 原有账号、云同步和积分获取范围不变。候选代码不代表体验站已部署；真实百炼工具调用与受保护线上环境仍需验收。
+
+运行 `npm test`。可选浏览器验收：先启动本地服务，再执行 `node scripts/verify-enhancements.cjs`（需已安装 Playwright 和 Chromium，使用合成数据，不读取个人浏览器）。

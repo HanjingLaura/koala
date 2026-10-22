@@ -160,3 +160,7 @@ v1 与 v3 作为本轮衍生图迭代参考保留，页面只引用上述四张�
 用 imagegen 生成照片风格的燕麦香蕉蓝莓、熟三文鱼蔬菜饭、水煮蛋杂粮饭三张独立素材，替换运行时代码中的餐盘 SVG。统一 3:2 画幅、约 45 度俯拍、浅色陶碗与柔和侧光；生成说明见 `assets/meal-photos-prompt.json`。这些图片只呈现搭配外观，不代表实测份量或营养数据。
 
 网页使用 `assets/web/meal-*-v1.webp`（960×640）与 `-small.webp`（480×320），通过 srcset 选择；六个文件合计约 326 KB，延迟加载。没有引入新的品牌、口号或页面装饰。
+
+## 考拉衣橱审核候选 · 2026-10-22
+
+三套整装适配四位教练，新增十二组睁眼 / 闭眼纹理的 384px、768px WebP 衍生文件，位于 `assets/web/outfits/`。使用 image_gen 编辑现有教练参考；生成提示与来源记录在 `assets/outfit-sources.json`。原始生成 PNG 保留在本轮工作区 `/workspace/generated_images`；不替换 `kora-library/` 主参考。闭眼纹理仅采样眼区，逐套眼区坐标位于 `wardrobe.js`。替换素材时需要重新核对脸型、眼区和动画。
